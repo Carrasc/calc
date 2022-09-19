@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Montserrat";
+  src: url('../public/fonts/Montserrat/Montserrat-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat-bold";
+  src: url('../public/fonts/Montserrat/Montserrat-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url('../public/fonts/Montserrat/Montserrat-Italic.ttf');
+  font-weight: normal;
+  font-style: italic;
+}
+
 html,
 body {
   padding: 0;
