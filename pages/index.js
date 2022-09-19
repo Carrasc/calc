@@ -7,7 +7,7 @@ import ArcStepper from '../components/ArcStepper';
 export default function Home() {
 	const { theme, setTheme } = useTheme();
 	return (
-		<div className="flex items-center justify-center w-screen h-screen">
+		<div className="flex items-end justify-center w-screen h-screen pb-44">
 			<button
 				className="absolute p-2 border-2 rounded-xl top-10 border-neutral-200 dark:border-neutral-600 right-10 dark:bg-neutral-600 bg-neutral-200 hover:border-2 hover:border-indigo-400 dark:hover:border-indigo-400"
 				onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
