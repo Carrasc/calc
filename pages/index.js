@@ -18,6 +18,7 @@ export default function Home() {
 	const handlePrev = () => {
 		setActiveStep((index) => index - 1);
 	};
+
 	return (
 		<div className="flex flex-col items-center justify-center w-screen h-screen font-[Montserrat-bold]">
 			<button
@@ -31,10 +32,9 @@ export default function Home() {
 				)}
 			</button>
 			{/* <TypeOfProyects /> */}
-			<div className="w-full max-w-6xl mx-auto ">
-				{steps[activeStep].component}
+			<div className="w-full max-w-6xl px-20 mx-auto ">
+				{steps[activeStep].component({ handleNext: handleNext })}
 			</div>
-			<TypeAndSize />
 			<ArcStepper
 				handleNext={handleNext}
 				handlePrev={handlePrev}

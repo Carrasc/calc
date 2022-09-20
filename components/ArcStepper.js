@@ -13,7 +13,9 @@ import StepConnector, {
 	stepConnectorClasses,
 } from '@mui/material/StepConnector';
 import { steps } from '../constants/steps';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
+const arcGreen = '#7AC279';
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
 	[`&.${stepConnectorClasses.alternativeLabel}`]: {
 		top: 10,
@@ -22,12 +24,12 @@ const QontoConnector = styled(StepConnector)(({ theme }) => ({
 	},
 	[`&.${stepConnectorClasses.active}`]: {
 		[`& .${stepConnectorClasses.line}`]: {
-			borderColor: '#784af4',
+			borderColor: arcGreen,
 		},
 	},
 	[`&.${stepConnectorClasses.completed}`]: {
 		[`& .${stepConnectorClasses.line}`]: {
-			borderColor: '#784af4',
+			borderColor: arcGreen,
 		},
 	},
 	[`& .${stepConnectorClasses.line}`]: {
@@ -44,10 +46,10 @@ const QontoStepIconRoot = styled('div')(({ theme, ownerState }) => ({
 	height: 22,
 	alignItems: 'center',
 	...(ownerState.active && {
-		color: '#784af4',
+		color: arcGreen,
 	}),
 	'& .QontoStepIcon-completedIcon': {
-		color: '#784af4',
+		color: arcGreen,
 		zIndex: 1,
 		fontSize: 18,
 	},
@@ -89,8 +91,17 @@ QontoStepIcon.propTypes = {
 
 export default function ArcStepper({ activeStep, handleNext, handlePrev }) {
 	return (
-		<Stack sx={{ width: '100%' }} spacing={4}>
+		<div className="fixed flex items-center justify-center w-full max-w-5xl mx-auto bottom-20">
+			{/* <button
+				disabled={activeStep === 0}
+				className="relative disabled:text-neutral-300 disabled:hover:cursor-not-allowed "
+				onClick={handlePrev}
+			>
+				<ChevronLeftIcon className="w-5 h-5 " />
+			</button> */}
+
 			<Stepper
+				className="w-full"
 				alternativeLabel
 				activeStep={activeStep}
 				connector={<QontoConnector />}
@@ -98,13 +109,18 @@ export default function ArcStepper({ activeStep, handleNext, handlePrev }) {
 				{steps.map((step) => (
 					<Step key={step.label}>
 						<StepLabel StepIconComponent={QontoStepIcon}>
-							{step.label}
+							{/* {step.label} */}
 						</StepLabel>
 					</Step>
 				))}
 			</Stepper>
-			<button onClick={handleNext}>Next</button>
-			<button onClick={handlePrev}>Prev</button>
-		</Stack>
+			{/* <button
+				disabled={activeStep === steps.length - 1}
+				className="relative disabled:text-neutral-300 disabled:hover:cursor-not-allowed"
+				onClick={handleNext}
+			>
+				<ChevronRightIcon className="w-5 h-5 " />
+			</button> */}
+		</div>
 	);
 }
