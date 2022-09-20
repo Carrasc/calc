@@ -90,7 +90,7 @@ QontoStepIcon.propTypes = {
 
 export default function ArcStepper({ activeStep, handleNext, handlePrev }) {
 	return (
-		<div className="fixed flex items-center justify-center w-full max-w-5xl mx-auto bottom-20">
+		<div className="flex items-center justify-center w-full h-full max-w-5xl mx-auto ">
 			{/* <button
 				disabled={activeStep === 0}
 				className="relative disabled:text-neutral-300 disabled:hover:cursor-not-allowed "
@@ -105,8 +105,8 @@ export default function ArcStepper({ activeStep, handleNext, handlePrev }) {
 				activeStep={activeStep}
 				connector={<QontoConnector />}
 			>
-				{steps.map((step) => (
-					<Step key={step.label}>
+				{steps.map((step, index) => (
+					<Step key={index}>
 						<StepLabel StepIconComponent={QontoStepIcon}>
 							{/* {step.label} */}
 						</StepLabel>

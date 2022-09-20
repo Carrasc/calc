@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { alpha, styled } from '@mui/material/styles';
-
+import { Controller } from 'react-hook-form';
 const typeOfProyects = [
 	{
 		value: 1,
@@ -31,7 +31,14 @@ const CustomTextField = styled(TextField)({
 	'& .MuiInputBase-input': {
 		fontFamily: 'Montserrat',
 		textAlign: 'center',
+		color: 'white',
 	},
+	'& label.Mui-hover': {
+		borderColor: 'white',
+		borderRadius: '6px',
+		borderWidth: '1px',
+	},
+
 	'& label.Mui-focused': {
 		color: 'green',
 	},
@@ -40,7 +47,7 @@ const CustomTextField = styled(TextField)({
 	},
 	'& .MuiOutlinedInput-root': {
 		'& fieldset': {
-			borderColor: 'gray',
+			borderColor: 'white',
 			borderRadius: '6px',
 			borderWidth: '1px',
 			color: 'green',
@@ -51,7 +58,13 @@ const CustomTextField = styled(TextField)({
 	},
 });
 
-export default function CustomSelector({ items = [], disabled }) {
+export default function CustomSelector({
+	items = [],
+	disabled,
+	control,
+	required,
+	name,
+}) {
 	const [selected, setSelected] = React.useState();
 
 	const handleChangeType = (event) => {
@@ -63,28 +76,47 @@ export default function CustomSelector({ items = [], disabled }) {
 		console.log(event.target.value);
 	};
 	return (
-		<CustomTextField
-			id="typeProject"
-			select
-			disabled={disabled}
-			label=""
-			value={selected}
-			onChange={handleChangeType}
-			sx={{ width: 500, minWidth: 100 }}
-			size="small"
-		>
-			{items.map((option) => (
-				<MenuItem
-					key={option}
-					value={option}
-					style={{
-						fontSize: 14,
-						fontFamily: 'Montserrat',
-					}}
-				>
-					{option.title}
-				</MenuItem>
-			))}
-		</CustomTextField>
+		<Controller
+			control={control}
+			rules={{ required: required ? 'Campo requerido' : false }}
+			name={name}
+			render={({ field: { onChange, value }, fieldState: { error } }) => {
+				return (
+					<>
+						<CustomTextField
+							id="typeProject"
+							select
+							disabled={disabled}
+							label=""
+							value={selected}
+							onChange={(e) => {
+								console.log(e.target.value);
+
+								handleChangeType(e);
+								onChange(e.target.value);
+							}}
+							sx={{ width: 200, minWidth: 100 }}
+							size="small"
+						>
+							{items.map((option, index) => (
+								<MenuItem
+									key={index}
+									value={option}
+									style={{
+										fontSize: 14,
+										fontFamily: 'Montserrat',
+									}}
+								>
+									{option.title}
+								</MenuItem>
+							))}
+						</CustomTextField>
+						<p className="p-0 m-0 text-xs text-red-500 ">
+							{error ? error.message : null}
+						</p>
+					</>
+				);
+			}}
+		/>
 	);
 }

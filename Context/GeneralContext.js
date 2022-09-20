@@ -3,12 +3,13 @@ import React, { createContext, useEffect, useState } from 'react';
 export const GeneralContext = createContext();
 
 export default function GeneralProvider({ children }) {
-	const [first, setfirst] = useState();
+	const [generalValue, setGeneralValue] = useState({});
 
 	return (
 		<GeneralContext.Provider
 			value={{
-				first,
+				generalValue,
+				setGeneralValue,
 			}}
 		>
 			{children}
