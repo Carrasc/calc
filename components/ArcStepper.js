@@ -12,8 +12,7 @@ import VideoLabelIcon from '@mui/icons-material/VideoLabel';
 import StepConnector, {
 	stepConnectorClasses,
 } from '@mui/material/StepConnector';
-import { steps } from '../constants/steps';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { steps } from '../Data/Steps';
 
 const arcGreen = '#7AC279';
 const QontoConnector = styled(StepConnector)(({ theme }) => ({

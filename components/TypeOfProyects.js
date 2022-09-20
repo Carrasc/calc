@@ -1,6 +1,6 @@
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import React, { useState } from 'react';
-import { genders } from '../constants/genders';
+import { genders } from '../Data/FGC';
 import CustomSelector from './CustomSelector';
 import { useForm } from 'react-hook-form';
 

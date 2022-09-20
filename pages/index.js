@@ -6,7 +6,7 @@ import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
 import ArcStepper from '../components/ArcStepper';
 import TypeAndSize from '../components/TypeAndSize';
 import TypeOfProyects from '../components/TypeOfProyects';
-import { steps } from '../constants/steps';
+import { steps } from '../Data/Steps';
 import { useState } from 'react';
 export default function Home() {
 	const { theme, setTheme } = useTheme();
