@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Seguimiento al Proyecto Ejecutivo en Obra y Gabinete",
+    "value": 0.02,
+    "children": [
+      {
+        "name": "Revisión de documentales finales de supervisión y contratista(s)",
+        "value": 0.01
+      },
+      {
+        "name": "Reporte final sobre el desenvolvimiento de la obra y cumplimiento al Proyecto Ejecutivo",
+        "value": 0.01
+      }
+    ]
+  }
+]

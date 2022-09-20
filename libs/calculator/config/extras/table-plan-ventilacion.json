@@ -1,0 +1,58 @@
+{
+  "conceptual": [
+    {
+      "name": "Criterio Instalación de Sistema Alternativo",
+      "value": 0.007,
+      "children": [
+        {
+          "name": "Análisis preliminar y propuesta de redes principales de Ventilación y extracción con posiciones propuestas de equipos",
+          "value": 0.004
+        },
+        {
+          "name": "Reporte con definición de materiales y equipos",
+          "value": 0.003
+        }
+      ]
+    }
+  ],
+  "preliminar": [
+    {
+      "name": "Proyecto Ventilación y Extracción Básico (iteración con arquitectura)",
+      "value": 0.018,
+      "children": [
+        {
+          "name": "Planos con primer planteamiento de redes primarias y secundarias de ductos y equipos de Ventilación y Extracción",
+          "value": 0.008
+        },
+        {
+          "name": "Predimensionamiento y posición de equipos (Ventiladores, extractores, etc.)",
+          "value": 0.005
+        },
+        {
+          "name": "Memoria descriptiva preliminar del sistema de Ventilación y Extracción.",
+          "value": 0.005
+        }
+      ]
+    }
+  ],
+  "edificacion": [
+    {
+      "name": "Proyecto Ventilación y Extracción Ejecutivo",
+      "value": 0.025,
+      "children": [
+        {
+          "name": "Planta(s) por nivel con redes de ductos de Ventilación y Extracción necesarias con información detallada (ductos, rejillas, equipos, etc.)",
+          "value": 0.01
+        },
+        {
+          "name": "Planos de detalle de las instalaciones con información suficiente como sembrado y colocación de equipos, entre otros",
+          "value": 0.0075
+        },
+        {
+          "name": "Memoria de cálculo de la instalación de Ventilación y Extracción, documentada integralmente y con firma del profesional responsable",
+          "value": 0.0075
+        }
+      ]
+    }
+  ]
+}

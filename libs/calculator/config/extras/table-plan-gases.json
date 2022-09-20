@@ -1,0 +1,58 @@
+{
+  "conceptual": [
+    {
+      "name": "Criterio Instalación Gases Medicinales",
+      "value": 0.01,
+      "children": [
+        {
+          "name": "Análisis preliminar y propuesta de redes principales (oxígeno, vacio u otros) y posiciones propuestas de equipos",
+          "value": 0.0075
+        },
+        {
+          "name": "Reporte con definición de materiales y equipos",
+          "value": 0.0025
+        }
+      ]
+    }
+  ],
+  "preliminar": [
+    {
+      "name": "Proyecto Gases Medicinales Básico (iteración con arquitectura)",
+      "value": 0.03,
+      "children": [
+        {
+          "name": "Planos con primer planteamiento con posición de redes primarias y secundarias, inyecciones y equipos:",
+          "value": 0.015
+        },
+        {
+          "name": "Predimensionamiento y posición de equipos y tanques (Oxígeno, vacío, etc.)",
+          "value": 0.0075
+        },
+        {
+          "name": "Memoria descriptiva preliminar del sistema de gases medicinales.",
+          "value": 0.0075
+        }
+      ]
+    }
+  ],
+  "edificacion": [
+    {
+      "name": "Proyecto Gases Medicinales Ejecutivo",
+      "value": 0.04,
+      "children": [
+        {
+          "name": "Planta(s) por nivel con redes de gases medicinales necesarias con información detallada (tuberías, tanques, válvulas, etc.)",
+          "value": 0.015
+        },
+        {
+          "name": "Planos de detalle de las instalaciones con información suficiente como sembrado y colocación de equipos y tanques, entre otros",
+          "value": 0.0125
+        },
+        {
+          "name": "Memoria de cálculo de cada instalación (oxígeno, vacío u otros) documentada integralmente y con firma del profesional responsable",
+          "value": 0.0125
+        }
+      ]
+    }
+  ]
+}

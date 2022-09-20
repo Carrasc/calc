@@ -1,0 +1,49 @@
+[
+  {
+    "name": "Programa General",
+    "value": 0.015,
+    "children": [
+      { "name": "Estudio del medio físico", "value": 0.006 },
+      { "name": "Estudio del sitio", "value": 0.006 },
+      { "name": "Conclusiones y/o recomendaciones", "value": 0.003 }
+    ]
+  },
+  {
+    "name": "Programa Particular",
+    "value": 0.015,
+    "children": [
+      {
+        "name": "Análisis del listado de necesidades solicitadas",
+        "value": 0.006
+      },
+      {
+        "name": "Análisis de las superficies solicitadas y/o necesarias",
+        "value": 0.006
+      },
+      { "name": "Conclusiones y/o recomendaciones", "value": 0.003 }
+    ]
+  },
+  {
+    "name": "Planteamiento general del partido arquitectónico",
+    "value": 0.05,
+    "children": [
+      { "name": "Premisas técnico-constructivas a emplear", "value": 0.006 },
+      { "name": "Premisas compositivas a resolver", "value": 0.006 },
+      {
+        "name": "Diagramas compositivos y esquemas funcionales",
+        "value": 0.02
+      },
+      { "name": "Croquis y/o gráficos ", "value": 0.018 }
+    ]
+  },
+  {
+    "name": "Costo paramétrico general de la obra",
+    "value": 0.01,
+    "children": []
+  },
+  {
+    "name": "Memoria descriptiva del concepto general",
+    "value": 0.01,
+    "children": []
+  }
+]

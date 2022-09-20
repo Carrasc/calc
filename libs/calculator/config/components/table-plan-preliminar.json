@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Anteproyecto arquitectónico",
+    "value": 0.1,
+    "children": [
+      { "name": "Planta de conjunto", "value": 0.005 },
+      { "name": "Planta(s) por secciones", "value": 0.03 },
+      { "name": "Corte(s) generales", "value": 0.015 },
+      { "name": "Fachada(s) generales", "value": 0.015 },
+      { "name": "Perspectivas, renders y/o maqueta", "value": 0.02 },
+      { "name": "Criterio general de acabados", "value": 0.015 }
+    ]
+  },
+  {
+    "name": "Criterio Estructural",
+    "value": 0.03,
+    "children": [
+      {
+        "name": "Análisis preliminar y propuesta de Sistema estructural",
+        "value": 0.02
+      },
+      { "name": "Definición de sistemas constructivos", "value": 0.01 }
+    ]
+  },
+  {
+    "name": "Criterio Instalación Hidrosanitaria y Gas",
+    "value": 0.015,
+    "children": [
+      {
+        "name": "Análisis preliminar y propuesta de redes principales y sistemas",
+        "value": 0.01
+      },
+      { "name": "Definición de materiales y equipos", "value": 0.005 }
+    ]
+  },
+  {
+    "name": "Criterio Instalación Electromecánica",
+    "value": 0.015,
+    "children": [
+      {
+        "nam": "Análisis preliminar y propuesta de redes principales y equipos",
+        "value": 0.01
+      },
+      { "nam": "Definición de materiales y equipos", "value": 0.05 }
+    ]
+  },
+  {
+    "name": "Costo Paramétrico distribuido por partidas",
+    "value": 0.01,
+    "children": []
+  },
+  {
+    "name": "Memoria Descriptiva del Anteproyecto integral",
+    "value": 0.01,
+    "children": []
+  }
+]

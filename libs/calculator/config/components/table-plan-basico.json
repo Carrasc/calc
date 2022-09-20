@@ -1,0 +1,94 @@
+[
+  {
+    "name": "Proyecto Arquitectónico Básico",
+    "value": 0.12,
+    "children": [
+      {
+        "name": "Planta de conjunto con dimensiones, niveles y datos técnicos",
+        "value": 0.015
+      },
+      {
+        "name": "Planta(s) por niveles y/o secciones con dimensiones, cotas y datos técnicos generales",
+        "value": 0.03
+      },
+      {
+        "name": "Planta(s) de azotea con dimensiones, niveles y datos técnicos generales",
+        "value": 0.005
+      },
+      {
+        "name": "Cortes longitudinales y transversales con dimensiones, cotas y datos técnicos generales",
+        "value": 0.016
+      },
+      {
+        "name": "Fachadas con dimensiones, niveles y datos técnicos generales",
+        "value": 0.016
+      },
+      {
+        "name": "Cortes por fachadas con dimensiones, niveles y datos técnicos generales",
+        "value": 0.018
+      },
+      {
+        "name": "Perspectivas y/o renders detallados de la solución",
+        "value": 0.02
+      }
+    ]
+  },
+  {
+    "name": "Proyecto Estructural Básico (iteración con arquitectura)",
+    "value": 0.04,
+    "children": [
+      { "name": "Planta de cimentación", "value": 0.01 },
+      {
+        "name": "Planta(s) estructural(es) por nivel con elementos de soporte estructural, primarios y secundarios",
+        "value": 0.02
+      },
+      {
+        "name": "Cortes generales de la estructura con definición y soluciones generales de losas y nodos",
+        "value": 0.01
+      }
+    ]
+  },
+  {
+    "name": "Proyecto Hidrosanitario y Gas Básico (iteración con arquitectura)",
+    "value": 0.03,
+    "children": [
+      { "name": "Planta(s) de redes primarias y secundarias", "value": 0.012 },
+      {
+        "name": "Cortes con definición y soluciones generales de bajadas y verticales",
+        "value": 0.008
+      },
+      {
+        "name": "Predimensionamiento y posición de equipos (tanques, cisternas, bombeo, tratamiento, etc.)",
+        "value": 0.01
+      }
+    ]
+  },
+  {
+    "name": "Proyecto Electromecánico Básico (iteración con arquitectura)",
+    "value": 0.03,
+    "children": [
+      {
+        "name": "Planta(s) con posición de redes de contactos, luminarias y fuerza",
+        "value": 0.012
+      },
+      {
+        "name": "Planta (s) con posiciones de tableros y alimentadores principales",
+        "value": 0.008
+      },
+      {
+        "name": "Predimensionamiento y posición de equipos (Acometidas, Tableros, Equipos, etc.)",
+        "value": 0.01
+      }
+    ]
+  },
+  {
+    "name": "Catálogo de conceptos y programa preliminar de obra",
+    "value": 0.01,
+    "children": []
+  },
+  {
+    "name": "Memorias Descriptivas por Sistema (Arquitectónico, Estructural, Hidrosanitario y Gas, Electromecánico)",
+    "value": 0.01,
+    "children": []
+  }
+]

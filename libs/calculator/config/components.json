@@ -5,5 +5,10 @@
     "id": "¨PCPB",
     "name": "Plan Conceptual + Plan Preliminar + Plan Básico",
     "value": 1.08
+  },
+  {
+    "id": "ALL",
+    "name": "Plan Conceptual + Plan Preliminar + Plan Básico",
+    "value": 1.0
   }
 ]

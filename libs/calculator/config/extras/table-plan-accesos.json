@@ -1,0 +1,58 @@
+{
+  "conceptual": [
+    {
+      "name": "Criterio Control de Accesos",
+      "value": 0.005,
+      "children": [
+        {
+          "name": "Análisis preliminar y propuesta de puntos de control con propuestas de equipos (elementos de bloqueo, monitoreo, etc.)",
+          "value": 0.003
+        },
+        {
+          "name": "Reporte con definición de materiales y equipos",
+          "value": 0.002
+        }
+      ]
+    }
+  ],
+  "preliminar": [
+    {
+      "name": "Proyecto Control de Accesos Básico (iteración con arquitectura)",
+      "value": 0.01,
+      "children": [
+        {
+          "name": "Planos con primer planteamiento de redes para Control de accesos y monitoreo",
+          "value": 0.005
+        },
+        {
+          "name": "Predimensionamiento y posición de equipos (elementos de bloqueo, lectores y controladores, monitoreo, etc.)",
+          "value": 0.003
+        },
+        {
+          "name": "Memoria descriptiva preliminar del sistema de Control de Accesos.",
+          "value": 0.002
+        }
+      ]
+    }
+  ],
+  "edificacion": [
+    {
+      "name": "Proyecto Control de Accesos Ejecutivo",
+      "value": 0.02,
+      "children": [
+        {
+          "name": "Planta(s) por nivel con redes de Control de accesos necesarias con información detallada (bloqueos, lectoras, controladores, etc.)",
+          "value": 0.01
+        },
+        {
+          "name": "Planos de detalle de las instalaciones con información suficiente como sembrado y colocación de equipos, entre otros",
+          "value": 0.005
+        },
+        {
+          "name": "Memoria de cálculo de la instalación de Control de Accesos, documentada integralmente y con firma del profesional responsable",
+          "value": 0.005
+        }
+      ]
+    }
+  ]
+}
