@@ -6,6 +6,8 @@ import { useForm } from 'react-hook-form';
 import { GeneralContext } from '../Context/GeneralContext';
 import img from '../Images/home.png';
 import Image from 'next/image';
+import { MdOutlineSocialDistance } from 'react-icons/md';
+
 export default function TypeOfProyects({ handleNext }) {
 	const [selected, setSelected] = useState('');
 	const { setGeneralValue, gender, setGender } = useContext(GeneralContext);
@@ -64,13 +66,12 @@ export default function TypeOfProyects({ handleNext }) {
 										: 'bg-[#1E1E1E]'
 								}`}
 							>
-								<Image
-									src={img}
-									height={50}
-									width={50}
-									alt="icon"
-									className="m-5 text-white brightness-200 filter "
-								/>
+								{/* <MdOutlineSocialDistance
+									// width={50}
+									// height={50}
+									className="w-10 h-10 text-red-500"
+								/> */}
+								{gender.icon}
 								<p>{gender.gender}</p>
 							</div>
 						);
