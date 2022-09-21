@@ -1,5 +1,16 @@
+import { MdOutlineSocialDistance } from "react-icons/md";
+import { RiCommunityLine } from "react-icons/ri";
+import { GoComment } from "react-icons/ri";
+
 export const genders = [
   {
+    icon: (
+      <MdOutlineSocialDistance
+        width={50}
+        height={50}
+        className="w-10 h-10 text-red-500"
+      />
+    ),
     gender: "Asistencia Social",
     children: [
       {
@@ -35,6 +46,7 @@ export const genders = [
     ],
   },
   {
+    icon: <RiCommunityLine />,
     gender: "Comercios y Oficinas",
     children: [
       {
@@ -120,6 +132,7 @@ export const genders = [
     ],
   },
   {
+    icon: <GoComment />,
     gender: "Medios de Comuniciación",
     children: [
       {
@@ -180,6 +193,7 @@ export const genders = [
     ],
   },
   {
+    icon: <MdOutlineSocialDistance />,
     gender: "Transportes",
     children: [
       {
@@ -230,6 +244,7 @@ export const genders = [
     ],
   },
   {
+    icon: <MdOutlineSocialDistance />,
     gender: "Culturales",
     children: [
       {
@@ -295,6 +310,7 @@ export const genders = [
     ],
   },
   {
+    icon: <MdOutlineSocialDistance />,
     gender: "Deportivas",
     children: [
       {
@@ -340,6 +356,7 @@ export const genders = [
     ],
   },
   {
+    icon: <MdOutlineSocialDistance />,
     gender: "Educación y Ciencia",
     children: [
       {
@@ -420,6 +437,7 @@ export const genders = [
     ],
   },
   {
+    icon: <MdOutlineSocialDistance />,
     gender: "Financieras y Bancarias",
     children: [
       {
@@ -450,6 +468,7 @@ export const genders = [
     ],
   },
   {
+    icon: <MdOutlineSocialDistance />,
     gender: "Gubernamentales",
     children: [
       {
@@ -500,6 +519,7 @@ export const genders = [
     ],
   },
   {
+    icon: <MdOutlineSocialDistance />,
     gender: "Habitacionales",
     children: [
       {
@@ -555,6 +575,7 @@ export const genders = [
     ],
   },
   {
+    icon: <MdOutlineSocialDistance />,
     gender: "Plantas Industriales",
     children: [
       {
@@ -595,6 +616,7 @@ export const genders = [
     ],
   },
   {
+    icon: <MdOutlineSocialDistance />,
     gender: "Protección Social",
     children: [
       {
@@ -640,6 +662,7 @@ export const genders = [
     ],
   },
   {
+    icon: <MdOutlineSocialDistance />,
     gender: "Recreación y Entretenimiento",
     children: [
       {
@@ -710,6 +733,7 @@ export const genders = [
     ],
   },
   {
+    icon: <MdOutlineSocialDistance />,
     gender: "Religión",
     children: [
       {
@@ -745,6 +769,7 @@ export const genders = [
     ],
   },
   {
+    icon: <MdOutlineSocialDistance />,
     gender: "Salud",
     children: [
       {
@@ -790,6 +815,7 @@ export const genders = [
     ],
   },
   {
+    icon: <MdOutlineSocialDistance />,
     gender: "Turismo",
     children: [
       {
@@ -855,6 +881,7 @@ export const genders = [
     ],
   },
   {
+    icon: <MdOutlineSocialDistance />,
     gender: "Alimentos y Bebidas",
     children: [
       {
@@ -885,6 +912,7 @@ export const genders = [
     ],
   },
   {
+    icon: <MdOutlineSocialDistance />,
     gender: "Varios",
     children: [
       {
