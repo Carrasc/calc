@@ -1,4 +1,4 @@
-const TOWNS = require("./config/towns.json");
+import TOWNS from "./config/towns.json";
 
 /**
  * Get the "Factor de Superficie" (FS)

@@ -1,4 +1,4 @@
-const { CBM } = require("./config/constants");
+import { CBM } from "./config/constants";
 
 /**
  * Calculate the "Costo de Obra" (CO)
@@ -8,9 +8,7 @@ const { CBM } = require("./config/constants");
  *
  * @returns {number}
  */
-function getCO(surface, fgc) {
+export function getCO(surface, fgc) {
   const CO = CBM * fgc * surface;
   return CO;
 }
-
-module.exports = getCO;

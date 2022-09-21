@@ -1,4 +1,4 @@
-const MODALITIES = require("./config/modalities.json");
+import MODALITIES from "./config/modalities.json";
 
 /**
  * Calculate the "Factor por Modalidad de Obra" (FM)
@@ -7,10 +7,8 @@ const MODALITIES = require("./config/modalities.json");
  *
  * @returns {number}
  */
-function getFM(modality) {
+export function getFM(modality) {
   const fm = getValueFromArray(modality, MODALITIES);
 
   return fm;
 }
-
-module.exports = getFM;

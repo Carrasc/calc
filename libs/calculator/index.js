@@ -1,8 +1,6 @@
-const getFS = require("./factor-superficie");
-const getCO = require("./costo-obra");
-const getFI = require("./factor-inclusion");
-const getFM = require("./factor-obra");
-const calculateCC = require("./componentes-contratados");
+import { getFS } from "./factor-superficie";
+import { getCO } from "./costo-obra";
+import { calculateCC } from "./componentes-contratados";
 
 /**
  * Main function
@@ -11,18 +9,13 @@ const calculateCC = require("./componentes-contratados");
  * @param {number} type_construction - Género Constructivo (valor) (ej. 1.39)
  * @param {number} modality - Modalidad de Obra (valor) (ej. 1.0)
  * @param {number} town - Municipio (value) (ej. 0.6)
- * @param {number} components - Condición de Contratación (CC) (value) (ej. 1.25)
+ * @param {number} ajuste_cc - Condición de Contratación (CC) (value) (ej. 1.25)
  *
  * @returns {Object}
  */
-function calculateCosts(
-  surface,
-  type_construction,
-  modality,
-  town,
-  components
-) {
+function calculateCosts(surface, type_construction, modality, town, ajuste_cc) {
   try {
+    console.log("\n", surface, type_construction, modality, town, ajuste_cc);
     /**
      * Factor superficie
      */
@@ -43,12 +36,13 @@ function calculateCosts(
     /**
      * Honorarios
      */
+    console.log(co * (fs / 100));
     const h = co * (fs / 100) * fi * fm;
-
+    console.log("h", h);
     /**
      * Condición de Contratación
      */
-    const { total: cc_total, table: cc_table } = calculateCC(h, components);
+    const { total: cc_total, table: cc_table } = calculateCC(h, ajuste_cc);
 
     const total_cost = cc_total; // + ....
 
@@ -57,6 +51,11 @@ function calculateCosts(
     // REPS -> Total total total * factor de cobro (dependiendo de cuantas reps)
 
     // DRO -> por checar
+    let aux = 0;
+    cc_table.forEach((cc) => {
+      aux += cc.value;
+    });
+    console.log("aux", aux);
 
     const response = { total_cost, work_cost: co, components_table: cc_table };
     return response;
@@ -66,4 +65,4 @@ function calculateCosts(
   }
 }
 
-module.exports = calculateCosts;
+export default calculateCosts;
