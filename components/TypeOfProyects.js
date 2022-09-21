@@ -30,7 +30,7 @@ export default function TypeOfProyects({ handleNext }) {
 			step1: data, // update the value of specific key
 		}));
 
-		// handleNext();
+		handleNext();
 	};
 	return (
 		<div className="flex flex-col justify-center w-full">
@@ -74,7 +74,7 @@ export default function TypeOfProyects({ handleNext }) {
 						}
 					/>
 				</div>
-				{/* <div className="absolute top-0 flex items-center justify-center h-full right-10 ">
+				<div className="absolute top-0 flex items-center justify-center h-full right-10 ">
 					<button
 						// type="button"
 						// disabled={activeStep === steps.length - 1}
@@ -83,7 +83,7 @@ export default function TypeOfProyects({ handleNext }) {
 					>
 						<ChevronRightIcon className="w-8 h-8 " />
 					</button>
-				</div> */}
+				</div>
 			</form>
 		</div>
 	);
