@@ -22,15 +22,15 @@
       "children": [
         {
           "name": "Planos con primer planteamiento de redes primarias y secundarias de CCTV, salidas, cámaras y monitoreo",
-          "value": 0.5
+          "value": 0.005
         },
         {
           "name": "Predimensionamiento y posición de equipos (Cámaras, monitores, etc.)",
-          "value": 0.3
+          "value": 0.003
         },
         {
           "name": "Memoria descriptiva preliminar del sistema de CCTV.",
-          "value": 0.2
+          "value": 0.002
         }
       ]
     }

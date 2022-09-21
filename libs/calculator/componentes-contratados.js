@@ -1,6 +1,7 @@
 import table_conceptual from "./config/components/table-plan-conceptual.json";
 import table_preliminar from "./config/components/table-plan-preliminar.json";
 import table_basico from "./config/components/table-plan-basico.json";
+import table_edificacion from "./config/components/table-plan-edificacion.json";
 import table_arquitectonica from "./config/components/table-plan-arquitectonica.json";
 import table_terminacion from "./config/components/table-plan-terminacion.json";
 
@@ -95,16 +96,23 @@ export function calculateCC(h, ajuste_cc) {
         children: basico.new_table,
       });
       total += basico.acc_total;
+      var edificacion = _calculatePlan(h_ajustado, table_edificacion);
+      table.push({
+        name: "Plan de Edificación",
+        value: edificacion.acc_total,
+        children: edificacion.new_table,
+      });
+      total += edificacion.acc_total;
       var arquitectonica = _calculatePlan(h_ajustado, table_arquitectonica);
       table.push({
-        name: "Plan Preliminar",
+        name: "Plan Arquitectónica",
         value: arquitectonica.acc_total,
         children: arquitectonica.new_table,
       });
       total += arquitectonica.acc_total;
       var terminacion = _calculatePlan(h_ajustado, table_terminacion);
       table.push({
-        name: "Plan Básico",
+        name: "Terminación y Recepción de Obra",
         value: terminacion.acc_total,
         children: terminacion.new_table,
       });
@@ -149,6 +157,7 @@ function _calculatePlan(h_ajustado, table) {
     new_table.push({
       name: parent.name,
       value: h_ajustado * parent.value,
+      children: children_values,
     });
     acc_total = acc_total + h_ajustado * parent.value;
   }

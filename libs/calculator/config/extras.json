@@ -1,0 +1,37 @@
+[
+  {
+    "id": "AA",
+    "name": "Aire Acondicionado",
+    "value": 0
+  },
+  {
+    "id": "VE",
+    "name": "Ventilacion y Extraccion",
+    "value": 0
+  },
+  {
+    "id": "GM",
+    "name": "Gases Medicinales",
+    "value": 0
+  },
+  {
+    "id": "PCI",
+    "name": "Proteccion Contra Incendios (PCI)",
+    "value": 0
+  },
+  {
+    "id": "SCA",
+    "name": "Sistema de Control de accesos",
+    "value": 0
+  },
+  {
+    "id": "SVD",
+    "name": "Sistema de Voz y Datos",
+    "value": 0
+  },
+  {
+    "id": "CCTV",
+    "name": "Sistema de CCTV",
+    "value": 0
+  }
+]

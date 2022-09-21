@@ -17,7 +17,7 @@
       { "name": "Planos de Plafones reflejados", "value": 0.01 },
       { "name": "Rutas de evacuación y señalética", "value": 0.015 },
       { "name": "Alzados interiores específicos", "value": 0.015 },
-      { "name": "Planos y/o documentos con información para", "value": 0 },
+      { "name": "Planos y/o documentos con información para:", "value": 0 },
       { "name": " - Carpintería en madera", "value": 0.015 },
       { "name": " - Herrería y cancelería en metales", "value": 0.015 },
       { "name": " - Mobiliario y equipo fijo", "value": 0.01 },
