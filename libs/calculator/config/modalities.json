@@ -1,0 +1,7 @@
+[
+  { "id": "Obra Nueva", "name": "Obra Nueva", "value": 1.0 },
+  { "id": "Ampliación", "name": "Ampliación", "value": 1.25 },
+  { "id": "Reacondicionamiento", "name": "Reacondicionamiento", "value": 1.15 },
+  { "id": "Reahabilitación", "name": "Reahabilitación", "value": 1.3 },
+  { "id": "Remodelación", "name": "Remodelación", "value": 1.3 }
+]

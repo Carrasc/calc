@@ -1,0 +1,14 @@
+[
+  { "id": "PC", "name": "Plan Conceptual", "value": 1.25 },
+  { "id": "PCP", "name": "Plan Conceptual + Plan Preliminar", "value": 1.16 },
+  {
+    "id": "¨PCPB",
+    "name": "Plan Conceptual + Plan Preliminar + Plan Básico",
+    "value": 1.08
+  },
+  {
+    "id": "ALL",
+    "name": "Plan Conceptual + Plan Preliminar + Plan Básico",
+    "value": 1.0
+  }
+]

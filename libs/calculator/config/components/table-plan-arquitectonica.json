@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Seguimiento al Proyecto Ejecutivo en Obra y Gabinete",
+    "value": 0.06,
+    "children": [
+      {
+        "name": "Visitas a Obra en periodos acordados (semanales, quincenales, etc.)",
+        "value": 0.04
+      },
+      {
+        "name": "Boletines, notas de bitácora, minutas de obra, documentación general",
+        "value": 0.01
+      },
+      {
+        "name": "Compendio final y conclusiones al proceso de Dirección Arquitectónica",
+        "value": 0.01
+      }
+    ]
+  }
+]

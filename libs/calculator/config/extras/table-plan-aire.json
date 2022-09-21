@@ -1,0 +1,58 @@
+{
+  "conceptual": [
+    {
+      "name": "Criterio Instalación Aire Acondicionado",
+      "value": 0.015,
+      "children": [
+        {
+          "name": "Análisis preliminar y propuesta de redes principales y equipos",
+          "value": 0.01
+        },
+        {
+          "name": "Reporte con definición de materiales y equipos",
+          "value": 0.005
+        }
+      ]
+    }
+  ],
+  "preliminar": [
+    {
+      "name": "Proyecto Aire Acondicinado Básico (iteración con arquitectura)",
+      "value": 0.035,
+      "children": [
+        {
+          "name": "Planos con primer planteamiento con posición de ductos, inyecciones, extracciones, equipos",
+          "value": 0.015
+        },
+        {
+          "name": "Predimensionamiento y posición de equipos (Enfriamiento, calefacción, ventilación, etc.)",
+          "value": 0.01
+        },
+        {
+          "name": "Memoria descriptiva preliminar del sistema de aire acondicionado y ventilación.",
+          "value": 0.01
+        }
+      ]
+    }
+  ],
+  "edificacion": [
+    {
+      "name": "Proyecto Aire Acondicionado Ejecutivo",
+      "value": 0.05,
+      "children": [
+        {
+          "name": "Planta(s) por nivel con redes de ductos necesarias con información detallada (dimensiones, rejillas, retornos, etc.)",
+          "value": 0.02
+        },
+        {
+          "name": "Planos de detalle de las instalaciones con información suficiente como Isométricos, sembrado y colocación de equipos, entre otros",
+          "value": 0.015
+        },
+        {
+          "name": "Memoria de cálculo de la instalación de aire acondicionado, documentada integralmente y con firma del profesional responsable",
+          "value": 0.015
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+[
+  {
+    "name": "Desarrollo Arquitectónico para edificación",
+    "value": 0.22,
+    "children": [
+      {
+        "name": "Planta general de trazo(s) con dimensiones y cotas referidas a un punto GPS de origen común",
+        "value": 0.01
+      },
+      { "name": "Planos con información para Albañilería", "value": 0.02 },
+      { "name": "Planos con información para Acabados", "value": 0.02 },
+      { "name": "Planos de despieces de pisos y lambrines", "value": 0.01 },
+      {
+        "name": "Planos llave para localización de detalles, elementos de cancelerías, carpinterías, herrerías",
+        "value": 0.015
+      },
+      { "name": "Planos de Plafones reflejados", "value": 0.01 },
+      { "name": "Rutas de evacuación y señalética", "value": 0.015 },
+      { "name": "Alzados interiores específicos", "value": 0.015 },
+      { "name": "Planos y/o documentos con información para", "value": 0 },
+      { "name": " - Carpintería en madera", "value": 0.015 },
+      { "name": " - Herrería y cancelería en metales", "value": 0.015 },
+      { "name": " - Mobiliario y equipo fijo", "value": 0.01 },
+      { "name": " - Obras exteriores", "value": 0.025 },
+      { "name": " - Detalles específicos", "value": 0.02 },
+      {
+        "name": "Memoria Técnico descriptiva Arquitectónica, respaldada con firma del arquitecto responsable:",
+        "value": 0.02
+      }
+    ]
+  },
+  {
+    "name": "Proyecto Estructural Ejecutivo",
+    "value": 0.5,
+    "children": [
+      {
+        "name": "Planta(s) de cimentación a detalle, secciones, armados, dimensiones, niveles, nodos, etc.",
+        "value": 0.01
+      },
+      {
+        "name": "Planta(s) y corte(s) estructurales por nivel con información y detalle de cada elemento estructural",
+        "value": 0.02
+      },
+      {
+        "name": "Memoria de cálculo estructural documentada a detalle y con firma del profesional responsable",
+        "value": 0.02
+      }
+    ]
+  },
+  {
+    "name": "Proyecto Hidrosanitario y Gas Ejecutivo",
+    "value": 0.5,
+    "children": [
+      {
+        "name": "Planta(s) por nivel con redes hidráulicas, sanitarias y de gas necesarias con información detallada (diámetros, pendientes, etc.)",
+        "value": 0.015
+      },
+      {
+        "name": "Planos con isométricos y detalles de las instalaciones (válvulas, soportes, etc.) información detallada (diámetros, pendientes, etc.)",
+        "value": 0.02
+      },
+      {
+        "name": "Memoria de cálculo de cada instalación (hidráulica, sanitaria y gas) documentada integralmente y con firma del profesional responsable",
+        "value": 0.015
+      }
+    ]
+  },
+  {
+    "name": "Proyecto Electromecánico Ejecutivo",
+    "value": 0.5,
+    "children": [
+      {
+        "name": "Planta(s) por nivel con redes de contactos, fuerza e iluminación necesarias con información detallada (cableados, tuberías, tableros, etc.)",
+        "value": 0.02
+      },
+      {
+        "name": "Planos de detalle de las instalaciones con información suficiente como sistemas de tierras, cuadros de carga, diagramas unifilares, entre otros",
+        "value": 0.015
+      },
+      {
+        "name": "Memoria de cálculo de cada instalación (alumbrado, contactos, fuerza y otros) documentada integralmente y con firma del profesional responsable",
+        "value": 0.015
+      }
+    ]
+  },
+  {
+    "name": "Catálogo de conceptos y programa preliminar de obra",
+    "value": 0.3,
+    "children": [
+      {
+        "name": "Catálogo de conceptos con números generadores de cada concepto (volúmenes) de los trabajos que constituyen el proyecto ejecutivo",
+        "value": 0.015
+      },
+      {
+        "name": "Presupuesto base con desglose de precios unitarios (matrices), incluyendo especificaciones generales y particulares, así como explosión de insumos",
+        "value": 0.015
+      }
+    ]
+  }
+]

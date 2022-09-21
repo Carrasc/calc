@@ -1,0 +1,58 @@
+{
+  "conceptual": [
+    {
+      "name": "Criterio Instalación Voz y Datos",
+      "value": 0.007,
+      "children": [
+        {
+          "name": "Análisis preliminar y propuesta de redes principales de cableado estructurado de voz y datos con posiciones propuestas de equipos",
+          "value": 0.004
+        },
+        {
+          "name": "Reporte con definición de materiales y equipos",
+          "value": 0.003
+        }
+      ]
+    }
+  ],
+  "preliminar": [
+    {
+      "name": "Proyecto Voz y Datos Básico (iteración con arquitectura)",
+      "value": 0.018,
+      "children": [
+        {
+          "name": "Planos con primer planteamiento de redes primarias y secundarias de cableado estructurado, fibra óptica, salidas y equipos",
+          "value": 0.008
+        },
+        {
+          "name": "Predimensionamiento y posición de equipos (Switches, Rutedores, Concentradores, etc.)",
+          "value": 0.005
+        },
+        {
+          "name": "Memoria descriptiva preliminar del sistema de Voz y Datos.",
+          "value": 0.005
+        }
+      ]
+    }
+  ],
+  "edificacion": [
+    {
+      "name": "Proyecto Voz y Datos Ejecutivo",
+      "value": 0.025,
+      "children": [
+        {
+          "name": "Planta(s) por nivel con redes de cableado estructurado necesarias con información detallada (tuberías, salidas, equipos, etc.)",
+          "value": 0.01
+        },
+        {
+          "name": "Planos de detalle de las instalaciones con información suficiente como sembrado y colocación de equipos, entre otros",
+          "value": 0.0075
+        },
+        {
+          "name": "Memoria de cálculo de la instalación de voz y datos, documentada integralmente y con firma del profesional responsable",
+          "value": 0.0075
+        }
+      ]
+    }
+  ]
+}
