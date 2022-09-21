@@ -1,8 +1,10 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { Select } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { alpha, styled } from '@mui/material/styles';
+import InputBase from '@mui/material/InputBase';
 
 const typeOfProyects = [
 	{
@@ -64,6 +66,39 @@ const CustomTextField = styled(TextField)({
 	},
 });
 
+const MenuProps = {
+	PaperProps: {
+		style: {
+			maxHeight: 50 * 4.5 + 8,
+			width: 250,
+		},
+	},
+};
+
+const MilUnoInput = styled(InputBase)(({ theme }) => ({
+	'label + &': {
+		marginTop: theme.spacing(3),
+	},
+	'& .MuiInputBase-input': {
+		textAlign: 'center',
+		borderRadius: 6,
+		position: 'relative',
+		border: '1px solid white',
+		fontSize: 16,
+		color: 'white',
+		padding: '10px 26px 10px 12px',
+		transition: theme.transitions.create(['border-color', 'box-shadow']),
+		// Use the system font instead of the default Roboto font.
+		fontFamily: ['Montserrat'].join(','),
+		'&:focus': {
+			borderColor: '#7AC279',
+		},
+	},
+	'& .MuiSvgIcon-root': {
+		color: 'white',
+	},
+}));
+
 export default function TypeAndSize() {
 	const [typeOfProyect, setCurrency] = React.useState('EUR');
 
@@ -78,19 +113,20 @@ export default function TypeAndSize() {
 
 	return (
 		<Box component="form" noValidate autoComplete="off">
-			<div className="grid grid-cols-1 gap-8 my-20">
+			<div className="grid grid-cols-1 gap-8">
 				<div className="grid mb-8 justify-items-center">
 					<p className="text-center mb-6 font-[Montserrat-bold] text-sm ">
 						¿Cual es la modalidad del proyecto?
 					</p>
-					<CustomTextField
+					<Select
 						id="typeProject"
-						select
 						label=""
 						value={typeOfProyect}
 						onChange={handleChangeType}
 						sx={{ width: 250, minWidth: 100 }}
+						MenuProps={MenuProps}
 						size="small"
+						input={<MilUnoInput />}
 					>
 						{typeOfProyects.map((option) => (
 							<MenuItem
@@ -104,7 +140,7 @@ export default function TypeAndSize() {
 								{option.label}
 							</MenuItem>
 						))}
-					</CustomTextField>
+					</Select>
 				</div>
 
 				<div className="grid justify-items-center">
