@@ -1,0 +1,30 @@
+[
+  {
+    "value": "AA",
+    "label": "Aire Acondicionado"
+  },
+  {
+    "value": "VE",
+    "label": "Ventilacion y Extraccion"
+  },
+  {
+    "value": "GM",
+    "label": "Gases Medicinales"
+  },
+  {
+    "value": "PCI",
+    "label": "Proteccion Contra Incendios (PCI)"
+  },
+  {
+    "value": "SCA",
+    "label": "Sistema de Control de accesos"
+  },
+  {
+    "value": "SVD",
+    "label": "Sistema de Voz y Datos"
+  },
+  {
+    "value": "CCTV",
+    "label": "Sistema de CCTV"
+  }
+]
