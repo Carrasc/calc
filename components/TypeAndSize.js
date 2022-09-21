@@ -1,70 +1,160 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { Select } from '@mui/material';
+import MenuItem from '@mui/material/MenuItem';
+import { alpha, styled } from '@mui/material/styles';
+import InputBase from '@mui/material/InputBase';
 
 const typeOfProyects = [
-  {
-    value: "Obra nueva",
-    label: "Obra nueva",
-  },
-  {
-    value: "Ampliación",
-    label: "Ampliación",
-  },
-  {
-    value: "Reacondicionamiento",
-    label: "Reacondicionamiento",
-  },
-  {
-    value: "Rehabilitación",
-    label: "Rehabilitación",
-  },
-  {
-    value: "Remodelación",
-    label: "Remodelación",
-  },
+	{
+		value: 1,
+		label: 'Obra nueva',
+	},
+	{
+		value: 1.2,
+		label: 'Ampliación',
+	},
+	{
+		value: 1.25,
+		label: 'Reacondicionamiento',
+	},
+	{
+		value: 1.3,
+		label: 'Rehabilitación',
+	},
+	{
+		value: 1.5,
+		label: 'Remodelación',
+	},
 ];
 
+const CustomTextField = styled(TextField)({
+	'& .MuiInputBase-input': {
+		fontFamily: 'Montserrat',
+		textAlign: 'center',
+		color: 'white',
+	},
+	'& label.Mui-hover': {
+		borderColor: 'white',
+		borderRadius: '6px',
+		borderWidth: '1px',
+	},
+
+	'& label.Mui-focused': {
+		color: 'green',
+	},
+	'& .MuiInput-underline:after': {
+		borderBottomColor: '#7AC279',
+	},
+	'& .MuiOutlinedInput-root': {
+		'& fieldset': {
+			borderColor: 'white',
+			borderRadius: '6px',
+			borderWidth: '1px',
+			color: 'green',
+		},
+		'&.Mui-focused fieldset': {
+			borderColor: '#7AC279',
+		},
+		'&:hover fieldset': {
+			borderColor: 'white',
+		},
+		'& .MuiSvgIcon-root': {
+			color: 'white',
+		},
+	},
+});
+
+const MenuProps = {
+	PaperProps: {
+		style: {
+			maxHeight: 50 * 4.5 + 8,
+			width: 250,
+		},
+	},
+};
+
+const MilUnoInput = styled(InputBase)(({ theme }) => ({
+	'label + &': {
+		marginTop: theme.spacing(3),
+	},
+	'& .MuiInputBase-input': {
+		textAlign: 'center',
+		borderRadius: 6,
+		position: 'relative',
+		border: '1px solid white',
+		fontSize: 16,
+		color: 'white',
+		padding: '10px 26px 10px 12px',
+		transition: theme.transitions.create(['border-color', 'box-shadow']),
+		// Use the system font instead of the default Roboto font.
+		fontFamily: ['Montserrat'].join(','),
+		'&:focus': {
+			borderColor: '#7AC279',
+		},
+	},
+	'& .MuiSvgIcon-root': {
+		color: 'white',
+	},
+}));
+
 export default function TypeAndSize() {
-  const [typeOfProyect, setCurrency] = React.useState("EUR");
+	const [typeOfProyect, setCurrency] = React.useState('');
 
-  const handleChange = (event) => {
-    setCurrency(event.target.value);
-  };
+	const handleChangeType = (event) => {
+		setCurrency(event.target.value);
+		console.log(event.target.value);
+	};
 
-  return (
-    <Box
-      component="form"
-      sx={{
-        "& .MuiTextField-root": { m: 1, width: "25ch" },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div>
-        <div className="my-6">
-          <p className="text-center">¿Cual es la modalidad del proyecto?</p>
-          <TextField
-            id="outlined-select-currency"
-            select
-            label=""
-            value={typeOfProyect}
-            onChange={handleChange}
-          >
-            {typeOfProyects.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-        </div>
+	const handleChangeSize = (event) => {
+		console.log(event.target.value);
+	};
 
-        <div>
-          <p className="text-center">¿Cuantos metros cuadrados?</p>
-          <TextField id="outlined-number" label="" type="number" />
-        </div>
-      </div>
-    </Box>
-  );
+	return (
+		<Box component="form" noValidate autoComplete="off">
+			<div className=" flex justify-center items-center flex-col my-20 min-h-[60vh]">
+				<div className="mb-8 ">
+					<p className="text-center mb-6 font-[Montserrat-bold] text-sm ">
+						¿Cual es la modalidad del proyecto?
+					</p>
+					<Select
+						id="typeProject"
+						label=""
+						value={typeOfProyect}
+						onChange={handleChangeType}
+						sx={{ width: 250, minWidth: 100 }}
+						MenuProps={MenuProps}
+						size="small"
+						input={<MilUnoInput />}
+					>
+						{typeOfProyects.map((option) => (
+							<MenuItem
+								key={option.value}
+								value={option.value}
+								style={{
+									fontSize: 14,
+									fontFamily: 'Montserrat',
+								}}
+							>
+								{option.label}
+							</MenuItem>
+						))}
+					</Select>
+				</div>
+
+				<p className="text-center mt-20 mb-6 font-[Montserrat-bold] text-sm">
+					¿Cuantos metros cuadrados?
+				</p>
+				<CustomTextField
+					onChange={handleChangeSize}
+					id="sizeOfProject"
+					label=""
+					type="number"
+					sx={{ width: 150, minWidth: 100 }}
+					size="small"
+				/>
+			</div>
+		</Box>
+	);
 }
