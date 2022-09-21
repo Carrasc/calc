@@ -78,9 +78,6 @@ export default function CustomSelector({
 		console.log(event.target.value);
 	};
 
-	const handleChangeSize = (event) => {
-		console.log(event.target.value);
-	};
 	return (
 		<Controller
 			control={control}
@@ -92,7 +89,7 @@ export default function CustomSelector({
 						<CustomTextField
 							id="typeProject"
 							select
-							disabled={disabled}
+							// disabled={disabled}
 							label=""
 							value={selected}
 							onChange={(e) => {

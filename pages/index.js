@@ -9,6 +9,7 @@ import TypeOfProyects from '../components/TypeOfProyects';
 import { steps } from '../Data/Steps';
 import { useContext, useState } from 'react';
 import { GeneralContext } from '../Context/GeneralContext';
+import EstadosYMunicipios from '../components/EstadosYMunicipios';
 export default function Home() {
 	const { theme, setTheme } = useTheme();
 	const [activeStep, setActiveStep] = useState(0);
@@ -24,7 +25,7 @@ export default function Home() {
 
 	console.log({ generalValue });
 	return (
-		<div className="flex flex-col items-center justify-center w-full md:w-screen h-screen font-[Montserrat-bold]">
+		<div className=" w-full py-20 max-w-6xl mx-auto px-10  font-[Montserrat-bold]">
 			{/* <button
 				className="absolute p-2 border-2 rounded-xl top-10 border-neutral-200 dark:border-neutral-600 right-10 dark:bg-neutral-600 bg-neutral-200 hover:border-2 hover:border-indigo-400 dark:hover:border-indigo-400"
 				onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
@@ -35,17 +36,19 @@ export default function Home() {
 					<MoonIcon className="w-5 h-5" />
 				)}
 			</button> */}
-			{/* <TypeOfProyects /> */}
-			<div className="flex flex-col items-center justify-center w-full h-full max-w-6xl px-5 mx-auto overflow-y-scroll  md:px-20">
-				{steps[activeStep].component({ handleNext: handleNext })}
-			</div>
-			<div className=" h-[10vh] w-full flex justify-center items-center">
+			<TypeOfProyects />
+			<TypeAndSize />
+			<EstadosYMunicipios />
+			{/* <div className="flex flex-col items-center justify-center w-full h-full max-w-6xl px-5 mx-auto overflow-y-scroll md:px-20"> */}
+			{/* {steps[activeStep].component({ handleNext: handleNext })} */}
+			{/* </div> */}
+			{/* <div className=" h-[10vh] w-full flex justify-center items-center">
 				<ArcStepper
 					handleNext={handleNext}
 					handlePrev={handlePrev}
 					activeStep={activeStep}
 				/>
-			</div>
+			</div> */}
 		</div>
 	);
 }

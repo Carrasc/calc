@@ -9,7 +9,7 @@ import Image from 'next/image';
 export default function TypeOfProyects({ handleNext }) {
 	const [selected, setSelected] = useState(undefined);
 	const { setGeneralValue } = useContext(GeneralContext);
-
+	// const [selectedValue, setSelectedValue] = useState(undefined)
 	const {
 		register,
 		handleSubmit,
@@ -75,16 +75,6 @@ export default function TypeOfProyects({ handleNext }) {
 								: []
 						}
 					/>
-				</div>
-				<div className="absolute top-0 flex items-center justify-center h-full right-10 ">
-					<button
-						// type="button"
-						// disabled={activeStep === steps.length - 1}
-						className="relative disabled:text-neutral-300 disabled:hover:cursor-not-allowed"
-						onClick={handleNext}
-					>
-						<ChevronRightIcon className="w-8 h-8 " />
-					</button>
 				</div>
 			</form>
 		</div>
