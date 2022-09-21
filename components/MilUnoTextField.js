@@ -39,10 +39,10 @@ const CustomTextField = styled(TextField)({
 		},
 	},
 });
-export default function MilUnoTextField() {
+export default function MilUnoTextField({ handleChange = () => {} }) {
 	return (
 		<CustomTextField
-			// onChange={handleChangeSize}
+			onChange={handleChange}
 			id="sizeOfProject"
 			label=""
 			type="number"

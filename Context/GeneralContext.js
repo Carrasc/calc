@@ -23,32 +23,38 @@ export default function GeneralProvider({ children }) {
 		title: '',
 	});
 	const [plan, setPlan] = useState({
-		item: {},
+		item: { titles: [] },
 		value: 0,
 		id: '',
 	});
 	const [times, setTimes] = useState({
 		value: 0,
 	});
+	const [bim_selection, set_bim_selection] = useState({
+		title: '',
+		value: 0,
+	});
 
-	console.log({ times });
+	console.log({ gender, surface, typeOfProject, bim_selection });
 	return (
 		<GeneralContext.Provider
 			value={{
 				generalValue,
-				setGeneralValue,
-				setGender,
 				gender,
 				typeOfProject,
-				setTypeOfProject,
 				surface,
-				setSurface,
 				lag_margin,
-				set_lag_margin,
 				plan,
-				setPlan,
 				times,
+				bim_selection,
+				setPlan,
+				setGeneralValue,
+				setGender,
+				setTypeOfProject,
+				setSurface,
+				set_lag_margin,
 				setTimes,
+				set_bim_selection,
 			}}
 		>
 			{children}

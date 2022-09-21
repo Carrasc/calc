@@ -7,6 +7,7 @@ import ProyectPlans from '../components/ProyectPlans';
 import TimesOfProyect from '../components/TimesOfProyect';
 import BIMView from '../components/BIMView';
 import Brief from '../components/Brief';
+import ExtraComponents from '../components/ExtraComponents';
 export default function Home() {
 	const [activeStep, setActiveStep] = useState(0);
 	const [selected, setSelected] = useState(undefined);
@@ -18,8 +19,9 @@ export default function Home() {
 			<TypeAndSize />
 			<EstadosYMunicipios />
 			<ProyectPlans />
-			<TimesOfProyect />
+			<ExtraComponents />
 			<BIMView />
+			<TimesOfProyect />
 			<Brief />
 		</div>
 	);
