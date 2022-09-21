@@ -93,7 +93,7 @@ const MenuProps = {
 	PaperProps: {
 		style: {
 			maxHeight: 50 * 4.5 + 8,
-			width: 250,
+			width: '100%',
 		},
 	},
 };
@@ -134,7 +134,8 @@ export default function CustomSelector({
 								handleChangeType(e);
 								onChange(e.target.value);
 							}}
-							sx={{ width: 200, minWidth: 100 }}
+							sx={{ maxWidth: '100%', minWidth: 300 }}
+							autoWidth
 							size="small"
 							input={<MilUnoInput />}
 						>
