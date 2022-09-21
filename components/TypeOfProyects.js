@@ -4,7 +4,7 @@ import { genders } from '../Data/FGC';
 import CustomSelector from './CustomSelector';
 import { useForm } from 'react-hook-form';
 import { GeneralContext } from '../Context/GeneralContext';
-import img from '../Images/heart-beat.png';
+import img from '../Images/home.png';
 import Image from 'next/image';
 export default function TypeOfProyects({ handleNext }) {
 	const [selected, setSelected] = useState(undefined);
@@ -34,9 +34,11 @@ export default function TypeOfProyects({ handleNext }) {
 	};
 	return (
 		<div className="flex flex-col justify-center w-full">
-			<p className="text-center ">Empecemos por el tipo de proyecto</p>
+			<p className="text-center font-[Montserrat-bold] text-sm ">
+				Empecemos por el tipo de proyecto
+			</p>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<div className="grid grid-cols-3 gap-4 my-20 md:gap-10 md:grid-cols-6 ">
+				<div className="grid grid-cols-3 gap-4 my-12 md:gap-10 md:grid-cols-6 ">
 					{genders.map((gender, index) => {
 						return (
 							<div
@@ -54,7 +56,7 @@ export default function TypeOfProyects({ handleNext }) {
 									height={50}
 									width={50}
 									alt="icon"
-									className="m-5 text-white brightness-200 invert filter "
+									className="m-5 text-white brightness-200 filter "
 								/>
 								<p>{gender.gender}</p>
 							</div>
@@ -79,7 +81,7 @@ export default function TypeOfProyects({ handleNext }) {
 						// type="button"
 						// disabled={activeStep === steps.length - 1}
 						className="relative disabled:text-neutral-300 disabled:hover:cursor-not-allowed"
-						// onClick={handleNext}
+						onClick={handleNext}
 					>
 						<ChevronRightIcon className="w-8 h-8 " />
 					</button>
