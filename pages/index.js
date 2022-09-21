@@ -12,13 +12,6 @@ export default function Home() {
 	const [selected, setSelected] = useState(undefined);
 	const { generalValue } = useContext(GeneralContext);
 
-	const handleNext = () => {
-		setActiveStep((index) => index + 1);
-	};
-	const handlePrev = () => {
-		setActiveStep((index) => index - 1);
-	};
-
 	return (
 		<div className=" w-full py-20 max-w-6xl mx-auto px-10  font-[Montserrat-bold]">
 			<TypeOfProyects />

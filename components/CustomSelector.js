@@ -5,6 +5,8 @@ import MenuItem from '@mui/material/MenuItem';
 import { alpha, styled } from '@mui/material/styles';
 import { Controller } from 'react-hook-form';
 import { InputBase, NativeSelect, Select } from '@mui/material';
+import { useForm } from 'react-hook-form';
+
 const typeOfProyects = [
 	{
 		value: 1,
@@ -101,16 +103,22 @@ const MenuProps = {
 export default function CustomSelector({
 	items = [],
 	disabled,
-	control,
 	required,
 	name,
 	setIndex = () => {},
+	setSelectedValue = () => {},
 }) {
+	const {
+		register,
+		handleSubmit,
+		control,
+		formState: { errors },
+		reset,
+	} = useForm();
 	const [selected, setSelected] = React.useState('');
 
 	const handleChangeType = (event) => {
 		setSelected(event.target.value);
-		console.log(event.target.value);
 	};
 
 	return (
@@ -128,8 +136,6 @@ export default function CustomSelector({
 							MenuProps={MenuProps}
 							value={selected}
 							onChange={(e) => {
-								console.log({ e });
-
 								handleChangeType(e);
 								onChange(e.target.value);
 							}}
@@ -141,7 +147,10 @@ export default function CustomSelector({
 							{items.map((option, index) => (
 								<MenuItem
 									key={index}
-									onClick={() => setIndex(index)}
+									onClick={() => {
+										setIndex(index);
+										setSelectedValue(option);
+									}}
 									value={option.title}
 									style={{
 										fontSize: 14,

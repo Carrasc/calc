@@ -5,27 +5,29 @@ import { Select } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { alpha, styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
+import CustomSelector from './CustomSelector';
+import { GeneralContext } from '../Context/GeneralContext';
 
 const typeOfProyects = [
 	{
 		value: 1,
-		label: 'Obra nueva',
+		title: 'Obra nueva',
 	},
 	{
 		value: 1.2,
-		label: 'Ampliación',
+		title: 'Ampliación',
 	},
 	{
 		value: 1.25,
-		label: 'Reacondicionamiento',
+		title: 'Reacondicionamiento',
 	},
 	{
 		value: 1.3,
-		label: 'Rehabilitación',
+		title: 'Rehabilitación',
 	},
 	{
 		value: 1.5,
-		label: 'Remodelación',
+		title: 'Remodelación',
 	},
 ];
 
@@ -101,50 +103,39 @@ const MilUnoInput = styled(InputBase)(({ theme }) => ({
 
 export default function TypeAndSize() {
 	const [typeOfProyect, setCurrency] = React.useState('');
-
-	const handleChangeType = (event) => {
-		setCurrency(event.target.value);
-		console.log(event.target.value);
-	};
+	const { typeOfProject, setTypeOfProject, setSurface, surface } =
+		React.useContext(GeneralContext);
 
 	const handleChangeSize = (event) => {
-		console.log(event.target.value);
+		setSurface({ value: parseInt(event.target.value) });
 	};
 
+	const handleSelectedValue = (item) => {
+		setTypeOfProject((prevState) => ({
+			...prevState,
+			title: item.title,
+			value: item.value,
+		}));
+	};
 	return (
 		<Box component="form" noValidate autoComplete="off">
 			<div className=" flex justify-center items-center flex-col my-20 min-h-[60vh]">
 				<div className="mb-8 ">
 					<p className="text-center mb-6 font-[Montserrat-bold] text-sm ">
-						¿Cual es la modalidad del proyecto?
+						¿Cuál es la modalidad del proyecto?
 					</p>
-					<Select
-						id="typeProject"
-						label=""
-						value={typeOfProyect}
-						onChange={handleChangeType}
-						sx={{ width: 250, minWidth: 100 }}
-						MenuProps={MenuProps}
-						size="small"
-						input={<MilUnoInput />}
-					>
-						{typeOfProyects.map((option) => (
-							<MenuItem
-								key={option.value}
-								value={option.value}
-								style={{
-									fontSize: 14,
-									fontFamily: 'Montserrat',
-								}}
-							>
-								{option.label}
-							</MenuItem>
-						))}
-					</Select>
+					<CustomSelector
+						name="gender_son"
+						setSelectedValue={handleSelectedValue}
+						// control={control}
+						required={true}
+						// disabled={selected === ''}
+						items={typeOfProyects}
+					/>
 				</div>
 
 				<p className="text-center mt-20 mb-6 font-[Montserrat-bold] text-sm">
-					¿Cuantos metros cuadrados?
+					¿Cuántos metros cuadrados?
 				</p>
 				<CustomTextField
 					onChange={handleChangeSize}

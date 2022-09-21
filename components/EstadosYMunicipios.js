@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import CustomSelector from './CustomSelector';
 import { useForm } from 'react-hook-form';
 import { irs } from '../Data/IRS';
+import { GeneralContext } from '../Context/GeneralContext';
 
 export default function EstadosYMunicipios() {
 	const [estado_index, set_estado_index] = useState(0);
 	const [municipio_index, set_municipio_index] = useState(0);
+	const { set_lag_margin } = useContext(GeneralContext);
 
 	const {
 		register,
@@ -14,6 +16,21 @@ export default function EstadosYMunicipios() {
 		formState: { errors },
 		reset,
 	} = useForm();
+
+	const handleEstado = (item) => {
+		set_lag_margin((prevState) => ({
+			...prevState,
+			estado: item.title,
+			municipio: '',
+		}));
+	};
+	const handleMunicipio = (item) => {
+		set_lag_margin((prevState) => ({
+			...prevState,
+			municipio: item.title,
+			title: item.value,
+		}));
+	};
 	return (
 		<div className="flex flex-col items-center justify-center w-full my-20 min-h-[40vh]">
 			<p className="text-center mb-5 font-[Montserrat-bold] text-sm ">
@@ -23,6 +40,7 @@ export default function EstadosYMunicipios() {
 				name="estado"
 				control={control}
 				required={true}
+				setSelectedValue={handleEstado}
 				setIndex={set_estado_index}
 				// disabled={selected === undefined}
 				items={irs}
@@ -36,6 +54,7 @@ export default function EstadosYMunicipios() {
 				control={control}
 				required={true}
 				setIndex={set_municipio_index}
+				setSelectedValue={handleMunicipio}
 				// disabled={selected === undefined}
 				items={irs[estado_index].municipios}
 			/>

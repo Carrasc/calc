@@ -8,7 +8,7 @@ import img from '../Images/home.png';
 import Image from 'next/image';
 export default function TypeOfProyects({ handleNext }) {
 	const [selected, setSelected] = useState('');
-	const { setGeneralValue } = useContext(GeneralContext);
+	const { setGeneralValue, gender, setGender } = useContext(GeneralContext);
 	const {
 		register,
 		handleSubmit,
@@ -16,8 +16,23 @@ export default function TypeOfProyects({ handleNext }) {
 		formState: { errors },
 		reset,
 	} = useForm();
-	const handleClick = (index) => {
+	const [selectedValue, setSelectedValue] = useState();
+	const handleClick = (index, gender) => {
 		setSelected(index);
+		setGender((prevState) => ({
+			...prevState,
+			type: gender.gender,
+			son: '',
+			value: 0,
+		}));
+	};
+
+	const handleSelectedValue = (item) => {
+		setGender((prevState) => ({
+			...prevState,
+			son: item.title,
+			value: item.factor,
+		}));
 	};
 	const onSubmit = async (data) => {
 		const obj = { step1: data };
@@ -40,7 +55,7 @@ export default function TypeOfProyects({ handleNext }) {
 					{genders.map((gender, index) => {
 						return (
 							<div
-								onClick={() => handleClick(index)}
+								onClick={() => handleClick(index, gender)}
 								// selected={selected && index}
 								key={index}
 								className={`w-full p-2 text-[10px] md:text-xs  justify-around font-montserrat text-center flex-col  flex items-center   hover:cursor-pointer border border-transparent hover:border-white hover:border text-white rounded-xl h-full  aspect-square ${
@@ -64,7 +79,8 @@ export default function TypeOfProyects({ handleNext }) {
 				<div className="flex flex-col items-center justify-center ">
 					<CustomSelector
 						name="gender_son"
-						control={control}
+						setSelectedValue={handleSelectedValue}
+						// control={control}
 						required={true}
 						disabled={selected === ''}
 						items={
