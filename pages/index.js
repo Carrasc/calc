@@ -10,6 +10,7 @@ import { steps } from '../Data/Steps';
 import { useContext, useState } from 'react';
 import { GeneralContext } from '../Context/GeneralContext';
 import EstadosYMunicipios from '../components/EstadosYMunicipios';
+import ProyectPlans from '../components/ProyectPlans';
 export default function Home() {
 	const { theme, setTheme } = useTheme();
 	const [activeStep, setActiveStep] = useState(0);
@@ -39,6 +40,7 @@ export default function Home() {
 			<TypeOfProyects />
 			<TypeAndSize />
 			<EstadosYMunicipios />
+			<ProyectPlans />
 			{/* <div className="flex flex-col items-center justify-center w-full h-full max-w-6xl px-5 mx-auto overflow-y-scroll md:px-20"> */}
 			{/* {steps[activeStep].component({ handleNext: handleNext })} */}
 			{/* </div> */}
