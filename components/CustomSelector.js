@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { alpha, styled } from '@mui/material/styles';
 import { Controller } from 'react-hook-form';
+import { InputBase, Select } from '@mui/material';
 const typeOfProyects = [
 	{
 		value: 1,
@@ -64,6 +65,39 @@ const CustomTextField = styled(TextField)({
 	},
 });
 
+const MilUnoInput = styled(InputBase)(({ theme }) => ({
+	'label + &': {
+		marginTop: theme.spacing(3),
+	},
+	'& .MuiInputBase-input': {
+		textAlign: 'center',
+		borderRadius: 6,
+		position: 'relative',
+		border: '1px solid white',
+		fontSize: 16,
+		color: 'white',
+		padding: '10px 26px 10px 12px',
+		transition: theme.transitions.create(['border-color', 'box-shadow']),
+		// Use the system font instead of the default Roboto font.
+		fontFamily: ['Montserrat'].join(','),
+		'&:focus': {
+			borderColor: '#7AC279',
+		},
+	},
+	'& .MuiSvgIcon-root': {
+		color: 'white',
+	},
+}));
+
+const MenuProps = {
+	PaperProps: {
+		style: {
+			maxHeight: 50 * 4.5 + 8,
+			width: 250,
+		},
+	},
+};
+
 export default function CustomSelector({
 	items = [],
 	disabled,
@@ -86,11 +120,12 @@ export default function CustomSelector({
 			render={({ field: { onChange, value }, fieldState: { error } }) => {
 				return (
 					<>
-						<CustomTextField
+						<Select
 							id="typeProject"
 							select
 							// disabled={disabled}
 							label=""
+							MenuProps={MenuProps}
 							value={selected}
 							onChange={(e) => {
 								console.log(e.target.value);
@@ -100,6 +135,7 @@ export default function CustomSelector({
 							}}
 							sx={{ width: 200, minWidth: 100 }}
 							size="small"
+							input={<MilUnoInput />}
 						>
 							{items.map((option, index) => (
 								<MenuItem
@@ -113,7 +149,7 @@ export default function CustomSelector({
 									{option.title}
 								</MenuItem>
 							))}
-						</CustomTextField>
+						</Select>
 						<p className="p-0 m-0 text-xs text-red-500 ">
 							{error ? error.message : null}
 						</p>
