@@ -7,9 +7,8 @@ import { GeneralContext } from '../Context/GeneralContext';
 import img from '../Images/home.png';
 import Image from 'next/image';
 export default function TypeOfProyects({ handleNext }) {
-	const [selected, setSelected] = useState(undefined);
+	const [selected, setSelected] = useState('');
 	const { setGeneralValue } = useContext(GeneralContext);
-	// const [selectedValue, setSelectedValue] = useState(undefined)
 	const {
 		register,
 		handleSubmit,
@@ -22,7 +21,6 @@ export default function TypeOfProyects({ handleNext }) {
 	};
 	const onSubmit = async (data) => {
 		const obj = { step1: data };
-		console.log({ obj });
 
 		setGeneralValue((prevState) => ({
 			// object that we want to update
@@ -33,7 +31,7 @@ export default function TypeOfProyects({ handleNext }) {
 		handleNext();
 	};
 	return (
-		<div className="flex flex-col justify-center w-full">
+		<div className="flex flex-col justify-center w-full min-h-[80vh]">
 			<p className="text-center font-[Montserrat-bold] text-sm ">
 				Empecemos por el tipo de proyecto
 			</p>
@@ -47,7 +45,7 @@ export default function TypeOfProyects({ handleNext }) {
 								key={index}
 								className={`w-full p-2 text-[10px] md:text-xs  justify-around font-montserrat text-center flex-col  flex items-center   hover:cursor-pointer border border-transparent hover:border-white hover:border text-white rounded-xl h-full  aspect-square ${
 									selected === index
-										? ' border-white'
+										? '  border-miluno-green border hover:border-miluno-green'
 										: 'bg-[#1E1E1E]'
 								}`}
 							>
@@ -68,11 +66,9 @@ export default function TypeOfProyects({ handleNext }) {
 						name="gender_son"
 						control={control}
 						required={true}
-						disabled={selected === undefined}
+						disabled={selected === ''}
 						items={
-							selected !== undefined
-								? genders[selected].children
-								: []
+							selected !== '' ? genders[selected].children : []
 						}
 					/>
 				</div>

@@ -100,7 +100,7 @@ const MilUnoInput = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function TypeAndSize() {
-	const [typeOfProyect, setCurrency] = React.useState('EUR');
+	const [typeOfProyect, setCurrency] = React.useState('');
 
 	const handleChangeType = (event) => {
 		setCurrency(event.target.value);
@@ -113,8 +113,8 @@ export default function TypeAndSize() {
 
 	return (
 		<Box component="form" noValidate autoComplete="off">
-			<div className="grid grid-cols-1 gap-8">
-				<div className="grid mb-8 justify-items-center">
+			<div className=" flex justify-center items-center flex-col my-20 min-h-[60vh]">
+				<div className="mb-8 ">
 					<p className="text-center mb-6 font-[Montserrat-bold] text-sm ">
 						¿Cual es la modalidad del proyecto?
 					</p>
@@ -143,19 +143,17 @@ export default function TypeAndSize() {
 					</Select>
 				</div>
 
-				<div className="grid justify-items-center">
-					<p className="text-center mb-6 font-[Montserrat-bold] text-sm">
-						¿Cuantos metros cuadrados?
-					</p>
-					<CustomTextField
-						onChange={handleChangeSize}
-						id="sizeOfProject"
-						label=""
-						type="number"
-						sx={{ width: 150, minWidth: 100 }}
-						size="small"
-					/>
-				</div>
+				<p className="text-center mt-20 mb-6 font-[Montserrat-bold] text-sm">
+					¿Cuantos metros cuadrados?
+				</p>
+				<CustomTextField
+					onChange={handleChangeSize}
+					id="sizeOfProject"
+					label=""
+					type="number"
+					sx={{ width: 150, minWidth: 100 }}
+					size="small"
+				/>
 			</div>
 		</Box>
 	);

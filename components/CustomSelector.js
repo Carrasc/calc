@@ -93,7 +93,7 @@ const MenuProps = {
 	PaperProps: {
 		style: {
 			maxHeight: 50 * 4.5 + 8,
-			width: '100%',
+			width: 500,
 		},
 	},
 };
@@ -106,7 +106,7 @@ export default function CustomSelector({
 	name,
 	setIndex = () => {},
 }) {
-	const [selected, setSelected] = React.useState();
+	const [selected, setSelected] = React.useState('');
 
 	const handleChangeType = (event) => {
 		setSelected(event.target.value);
@@ -123,7 +123,6 @@ export default function CustomSelector({
 					<>
 						<Select
 							id="typeProject"
-							select
 							// disabled={disabled}
 							label=""
 							MenuProps={MenuProps}

@@ -15,7 +15,7 @@ export default function EstadosYMunicipios() {
 		reset,
 	} = useForm();
 	return (
-		<div className="flex flex-col items-center justify-center w-full my-20">
+		<div className="flex flex-col items-center justify-center w-full my-20 min-h-[40vh]">
 			<p className="text-center mb-5 font-[Montserrat-bold] text-sm ">
 				¿En qué estado de la república se llevará a cabo el proyecto?
 			</p>
@@ -40,7 +40,7 @@ export default function EstadosYMunicipios() {
 				items={irs[estado_index].municipios}
 			/>
 			<p className="mt-3 text-xs font-montserrat text-neutral-400">
-				Margen de rezago:
+				Margen de rezago:{' '}
 				<span className="text-white font-montserrat-bold">
 					{municipio_index > irs[estado_index].municipios.length
 						? irs[estado_index].municipios[0].value

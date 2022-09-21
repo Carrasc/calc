@@ -13,7 +13,7 @@ export default function BIMView() {
 	} = useForm();
 	return (
 		<div className="flex flex-col items-center justify-center w-full my-20">
-			<p className="mb-5 ">
+			<p className="mb-5 text-center ">
 				Nivel de BIM a desarrollar para el proyecto:
 			</p>
 			<CustomSelector
