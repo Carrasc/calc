@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { alpha, styled } from '@mui/material/styles';
 import { Controller } from 'react-hook-form';
-import { InputBase, Select } from '@mui/material';
+import { InputBase, NativeSelect, Select } from '@mui/material';
 const typeOfProyects = [
 	{
 		value: 1,
@@ -77,7 +77,7 @@ const MilUnoInput = styled(InputBase)(({ theme }) => ({
 		fontSize: 16,
 		color: 'white',
 		padding: '10px 26px 10px 12px',
-		transition: theme.transitions.create(['border-color', 'box-shadow']),
+		// transition: theme.transitions.create(['border-color', 'box-shadow']),
 		// Use the system font instead of the default Roboto font.
 		fontFamily: ['Montserrat'].join(','),
 		'&:focus': {
@@ -104,6 +104,7 @@ export default function CustomSelector({
 	control,
 	required,
 	name,
+	setIndex = () => {},
 }) {
 	const [selected, setSelected] = React.useState();
 
@@ -128,7 +129,7 @@ export default function CustomSelector({
 							MenuProps={MenuProps}
 							value={selected}
 							onChange={(e) => {
-								console.log(e.target.value);
+								console.log({ e });
 
 								handleChangeType(e);
 								onChange(e.target.value);
@@ -140,7 +141,8 @@ export default function CustomSelector({
 							{items.map((option, index) => (
 								<MenuItem
 									key={index}
-									value={option}
+									onClick={() => setIndex(index)}
+									value={option.title}
 									style={{
 										fontSize: 14,
 										fontFamily: 'Montserrat',
