@@ -1,3 +1,26 @@
 [
-
+  {
+    "order": 0,
+    "value": "DRO",
+    "label": "Director Responsable de Obra (DRO)", 
+    "isChecked": false
+  },
+  {
+    "order": 1,
+    "value": "CE",
+    "label": "Corresponsables en Estructuras (CE)",
+    "isChecked": false
+  },
+  {
+    "order": 2,
+    "value": "CI",
+    "label": "Instalaciones (CI)",
+    "isChecked": false
+  },
+  {
+    "order": 3,
+    "value": "CDUYA",
+    "label": "Desarrollo Urbano y Arquitectura (CDUyA)",
+    "isChecked": false
+  }
 ]

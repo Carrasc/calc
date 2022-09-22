@@ -58,16 +58,22 @@ export default function Brief() {
 		},
 	];
 	return (
-		<div className="flex flex-col items-center max-w-3xl mx-auto justify-center w-full min-h-[80vh] my-20">
-			<p className="mb-10 ">¿Están todos los datos en orden?</p>
+		<div className="flex flex-col items-center max-w-2xl mx-auto justify-center w-full min-h-[80vh] mt-64">
+			<p className="text-center mb-12 font-[Montserrat-bold] text-sm text-miluno-white ">
+				¿Están todos los datos en orden?
+			</p>
 			{data.map((item, index) => (
 				<div
 					key={index}
 					className="flex items-center w-full mb-10 justify-evenly "
 				>
-					<div>{item.title}</div>
+					<div className="text-sm text-start font-montserrat-bold text-miluno-white">
+						{item.title}
+					</div>
 					<div className="w-full mx-10 h-[1px] bg-miluno-green "></div>
-					<div className=" font-montserrat">{item.string}</div>
+					<div className="text-sm text-end font-montserrat text-miluno-white">
+						{item.string}
+					</div>
 				</div>
 			))}
 			{/* <div className="flex items-center w-full mt-5 break-all justify-evenly ">

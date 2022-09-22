@@ -15,6 +15,8 @@ module.exports = {
       colors: {
         "miluno-green": "#7AC279",
         "miluno-black": "#1e1e1e",
+        "miluno-white": "#F3F3F3",
+        "miluno-gray": "#C3C3C3",
       },
     },
   },
