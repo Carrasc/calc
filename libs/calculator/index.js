@@ -18,11 +18,13 @@ import { calculateDRO } from "./responsables-obra";
  * @param {number} number_reps - Repetitividad del Proyecto (value) (ej. 1) - valor mínimo 0 <=> "sin repeticiones"
  * @param {string} responsables - Responsables contratados (ej. "DRO") - puede ser null si no se quiere contratar DRO
  *
- * @returns {Object}
+ * @returns {Object} - {final_cost: number, work_cost: number, components_table: [], extras_total: [], extras_table: [], bim_cost: number, reps_cost: number ,dro_table: []}
  */
 function calculateCosts(surface, type_construction, modality, town, ajuste_cc, extras, bim, number_reps, responsables) {
   try {
-    console.log("\n Calculatin ...", { surface, type_construction, modality, town, ajuste_cc, extras, bim, number_reps, responsables });
+    console.log("\n Calculating ...", { surface, type_construction, modality, town, ajuste_cc, extras, bim, number_reps, responsables });
+    if (surface <= 0) throw new Error("Superficie no válida");
+
     /**
      * Factor superficie
      */
