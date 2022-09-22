@@ -37,7 +37,9 @@ export default function TypeAndSize() {
     React.useContext(GeneralContext);
 
   const handleChangeSize = (event) => {
-    setSurface({ value: parseInt(event.target.value) });
+    event.target.value < 0
+      ? setSurface({ value: 0 })
+      : setSurface({ value: parseInt(event.target.value) });
   };
 
   const handleSelectedValue = (item) => {
@@ -67,7 +69,10 @@ export default function TypeAndSize() {
         <p className="text-center mb-6 font-[Montserrat-bold] text-sm text-miluno-white">
           ¿Cuántos metros cuadrados?
         </p>
-        <MilUnoTextField handleChange={handleChangeSize} />
+        <MilUnoTextField
+          handleChange={handleChangeSize}
+          value={surface.value}
+        />
       </div>
     </Box>
   );

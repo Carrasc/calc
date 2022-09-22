@@ -22,7 +22,7 @@ export default function BIMView() {
     }));
   };
   return (
-    <div className="flex flex-col items-center justify-center w-full my-20">
+    <div className="flex flex-col items-center justify-center w-full my-10 min-h-[40vh]">
       <p className="text-center mb-6 font-[Montserrat-bold] text-sm text-miluno-white ">
         Nivel de BIM a desarrollar para el proyecto:
       </p>
