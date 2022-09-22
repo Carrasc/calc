@@ -26,10 +26,10 @@ export default function Home() {
 			<BIMView />
 			<ExtraPeople />
 			<TimesOfProyect />
-			{/* <Testing value={value} setValue={setValue} /> */}
-			{/* <PrintComponent>
-				{/* <pre>{value && JSON.stringify(value, null, 2)}</pre> *
-			</PrintComponent> */}
+			<Testing value={value} setValue={setValue} />
+			<PrintComponent>
+				{value && <TableResult value={value} />}
+			</PrintComponent>
 			<Brief />
 			<div className="flex items-center justify-center w-full ">
 				<button
@@ -39,7 +39,6 @@ export default function Home() {
 					Calcular
 				</button>
 			</div>
-			{value && <TableResult value={value} />}
 		</div>
 	);
 }

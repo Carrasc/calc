@@ -35,10 +35,10 @@ export default function PrintComponent({ children }) {
 					/>
 				</svg>
 			</button>
-			<div className="hidden print:block">
+			<div className="hidden bg-black print:block">
 				<div
 					ref={componentRef}
-					className="box-border flex flex-col justify-between w-full h-full min-h-screen bg-white flex-nowrap"
+					className="box-border flex flex-col justify-between w-full h-full min-h-screen bg-black flex-nowrap"
 				>
 					{children}
 					{/* <div className="p-10 box-border min-h-[10vh] border-b border-neutral-400">
