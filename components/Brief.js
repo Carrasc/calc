@@ -11,6 +11,7 @@ export default function Brief() {
 		times,
 		bim_selection,
 		scopes,
+		peopleSelected,
 	} = React.useContext(GeneralContext);
 	const data = [
 		{
@@ -54,7 +55,10 @@ export default function Brief() {
 		},
 		{
 			title: 'Contrataciones',
-			string: gender.type + ' / ' + gender.son,
+			string: peopleSelected.map((item, index) => {
+				const comma = index !== peopleSelected.length - 1 ? ', ' : '.';
+				return item + comma;
+			}),
 		},
 	];
 	return (

@@ -34,8 +34,9 @@ export default function GeneralProvider({ children }) {
 		title: '',
 		value: 0,
 	});
+	const [peopleSelected, setPeopleSelected] = useState([]);
 	const [scopes, set_scopes] = useState([]);
-	console.log({ lag_margin });
+	console.log({ peopleSelected });
 	return (
 		<GeneralContext.Provider
 			value={{
@@ -48,6 +49,8 @@ export default function GeneralProvider({ children }) {
 				times,
 				bim_selection,
 				scopes,
+				peopleSelected,
+				setPeopleSelected,
 				set_scopes,
 				setPlan,
 				setGeneralValue,

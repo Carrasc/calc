@@ -12,10 +12,12 @@ import PrintComponent from '../components/PrintComponent';
 import Testing from '../components/Test';
 import ExtraPeople from '../components/ExtraPeople';
 import TableResult from '../components/TableResult';
+import ScrollBar from '../components/ScrollBar';
 export default function Home() {
 	const [value, setValue] = useState(undefined);
 	return (
 		<div className=" w-full py-20 max-w-6xl mx-auto px-10  font-[Montserrat-bold]">
+			<ScrollBar />
 			<TypeOfProyects />
 			<TypeAndSize />
 			<EstadosYMunicipios />
@@ -24,12 +26,20 @@ export default function Home() {
 			<BIMView />
 			<ExtraPeople />
 			<TimesOfProyect />
-			<Testing value={value} setValue={setValue} />
-			<PrintComponent>
-				{/* <pre>{value && JSON.stringify(value, null, 2)}</pre> */}
-			</PrintComponent>
+			{/* <Testing value={value} setValue={setValue} /> */}
+			{/* <PrintComponent>
+				{/* <pre>{value && JSON.stringify(value, null, 2)}</pre> *
+			</PrintComponent> */}
 			<Brief />
-			<TableResult value={value} />
+			<div className="flex items-center justify-center w-full ">
+				<button
+					className="flex items-center justify-center px-4 py-2 transition duration-300 ease-in-out border rounded-md w-44 hover:scale-110 border-miluno-green font-montserrat"
+					onClick={() => console.log('jeje')}
+				>
+					Calcular
+				</button>
+			</div>
+			{value && <TableResult value={value} />}
 		</div>
 	);
 }

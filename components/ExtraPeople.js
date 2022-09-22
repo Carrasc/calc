@@ -3,17 +3,42 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import extraPeople from '../Data/People.json';
+import { GeneralContext } from '../Context/GeneralContext';
 
 export default function ExtraPeople() {
-	const [people, setPeople] = React.useState([
-		{ checked: 0 },
-		{ checked: 0 },
-		{ checked: 0 },
-		{ checked: 0 },
-	]);
-	const handleChange = (event) => {
-		setPeople(event.target.checked);
+	const { setPeopleSelected } = React.useContext(GeneralContext);
+
+	const firstState = [
+		{ checked: false },
+		{ checked: false },
+		{ checked: false },
+		{ checked: false },
+	];
+	const [people, setPeople] = React.useState(firstState);
+	const addPeople = (pips) => {
+		var temp_array = [];
+		var index = 0;
+		for (var person of pips) {
+			if (person.checked) {
+				temp_array.push(extraPeople[index].value);
+			}
+			index += 1;
+		}
+		setPeopleSelected(temp_array);
 	};
+	const handleChange = (event, index) => {
+		const temp_array = [...people];
+		temp_array[index].checked = event.target.checked;
+		if (event.target.checked && index !== 0) {
+			temp_array[0].checked = event.target.checked;
+		}
+		if (!event.target.checked && index === 0) {
+			temp_array = firstState;
+		}
+		addPeople(temp_array);
+		setPeople(temp_array);
+	};
+
 	return (
 		<div className="py-20">
 			<p className="text-center mb-6 font-[Montserrat-bold] text-sm text-miluno-white ">
