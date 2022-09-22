@@ -7,11 +7,19 @@
  * @returns {number}
  */
 function getValueFromArray(id, arr) {
-  const element = arr.find((item) => item.id === id);
-  if (!(!!element && "value" in element))
-    throw new Error("Valor no encontrado (CG)");
+	const element = arr.find((item) => item.id === id);
+	if (!(!!element && 'value' in element))
+		throw new Error('Valor no encontrado (CG)');
 
-  return element.value;
+	return element.value;
 }
 
-module.exports = { getValueFromArray };
+const formatter = new Intl.NumberFormat('en-US', {
+	style: 'currency',
+	currency: 'USD',
+	// minimumFractionDigits: 2,
+	minimumFractionDigits: 2,
+	maximumFractionDigits: 2,
+});
+
+module.exports = { getValueFromArray, formatter };

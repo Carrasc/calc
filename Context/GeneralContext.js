@@ -34,8 +34,8 @@ export default function GeneralProvider({ children }) {
 		title: '',
 		value: 0,
 	});
-
-	console.log({ gender, surface, typeOfProject, bim_selection });
+	const [scopes, set_scopes] = useState([]);
+	console.log({ lag_margin });
 	return (
 		<GeneralContext.Provider
 			value={{
@@ -47,6 +47,8 @@ export default function GeneralProvider({ children }) {
 				plan,
 				times,
 				bim_selection,
+				scopes,
+				set_scopes,
 				setPlan,
 				setGeneralValue,
 				setGender,
