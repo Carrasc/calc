@@ -8,11 +8,10 @@ import TimesOfProyect from '../components/TimesOfProyect';
 import BIMView from '../components/BIMView';
 import Brief from '../components/Brief';
 import ExtraComponents from '../components/ExtraComponents';
+import PrintComponent from '../components/PrintComponent';
+import Testing from '../components/Test';
 export default function Home() {
-	const [activeStep, setActiveStep] = useState(0);
-	const [selected, setSelected] = useState(undefined);
-	const { generalValue } = useContext(GeneralContext);
-
+	const [value, setValue] = useState(undefined);
 	return (
 		<div className=" w-full py-20 max-w-6xl mx-auto px-10  font-[Montserrat-bold]">
 			<TypeOfProyects />
@@ -22,6 +21,10 @@ export default function Home() {
 			<ExtraComponents />
 			<BIMView />
 			<TimesOfProyect />
+			<Testing value={value} setValue={setValue} />
+			<PrintComponent>
+				<pre>{value && JSON.stringify(value, null, 2)}</pre>
+			</PrintComponent>
 			<Brief />
 		</div>
 	);

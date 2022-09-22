@@ -10,6 +10,7 @@ export default function Brief() {
 		plan,
 		times,
 		bim_selection,
+		scopes,
 	} = React.useContext(GeneralContext);
 	const data = [
 		{
@@ -38,7 +39,10 @@ export default function Brief() {
 		},
 		{
 			title: 'Alcances extras',
-			string: gender.type + ' / ' + gender.son,
+			string: scopes.map((item, index) => {
+				const comma = index !== scopes.length - 1 ? ', ' : '.';
+				return item + comma;
+			}),
 		},
 		{
 			title: 'MIC (BIM)',

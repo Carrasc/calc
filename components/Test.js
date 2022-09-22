@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import calculateCosts from '../libs/calculator';
 
-export default function Testing() {
-	const [value, setValue] = useState(undefined);
+export default function Testing({ setValue, value }) {
+	// const [value, setValue] = useState(undefined);
 	return (
 		<div className="text-white">
 			<div>
