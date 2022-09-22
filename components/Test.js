@@ -17,7 +17,9 @@ export default function Testing({ setValue, value }) {
 								0.6,
 								1.0,
 								['AA', 'VE', 'GM', 'PCI', 'SCA', 'SVD', 'CCTV'],
-								1.05
+								1.05,
+								6,
+								'DRO + CI'
 							)
 						)
 					}

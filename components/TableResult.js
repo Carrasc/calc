@@ -9,6 +9,7 @@ import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import { GeneralContext } from '../Context/GeneralContext';
 
 const Accordion = styled((props) => (
 	<MuiAccordion disableGutters elevation={0} square {...props} />
@@ -54,9 +55,8 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function TableResult({ value = '' }) {
+	const { times } = React.useContext(GeneralContext);
 	// usage
-	const [state, setState] = useState('second');
-
 	// const renderMenu = (menu) => {
 	// 	return menu.map((item) => (
 	// 		<>
@@ -77,7 +77,6 @@ export default function TableResult({ value = '' }) {
 	// };
 	const renderMenu = (menu) => {
 		return menu.map((item, index) => {
-			// console.log(index, item.name);
 			return (
 				<div
 					className={'w-full my-2'}
@@ -85,7 +84,7 @@ export default function TableResult({ value = '' }) {
 					// style={{ marginLeft: '50px' }}
 				>
 					{item.children ? (
-						<Accordion expanded>
+						<Accordion>
 							<AccordionSummary
 								expandIcon={<ExpandMoreIcon />}
 								aria-controls="panel1a-content"
@@ -135,7 +134,32 @@ export default function TableResult({ value = '' }) {
 				{/* {traverse(obj, function (k, v) {
 					setState(k);
 				})} */}
+				<p>Proyecto ejecutivo básico:</p>
+
 				{value !== '' && renderMenu(value.components_table)}
+				<p className="mt-10 ">Instalaciones complementarias:</p>
+				{value !== '' && renderMenu(value.extras_table)}
+
+				<p className="mt-10 font-montserrat">
+					Costo por BIM:{' '}
+					<span className=" font-montserrat-bold">
+						{formatter.format(value.bim_cost)} MXN
+					</span>
+				</p>
+				<p className=" font-montserrat">
+					{`Costo por ${times.value} repeticiones`}:{' '}
+					<span className=" font-montserrat-bold">
+						{formatter.format(value.reps_cost)} MXN
+					</span>
+				</p>
+				<p className=" font-montserrat">
+					{`Costo por contrataciones de DRO`}:{' '}
+					<span className=" font-montserrat-bold">
+						{formatter.format(value.reps_cost)} MXN
+					</span>
+				</p>
+				{value !== '' && renderMenu(value.dro_table)}
+
 				{/* {value.components_table.map((item, index) => {
 					{
 						Object.keys(item).forEach(function (key, index) {

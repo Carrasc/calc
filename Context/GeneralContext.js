@@ -36,7 +36,6 @@ export default function GeneralProvider({ children }) {
 	});
 	const [peopleSelected, setPeopleSelected] = useState([]);
 	const [scopes, set_scopes] = useState([]);
-	console.log({ peopleSelected });
 	return (
 		<GeneralContext.Provider
 			value={{

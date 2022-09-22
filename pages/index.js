@@ -39,6 +39,7 @@ export default function Home() {
 					Calcular
 				</button>
 			</div>
+			{value && <TableResult value={value} />}
 		</div>
 	);
 }
