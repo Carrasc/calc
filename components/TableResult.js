@@ -60,7 +60,7 @@ export default function TableResult({ value = '' }) {
 				{/* {traverse(obj, function (k, v) {
 					setState(k);
 				})} */}
-				{renderMenu(value.components_table)}
+				{value !== '' && renderMenu(value.components_table)}
 				{/* {value.components_table.map((item, index) => {
 					{
 						Object.keys(item).forEach(function (key, index) {
