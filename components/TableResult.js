@@ -56,33 +56,11 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 export default function TableResult({ value = '' }) {
 	const { times } = React.useContext(GeneralContext);
-	// usage
-	// const renderMenu = (menu) => {
-	// 	return menu.map((item) => (
-	// 		<>
-	// 			{item.children ? (
-	// 				<div className="menu-item sub-nav">
-	// 					{item.name}
-	// 					<div className="menu-container">
-	// 						{renderMenu(item.children)}
-	// 					</div>
-	// 				</div>
-	// 			) : (
-	// 				<div className="menu-item">
-	// 					<a href={item.url}>{item.name}</a>
-	// 				</div>
-	// 			)}
-	// 		</>
-	// 	));
-	// };
+
 	const renderMenu = (menu) => {
 		return menu.map((item, index) => {
 			return (
-				<div
-					className={'w-full my-2'}
-					key={index}
-					// style={{ marginLeft: '50px' }}
-				>
+				<div className={'w-full my-2'} key={index}>
 					{item.children ? (
 						<Accordion>
 							<AccordionSummary
@@ -106,11 +84,6 @@ export default function TableResult({ value = '' }) {
 							{item.name} - {formatter.format(item.value)}
 						</p>
 					)}
-					{/*<div className="flex justify-between w-full">
-            <p>{item.name}</p>
-            <p>{formatter.format(item.value)}</p>
-			</div>
-          {item.children && renderMenu(item.children)}*/}
 				</div>
 			);
 		});

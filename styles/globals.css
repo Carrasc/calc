@@ -35,7 +35,8 @@
   
   
 #progressBar {
-    background: linear-gradient(to left, red, violet);
+    /* background: linear-gradient(to left, red, violet); */
+    background-color: #7AC279;
     transform-origin: top left;
     transform: scale(0,0);
     opacity: 0;

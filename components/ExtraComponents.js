@@ -7,13 +7,14 @@ import { GeneralContext } from '../Context/GeneralContext';
 
 export default function ExtraComponents() {
 	const { scopes, set_scopes } = React.useContext(GeneralContext);
+	// console.log({ scopes });
 	const handleChange = (event, item) => {
 		const temp_array = [...scopes];
 		if (event.target.checked) {
-			temp_array.push(item.label);
+			temp_array.push(item.value);
 			set_scopes(temp_array);
 		} else {
-			const index = temp_array.indexOf(item.label);
+			const index = temp_array.indexOf(item.value);
 			if (index > -1) {
 				// only splice array when item is found
 				temp_array.splice(index, 1); // 2nd parameter means remove one item only

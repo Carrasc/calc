@@ -2,7 +2,7 @@ export const BIM_values = [
 	{
 		code: '',
 		title: 'No se utilizará BIM',
-		value: null,
+		value: 1,
 	},
 	{
 		code: '',
