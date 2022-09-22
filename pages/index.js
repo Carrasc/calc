@@ -10,6 +10,8 @@ import Brief from '../components/Brief';
 import ExtraComponents from '../components/ExtraComponents';
 import PrintComponent from '../components/PrintComponent';
 import Testing from '../components/Test';
+import ExtraPeople from '../components/ExtraPeople';
+import TableResult from '../components/TableResult';
 export default function Home() {
 	const [value, setValue] = useState(undefined);
 	return (
@@ -20,12 +22,14 @@ export default function Home() {
 			<ProyectPlans />
 			<ExtraComponents />
 			<BIMView />
+			<ExtraPeople />
 			<TimesOfProyect />
 			<Testing value={value} setValue={setValue} />
 			<PrintComponent>
-				<pre>{value && JSON.stringify(value, null, 2)}</pre>
+				{/* <pre>{value && JSON.stringify(value, null, 2)}</pre> */}
 			</PrintComponent>
 			<Brief />
+			<TableResult value={value} />
 		</div>
 	);
 }

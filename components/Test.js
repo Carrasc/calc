@@ -24,7 +24,7 @@ export default function Testing({ setValue, value }) {
 				>
 					Calculadora
 				</button>
-				<pre>{value && JSON.stringify(value, null, 2)}</pre>
+				{/* <pre>{value && JSON.stringify(value, null, 2)}</pre> */}
 			</div>
 		</div>
 	);

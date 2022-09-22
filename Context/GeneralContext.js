@@ -35,7 +35,7 @@ export default function GeneralProvider({ children }) {
 		value: 0,
 	});
 	const [scopes, set_scopes] = useState([]);
-
+	console.log({ lag_margin });
 	return (
 		<GeneralContext.Provider
 			value={{

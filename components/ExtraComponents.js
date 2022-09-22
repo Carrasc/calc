@@ -3,6 +3,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import extraInstalation from '../Data/IC.json';
+import { GeneralContext } from '../Context/GeneralContext';
 
 export default function ExtraComponents() {
 	const { scopes, set_scopes } = React.useContext(GeneralContext);
