@@ -125,7 +125,7 @@ function _calculatePlan(h, table) {
         plan_table.push({
           name: parent.name,
           value: h * parent.value,
-          children: children_values,
+          ...(children_values.length > 0 && { children: children_values }),
         });
 
         acc_total = acc_total + h * parent.value;

@@ -157,7 +157,7 @@ function _calculatePlan(h_ajustado, table) {
     new_table.push({
       name: parent.name,
       value: h_ajustado * parent.value,
-      children: children_values,
+      ...(children_values.length > 0 && { children: children_values }),
     });
     acc_total = acc_total + h_ajustado * parent.value;
   }
