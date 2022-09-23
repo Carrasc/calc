@@ -11,7 +11,15 @@ import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import { GeneralContext } from '../Context/GeneralContext';
 import ReactToPrint from 'react-to-print';
-
+import {
+	Link,
+	DirectLink,
+	Element,
+	Events,
+	animateScroll as scroll,
+	scrollSpy,
+	scroller,
+} from 'react-scroll';
 const Accordion = styled((props) => (
 	<MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -57,28 +65,35 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function TableResult({ value = '' }) {
-	const { times } = React.useContext(GeneralContext);
-	const [expanded, setExpanded] = useState(false);
+	const { times, resetValues } = React.useContext(GeneralContext);
+	const [expanded_, setExpanded] = useState(false);
 	const handleChange = (event, isExpanded) => {
 		// console.log(isExpanded);
 		setExpanded(isExpanded);
 	};
 	const renderMenu = (menu) => {
+		const otherProps = {
+			...(expanded_ && { expanded: true }),
+		};
 		return menu.map((item, index) => {
 			return (
 				<div className={'w-full my-3'} key={index}>
 					{item.children ? (
 						<Accordion
-						// expanded={(prev) => console.log(prev)}
-						// (expanded ? true : prev)}
-						// onChange={handleChange}
+							// {...otherProps}
+							expanded={expanded_ ? true : undefined}
+							// {...expanded_ && expanded = {true} }
+							// expanded={(prev) => console.log(prev)}
+							// (expanded ? true : prev)}
+							// onChange={handleChange}
 						>
 							<AccordionSummary
 								expandIcon={<ExpandMoreIcon />}
 								aria-controls="panel1a-content"
+								className="print:bg-white"
 								id="panel1a-header"
 							>
-								<div className="flex justify-between w-full">
+								<div className="flex justify-between w-full print:text-black">
 									<p>{item.name}</p>
 									<p className="pr-4">
 										{formatter.format(item.value)}
@@ -93,10 +108,10 @@ export default function TableResult({ value = '' }) {
 						</Accordion>
 					) : (
 						<div className="py-[1px] flex justify-between w-full">
-							<p className="pl-6 font-[Montserrat] text-sm text-miluno-white ">
+							<p className="pl-6 font-[Montserrat] text-sm  print:text-black text-miluno-white ">
 								{item.name}
 							</p>
-							<p className="pr-14 font-[Montserrat] text-sm text-miluno-white ">
+							<p className="pr-14 font-[Montserrat] text-sm  print:text-black text-miluno-white ">
 								{formatter.format(item.value)}
 							</p>
 						</div>
@@ -122,7 +137,9 @@ export default function TableResult({ value = '' }) {
 
 	const handleOnBeforeGetContent = React.useCallback(() => {
 		console.log('`onBeforeGetContent` called');
+		setExpanded(true);
 		setLoading(true);
+
 		setText('Loading new text...');
 
 		return new Promise((resolve) => {
@@ -199,15 +216,15 @@ export default function TableResult({ value = '' }) {
 			)}
 			<div
 				ref={componentRef}
-				className="flex flex-col  max-w-2xl mx-auto  w-full min-h-[80vh] mt-64 print:mt-0 print:pt-20"
+				className="flex flex-col print:w-full print:bg-white  max-w-2xl mx-auto  w-full min-h-[80vh] mt-64 print:mt-0 print:pt-20"
 			>
-				<p className="my-2 font-[Montserrat] text-sm text-miluno-white ">
+				<p className="my-2 font-[Montserrat] print:text-black text-sm text-miluno-white ">
 					Costo total por honorarios:{' '}
 					<span className=" font-montserrat-bold">
 						{formatter.format(value.final_cost)} MXN
 					</span>
 				</p>
-				<p className="font-[Montserrat] text-sm text-miluno-white ">
+				<p className="font-[Montserrat]  print:text-black text-sm text-miluno-white ">
 					Costo de obra:{' '}
 					<span className=" font-montserrat-bold">
 						{formatter.format(value.work_cost)} MXN
@@ -217,29 +234,29 @@ export default function TableResult({ value = '' }) {
 					{/* {traverse(obj, function (k, v) {
 					setState(k);
 				})} */}
-					<p className="mt-8 font-[Montserrat] text-sm text-miluno-white ">
+					<p className="mt-8 font-[Montserrat]  print:text-black text-sm text-miluno-white ">
 						Proyecto ejecutivo básico:
 					</p>
 
 					{value !== '' && renderMenu(value.components_table)}
-					<p className=" mt-10 mb-4 font-[Montserrat] text-sm text-miluno-white ">
+					<p className=" mt-10 mb-4 font-[Montserrat]  print:text-black text-sm text-miluno-white ">
 						Instalaciones complementarias:
 					</p>
 					{value !== '' && renderMenu(value.extras_table)}
 
-					<p className="pt-6 my-2 font-[Montserrat] text-sm text-miluno-white ">
+					<p className="pt-6 my-2 font-[Montserrat]  print:text-black text-sm text-miluno-white ">
 						Costo por BIM:{' '}
 						<span className=" font-montserrat-bold">
 							{formatter.format(value.bim_cost)} MXN
 						</span>
 					</p>
-					<p className="my-2 font-[Montserrat] text-sm text-miluno-white ">
+					<p className="my-2 font-[Montserrat] text-sm  print:text-black text-miluno-white ">
 						{`Costo por ${times.value} repeticiones`}:{' '}
 						<span className=" font-montserrat-bold">
 							{formatter.format(value.reps_cost)} MXN
 						</span>
 					</p>
-					<p className=" my-2 font-[Montserrat] text-sm text-miluno-white ">
+					<p className=" my-2 font-[Montserrat] text-sm  print:text-black text-miluno-white ">
 						{`Costo por contrataciones de DRO`}:{' '}
 						<span className=" font-montserrat-bold">
 							{formatter.format(value.reps_cost)} MXN
@@ -256,6 +273,14 @@ export default function TableResult({ value = '' }) {
 					}
 				})} */}
 				</div>
+				{/* <div className="flex justify-center w-full mt-20 print:hidden">
+						<button
+							className={`flex items-center hover:border-miluno-green border-miluno-gray justify-center px-4 py-2 transition duration-300 ease-in-out border-2 rounded-md w-44  font-montserrat `}
+							onClick={resetValues}
+						>
+							Resetear valores
+						</button>
+					</div> */}
 			</div>
 		</div>
 	);

@@ -1,6 +1,6 @@
 import TypeAndSize from '../components/TypeAndSize';
 import TypeOfProyects from '../components/TypeOfProyects';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { GeneralContext } from '../Context/GeneralContext';
 import EstadosYMunicipios from '../components/EstadosYMunicipios';
 import ProyectPlans from '../components/ProyectPlans';
@@ -15,6 +15,15 @@ import TableResult from '../components/TableResult';
 import ScrollBar from '../components/ScrollBar';
 import calculateCosts from '../libs/calculator';
 import PrintComponentCool from '../components/PrintComponentCool';
+import {
+	Link,
+	DirectLink,
+	Element,
+	Events,
+	animateScroll as scroll,
+	scrollSpy,
+	scroller,
+} from 'react-scroll';
 export default function Home() {
 	const [value, setValue] = useState(undefined);
 	const {
@@ -28,8 +37,20 @@ export default function Home() {
 		scopes,
 		peopleSelected,
 	} = useContext(GeneralContext);
+	const test = (53, 1.76, 1.3, 0.9, 1.16, [], 1.15, 0, 'DRO + CDUYA');
+	useEffect(() => {
+		Events.scrollEvent.register('begin', function () {
+			// console.log('begin', arguments);
+		});
+
+		Events.scrollEvent.register('end', function () {
+			// console.log('end', arguments);
+		});
+
+		scrollSpy.update();
+	}, []);
 	return (
-		<div className=" w-full py-20 max-w-6xl mx-auto px-10  font-[Montserrat-bold]">
+		<div className=" w-full py-20 max-w-6xl mx-auto px-10 print:bg-white  font-[Montserrat-bold]">
 			<ScrollBar />
 			<TypeOfProyects />
 			<TypeAndSize />
@@ -76,6 +97,15 @@ export default function Home() {
 								bim_selection.value,
 								times.value,
 								peopleSelected.join(' + ') || null
+								// 53,
+								// 1.76,
+								// 1.3,
+								// 0.9,
+								// 1.16,
+								// [],
+								// 1.15,
+								// 0,
+								// 'DRO + CDUyA'
 							)
 						)
 					}
