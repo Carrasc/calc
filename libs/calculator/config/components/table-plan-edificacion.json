@@ -31,7 +31,7 @@
   },
   {
     "name": "Proyecto Estructural Ejecutivo",
-    "value": 0.5,
+    "value": 0.05,
     "children": [
       {
         "name": "Planta(s) de cimentación a detalle, secciones, armados, dimensiones, niveles, nodos, etc.",
@@ -49,7 +49,7 @@
   },
   {
     "name": "Proyecto Hidrosanitario y Gas Ejecutivo",
-    "value": 0.5,
+    "value": 0.05,
     "children": [
       {
         "name": "Planta(s) por nivel con redes hidráulicas, sanitarias y de gas necesarias con información detallada (diámetros, pendientes, etc.)",
@@ -67,7 +67,7 @@
   },
   {
     "name": "Proyecto Electromecánico Ejecutivo",
-    "value": 0.5,
+    "value": 0.05,
     "children": [
       {
         "name": "Planta(s) por nivel con redes de contactos, fuerza e iluminación necesarias con información detallada (cableados, tuberías, tableros, etc.)",
@@ -85,7 +85,7 @@
   },
   {
     "name": "Catálogo de conceptos y programa preliminar de obra",
-    "value": 0.3,
+    "value": 0.03,
     "children": [
       {
         "name": "Catálogo de conceptos con números generadores de cada concepto (volúmenes) de los trabajos que constituyen el proyecto ejecutivo",
