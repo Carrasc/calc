@@ -73,6 +73,7 @@ export default function CustomSelector({
 	disabled,
 	required,
 	name,
+	selectedValue,
 	setIndex = () => {},
 	setSelectedValue = () => {},
 }) {
@@ -86,8 +87,13 @@ export default function CustomSelector({
 	const [selected, setSelected] = React.useState('');
 
 	const handleChangeType = (event) => {
+		console.log(event.target.value);
 		setSelected(event.target.value);
 	};
+
+	// const handleChangeType = (event) => {
+	// 	setSelectedValue(event.target.value);
+	// };
 
 	return (
 		<Controller
@@ -102,9 +108,10 @@ export default function CustomSelector({
 							disabled={disabled}
 							label=""
 							MenuProps={MenuProps}
-							value={selected}
+							// value={selected}
+							value={selectedValue}
 							onChange={(e) => {
-								handleChangeType(e);
+								// handleChangeType(e);
 								onChange(e.target.value);
 							}}
 							sx={{ maxWidth: '100%', minWidth: 300 }}

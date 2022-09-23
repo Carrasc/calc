@@ -7,7 +7,7 @@ import rezago from '../Data/Rezago.json';
 export default function EstadosYMunicipios() {
 	const [estado_index, set_estado_index] = useState(-1);
 	const [municipio_index, set_municipio_index] = useState(0);
-	const { set_lag_margin } = useContext(GeneralContext);
+	const { set_lag_margin, lag_margin } = useContext(GeneralContext);
 	// console.log({ rezago });
 	const {
 		register,
@@ -43,6 +43,7 @@ export default function EstadosYMunicipios() {
 				required={true}
 				setSelectedValue={handleEstado}
 				setIndex={set_estado_index}
+				selectedValue={lag_margin.estado}
 				// disabled={selected === undefined}
 				items={irs}
 			/>
@@ -53,6 +54,7 @@ export default function EstadosYMunicipios() {
 			<CustomSelector
 				name="municipio"
 				control={control}
+				selectedValue={lag_margin.municipio}
 				required={true}
 				setIndex={set_municipio_index}
 				setSelectedValue={handleMunicipio}

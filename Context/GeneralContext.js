@@ -8,6 +8,7 @@ export default function GeneralProvider({ children }) {
 		type: '',
 		son: '',
 		value: 0,
+		index: '',
 	});
 	const [typeOfProject, setTypeOfProject] = useState({
 		title: '',
@@ -26,6 +27,7 @@ export default function GeneralProvider({ children }) {
 		item: { titles: [] },
 		value: 0,
 		id: '',
+		index: '',
 	});
 	const [times, setTimes] = useState({
 		value: 0,
@@ -36,6 +38,44 @@ export default function GeneralProvider({ children }) {
 	});
 	const [peopleSelected, setPeopleSelected] = useState([]);
 	const [scopes, set_scopes] = useState([]);
+	console.log({ gender });
+	const resetValues = () => {
+		console.log('entra');
+		setGender({
+			type: '',
+			son: '',
+			value: 0,
+			index: '',
+		});
+		setTypeOfProject({
+			title: '',
+			value: 0,
+		});
+		setSurface({
+			value: 0,
+		});
+		set_lag_margin({
+			estado: '',
+			municipio: '',
+			value: 0,
+			title: '',
+		});
+		setPlan({
+			item: { titles: [] },
+			value: 0,
+			id: '',
+			index: '',
+		});
+		setTimes({
+			value: 0,
+		});
+		set_bim_selection({
+			title: '',
+			value: 0,
+		});
+		setPeopleSelected([]);
+		set_scopes([]);
+	};
 	return (
 		<GeneralContext.Provider
 			value={{
@@ -59,6 +99,7 @@ export default function GeneralProvider({ children }) {
 				set_lag_margin,
 				setTimes,
 				set_bim_selection,
+				resetValues,
 			}}
 		>
 			{children}

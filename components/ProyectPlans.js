@@ -12,11 +12,11 @@ export default function ProyectPlans() {
 			</p>
 
 			<div className="grid grid-cols-2 gap-5 mt-10 md:grid-cols-4 ">
-				{plans.map((plan, index) => (
+				{plans.map((plan_, index) => (
 					<div
 						onClick={() => {
-							if (selected === index) {
-								setSelected('');
+							if (plan.index === index) {
+								// setSelected('');
 								setPlan((prevState) => ({
 									...prevState,
 									item: {
@@ -24,25 +24,27 @@ export default function ProyectPlans() {
 									},
 									id: '',
 									value: 0,
+									index: '',
 								}));
 							} else {
-								setSelected(index);
+								// setSelected(index);
 								setPlan((prevState) => ({
 									...prevState,
-									id: plan.id,
-									item: plan,
-									value: plan.value,
+									id: plan_.id,
+									item: plan_,
+									value: plan_.value,
+									index: index,
 								}));
 							}
 						}}
 						key={index}
 						className={`flex cursor-pointer flex-col items-center justify-center w-full p-2  aspect-square rounded-xl ${
-							selected === index
+							plan.index === index
 								? ' border-miluno-green border-2'
 								: 'border-2 border-miluno-gray'
 						} `}
 					>
-						{plan.titles.map((title, index) => (
+						{plan_.titles.map((title, index) => (
 							<p
 								className="text-sm text-center font-montserrat text-miluno-white"
 								key={index}
