@@ -214,58 +214,57 @@ export default function TableResult({ value = '' }) {
 					</p>
 				</div>
 			)}
-			<Element name="table">
-				<div
-					ref={componentRef}
-					className="flex flex-col print:w-full print:bg-white  max-w-2xl mx-auto  w-full min-h-[80vh] mt-64 print:mt-0 print:pt-20"
-				>
-					<p className="my-2 font-[Montserrat] print:text-black text-sm text-miluno-white ">
-						Costo total por honorarios:{' '}
-						<span className=" font-montserrat-bold">
-							{formatter.format(value.final_cost)} MXN
-						</span>
-					</p>
-					<p className="font-[Montserrat]  print:text-black text-sm text-miluno-white ">
-						Costo de obra:{' '}
-						<span className=" font-montserrat-bold">
-							{formatter.format(value.work_cost)} MXN
-						</span>
-					</p>
-					<div>
-						{/* {traverse(obj, function (k, v) {
+			<div
+				ref={componentRef}
+				className="flex flex-col print:w-full print:bg-white  max-w-2xl mx-auto  w-full min-h-[80vh] mt-64 print:mt-0 print:pt-20"
+			>
+				<p className="my-2 font-[Montserrat] print:text-black text-sm text-miluno-white ">
+					Costo total por honorarios:{' '}
+					<span className=" font-montserrat-bold">
+						{formatter.format(value.final_cost)} MXN
+					</span>
+				</p>
+				<p className="font-[Montserrat]  print:text-black text-sm text-miluno-white ">
+					Costo de obra:{' '}
+					<span className=" font-montserrat-bold">
+						{formatter.format(value.work_cost)} MXN
+					</span>
+				</p>
+				<div>
+					{/* {traverse(obj, function (k, v) {
 					setState(k);
 				})} */}
-						<p className="mt-8 font-[Montserrat]  print:text-black text-sm text-miluno-white ">
-							Proyecto ejecutivo básico:
-						</p>
+					<p className="mt-8 font-[Montserrat]  print:text-black text-sm text-miluno-white ">
+						Proyecto ejecutivo básico:
+					</p>
 
-						{value !== '' && renderMenu(value.components_table)}
-						<p className=" mt-10 mb-4 font-[Montserrat]  print:text-black text-sm text-miluno-white ">
-							Instalaciones complementarias:
-						</p>
-						{value !== '' && renderMenu(value.extras_table)}
+					{value !== '' && renderMenu(value.components_table)}
+					<p className=" mt-10 mb-4 font-[Montserrat]  print:text-black text-sm text-miluno-white ">
+						Instalaciones complementarias:
+					</p>
+					{value !== '' && renderMenu(value.extras_table)}
 
-						<p className="pt-6 my-2 font-[Montserrat]  print:text-black text-sm text-miluno-white ">
-							Costo por BIM:{' '}
-							<span className=" font-montserrat-bold">
-								{formatter.format(value.bim_cost)} MXN
-							</span>
-						</p>
-						<p className="my-2 font-[Montserrat] text-sm  print:text-black text-miluno-white ">
-							{`Costo por ${times.value} repeticiones`}:{' '}
-							<span className=" font-montserrat-bold">
-								{formatter.format(value.reps_cost)} MXN
-							</span>
-						</p>
-						<p className=" my-2 font-[Montserrat] text-sm  print:text-black text-miluno-white ">
-							{`Costo por contrataciones de DRO`}:{' '}
-							<span className=" font-montserrat-bold">
-								{formatter.format(value.reps_cost)} MXN
-							</span>
-						</p>
-						{value !== '' && renderMenu(value.dro_table)}
+					<p className="pt-6 my-2 font-[Montserrat]  print:text-black text-sm text-miluno-white ">
+						Costo por BIM:{' '}
+						<span className=" font-montserrat-bold">
+							{formatter.format(value.bim_cost)} MXN
+						</span>
+					</p>
+					<p className="my-2 font-[Montserrat] text-sm  print:text-black text-miluno-white ">
+						{`Costo por ${times.value} repeticiones`}:{' '}
+						<span className=" font-montserrat-bold">
+							{formatter.format(value.reps_cost)} MXN
+						</span>
+					</p>
+					<p className=" my-2 font-[Montserrat] text-sm  print:text-black text-miluno-white ">
+						{`Costo por contrataciones de DRO`}:{' '}
+						<span className=" font-montserrat-bold">
+							{formatter.format(value.reps_cost)} MXN
+						</span>
+					</p>
+					{value !== '' && renderMenu(value.dro_table)}
 
-						{/* {value.components_table.map((item, index) => {
+					{/* {value.components_table.map((item, index) => {
 					{
 						Object.keys(item).forEach(function (key, index) {
 							console.log('value', item[key]);
@@ -273,17 +272,16 @@ export default function TableResult({ value = '' }) {
 						});
 					}
 				})} */}
-					</div>
-					<div className="flex justify-center w-full mt-20 print:hidden">
+				</div>
+				{/* <div className="flex justify-center w-full mt-20 print:hidden">
 						<button
 							className={`flex items-center hover:border-miluno-green border-miluno-gray justify-center px-4 py-2 transition duration-300 ease-in-out border-2 rounded-md w-44  font-montserrat `}
 							onClick={resetValues}
 						>
 							Resetear valores
 						</button>
-					</div>
-				</div>
-			</Element>
+					</div> */}
+			</div>
 		</div>
 	);
 }
