@@ -67,7 +67,7 @@ export default function Home() {
             src={logo}
             alt="Logo-CAMSAM"
             width={150}
-            height={60}
+            height={40}
             objectFit="contain"
             // layout="responsive"
             layout="fixed"
