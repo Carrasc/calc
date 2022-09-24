@@ -8,19 +8,19 @@
   {
     "order": 1,
     "value": "CE",
-    "label": "Corresponsables en Estructuras (CE)",
+    "label": "Corresponsables en Seguridad Estructural (CSE)",
     "isChecked": false
   },
   {
     "order": 2,
     "value": "CI",
-    "label": "Instalaciones (CI)",
+    "label": "Corresponsable de Instalaciones (CI)",
     "isChecked": false
   },
   {
     "order": 3,
-    "value": "CDUYA",
-    "label": "Desarrollo Urbano y Arquitectura (CDUyA)",
+    "value": "CDUyA",
+    "label": "Corresponsable de Desarrollo Urbano y Arquitectura (CDUyA)",
     "isChecked": false
   }
 ]

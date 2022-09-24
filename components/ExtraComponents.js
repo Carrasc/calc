@@ -22,10 +22,20 @@ export default function ExtraComponents() {
 			}
 		}
 	};
+	const checkValues = (item) => {
+		const found = scopes.find((element) => element === item.value);
+		if (found !== undefined) {
+			return true;
+		}
+		return false;
+	};
 	return (
 		<div className="py-10">
-			<p className="text-center mb-6 font-[Montserrat-bold] text-sm text-miluno-white ">
+			<p className="text-center mb-2 font-[Montserrat-bold] text-sm text-miluno-white ">
 				¿Que alcances extras se tienen en consideracion?
+			</p>
+			<p className="text-center mb-6 font-[Montserrat] text-xs text-miluno-white ">
+				(Puede no seleccionar ninguno o varios)
 			</p>
 			<div className="grid grid-cols-1 gap-5 mt-10 md:grid-cols-3">
 				{extraInstalation.map((item, index) => (
@@ -44,6 +54,7 @@ export default function ExtraComponents() {
 							}
 							control={
 								<Checkbox
+									checked={checkValues(item)}
 									onChange={(e) => handleChange(e, item)}
 									sx={{
 										color: '#707070',

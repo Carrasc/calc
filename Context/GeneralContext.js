@@ -3,11 +3,18 @@ import React, { createContext, useEffect, useState } from 'react';
 export const GeneralContext = createContext();
 
 export default function GeneralProvider({ children }) {
+	const firstState = [
+		{ checked: false },
+		{ checked: false },
+		{ checked: false },
+		{ checked: false },
+	];
 	const [generalValue, setGeneralValue] = useState({});
 	const [gender, setGender] = useState({
 		type: '',
 		son: '',
 		value: 0,
+		index: '',
 	});
 	const [typeOfProject, setTypeOfProject] = useState({
 		title: '',
@@ -26,6 +33,7 @@ export default function GeneralProvider({ children }) {
 		item: { titles: [] },
 		value: 0,
 		id: '',
+		index: '',
 	});
 	const [times, setTimes] = useState({
 		value: 0,
@@ -35,7 +43,48 @@ export default function GeneralProvider({ children }) {
 		value: 0,
 	});
 	const [peopleSelected, setPeopleSelected] = useState([]);
+	const [people, setPeople] = useState(firstState);
+
 	const [scopes, set_scopes] = useState([]);
+	console.log({ gender });
+	const resetValues = () => {
+		console.log('entra');
+		setGender({
+			type: '',
+			son: '',
+			value: 0,
+			index: '',
+		});
+		setTypeOfProject({
+			title: '',
+			value: 0,
+		});
+		setSurface({
+			value: 0,
+		});
+		set_lag_margin({
+			estado: '',
+			municipio: '',
+			value: 0,
+			title: '',
+		});
+		setPlan({
+			item: { titles: [] },
+			value: 0,
+			id: '',
+			index: '',
+		});
+		setTimes({
+			value: 0,
+		});
+		set_bim_selection({
+			title: '',
+			value: 0,
+		});
+		setPeopleSelected([]);
+		set_scopes([]);
+		setPeople(firstState);
+	};
 	return (
 		<GeneralContext.Provider
 			value={{
@@ -49,6 +98,8 @@ export default function GeneralProvider({ children }) {
 				bim_selection,
 				scopes,
 				peopleSelected,
+				people,
+				setPeople,
 				setPeopleSelected,
 				set_scopes,
 				setPlan,
@@ -59,6 +110,7 @@ export default function GeneralProvider({ children }) {
 				set_lag_margin,
 				setTimes,
 				set_bim_selection,
+				resetValues,
 			}}
 		>
 			{children}

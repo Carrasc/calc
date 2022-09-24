@@ -2,6 +2,7 @@ import React from "react";
 import InputBase from "@mui/material/InputBase";
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
+import InputAdornment from "@mui/material/InputAdornment";
 
 const CustomTextField = styled(TextField)({
   "& .MuiInputBase-input": {
@@ -39,9 +40,18 @@ const CustomTextField = styled(TextField)({
     },
   },
 });
-export default function MilUnoTextField({ handleChange = () => {} }) {
+export default function MilUnoTextField({
+  handleChange = () => {},
+  defaultVal,
+  value,
+}) {
   return (
     <CustomTextField
+      defaultValue={defaultVal}
+      value={value}
+      InputProps={{
+        inputProps: { min: 0 },
+      }}
       onChange={handleChange}
       id="sizeOfProject"
       label=""

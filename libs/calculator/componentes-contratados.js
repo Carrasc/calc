@@ -137,7 +137,7 @@ export function calculateCC(h, ajuste_cc) {
  */
 function _calculatePlan(h_ajustado, table) {
   let new_table = [];
-  let acc_total = h_ajustado;
+  let acc_total = 0;
   // let aux = 0;
   for (let i = 0; i < table.length; i++) {
     const parent = table[i];
@@ -159,7 +159,7 @@ function _calculatePlan(h_ajustado, table) {
       value: h_ajustado * parent.value,
       ...(children_values.length > 0 && { children: children_values }),
     });
-    acc_total = acc_total + h_ajustado * parent.value;
+    acc_total += h_ajustado * parent.value;
   }
   // console.log("aux", aux);
 

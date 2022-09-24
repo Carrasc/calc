@@ -97,7 +97,7 @@ export function calculateIC(h, extras) {
  */
 function _calculatePlan(h, table) {
   let new_table = [];
-  let acc_total = h;
+  let acc_total = 0;
   // let aux = 0;
   const keys = Object.keys(table);
 
@@ -128,7 +128,7 @@ function _calculatePlan(h, table) {
           ...(children_values.length > 0 && { children: children_values }),
         });
 
-        acc_total = acc_total + h * parent.value;
+        acc_total += h * parent.value;
       }
     }
     new_table.push({

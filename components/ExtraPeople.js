@@ -6,7 +6,8 @@ import extraPeople from '../Data/People.json';
 import { GeneralContext } from '../Context/GeneralContext';
 
 export default function ExtraPeople() {
-	const { setPeopleSelected } = React.useContext(GeneralContext);
+	const { setPeopleSelected, setPeople, people } =
+		React.useContext(GeneralContext);
 
 	const firstState = [
 		{ checked: false },
@@ -14,7 +15,7 @@ export default function ExtraPeople() {
 		{ checked: false },
 		{ checked: false },
 	];
-	const [people, setPeople] = React.useState(firstState);
+	//   const [people, setPeople] = React.useState(firstState);
 	const addPeople = (pips) => {
 		var temp_array = [];
 		var index = 0;
@@ -40,10 +41,13 @@ export default function ExtraPeople() {
 	};
 
 	return (
-		<div className="py-20">
-			<p className="text-center mb-6 font-[Montserrat-bold] text-sm text-miluno-white ">
+		<div className="py-20 min-h-[50vh]">
+			<p className="text-center mb-2 font-[Montserrat-bold] text-sm text-miluno-white ">
 				¿El proyecto requiere de figuras auxiliares de la administración
 				pública?
+			</p>
+			<p className="text-center mb-6 font-[Montserrat] text-xs text-miluno-white ">
+				(Puede no seleccionar ninguno o varios)
 			</p>
 			<div className="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2">
 				{extraPeople.map((item, index) => (
