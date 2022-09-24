@@ -1,6 +1,6 @@
 import TypeAndSize from '../components/TypeAndSize';
 import TypeOfProyects from '../components/TypeOfProyects';
-import { useContext, useEffect, useState } from 'react';
+import { createRef, useContext, useEffect, useRef, useState } from 'react';
 import { GeneralContext } from '../Context/GeneralContext';
 import EstadosYMunicipios from '../components/EstadosYMunicipios';
 import ProyectPlans from '../components/ProyectPlans';
@@ -15,16 +15,11 @@ import TableResult from '../components/TableResult';
 import ScrollBar from '../components/ScrollBar';
 import calculateCosts from '../libs/calculator';
 import PrintComponentCool from '../components/PrintComponentCool';
-import {
-	Link,
-	DirectLink,
-	Element,
-	Events,
-	animateScroll as scroll,
-	scrollSpy,
-	scroller,
-} from 'react-scroll';
+import { Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
+import logo from '../Images/cam-sam-logo.png';
+import Image from 'next/image';
 export default function Home() {
+	const myRef = useRef();
 	const [value, setValue] = useState(undefined);
 	const {
 		gender,
@@ -49,8 +44,35 @@ export default function Home() {
 
 		scrollSpy.update();
 	}, []);
+	const scroll_to_top = () => {
+		window.scrollTo(0, 0);
+		// myRef.current.scrollTo(0, 0);
+	};
+	const executeScroll = () => myRef.current.scrollIntoView();
+	// const executeScroll = (to) =>
+	// 	window.scrollTo({
+	// 		top: document.getElementById(to)?.offsetTop,
+	// 	});
+	const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+
 	return (
 		<div className=" w-full py-20 max-w-6xl mx-auto px-10 print:bg-white  font-[Montserrat-bold]">
+			<h1 className="text-center ">
+				Calculadora de aranceles de honorarios profesionales por:{' '}
+				<div className="relative ">
+					<Image
+						className=""
+						src={logo}
+						alt="Logo"
+						width={200}
+						height={80}
+						objectFit="contain"
+						// layout="responsive"
+						layout="fixed"
+						priority
+					/>
+				</div>
+			</h1>
 			<ScrollBar />
 			<TypeOfProyects />
 			<TypeAndSize />
@@ -60,11 +82,9 @@ export default function Home() {
 			<BIMView />
 			<ExtraPeople />
 			<TimesOfProyect />
-			{/* <Testing value={value} setValue={setValue} /> */}
-			{/* <PrintComponentCool>
-				{value && <TableResult value={value} />}
-			</PrintComponentCool> */}
 			<Brief />
+			{/* <button onClick={executeScroll}> Click to scroll </button> */}
+
 			<div className="flex items-center justify-center w-full ">
 				<button
 					disabled={
@@ -85,7 +105,7 @@ export default function Home() {
 							? '  border-[#6b6b6b] hover:border-[#6b6b6b] text-[#6b6b6b]'
 							: 'hover:border-miluno-green border-miluno-gray'
 					}`}
-					onClick={() =>
+					onClick={async () => {
 						setValue(
 							calculateCosts(
 								surface.value,
@@ -107,13 +127,27 @@ export default function Home() {
 								// 0,
 								// 'DRO + CDUyA'
 							)
-						)
-					}
+						);
+						await delay(100);
+
+						executeScroll('table');
+					}}
 				>
 					Calcular
 				</button>
 			</div>
-			{value && <TableResult value={value} />}
+			{/* <button onClick={scroll_to_top}>to top</button> */}
+			<div id="table" className=" scroll-mt-20" ref={myRef}>
+				{value && (
+					<TableResult
+						value={value}
+						resetTable={() => {
+							setValue(undefined);
+							scroll_to_top();
+						}}
+					/>
+				)}
+			</div>
 		</div>
 	);
 }

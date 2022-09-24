@@ -3,6 +3,12 @@ import React, { createContext, useEffect, useState } from 'react';
 export const GeneralContext = createContext();
 
 export default function GeneralProvider({ children }) {
+	const firstState = [
+		{ checked: false },
+		{ checked: false },
+		{ checked: false },
+		{ checked: false },
+	];
 	const [generalValue, setGeneralValue] = useState({});
 	const [gender, setGender] = useState({
 		type: '',
@@ -37,6 +43,8 @@ export default function GeneralProvider({ children }) {
 		value: 0,
 	});
 	const [peopleSelected, setPeopleSelected] = useState([]);
+	const [people, setPeople] = useState(firstState);
+
 	const [scopes, set_scopes] = useState([]);
 	console.log({ gender });
 	const resetValues = () => {
@@ -75,6 +83,7 @@ export default function GeneralProvider({ children }) {
 		});
 		setPeopleSelected([]);
 		set_scopes([]);
+		setPeople(firstState);
 	};
 	return (
 		<GeneralContext.Provider
@@ -89,6 +98,8 @@ export default function GeneralProvider({ children }) {
 				bim_selection,
 				scopes,
 				peopleSelected,
+				people,
+				setPeople,
 				setPeopleSelected,
 				set_scopes,
 				setPlan,
