@@ -82,7 +82,7 @@ export default function Brief() {
               item.string !== "0m2" &&
               item.string !== undefined
                 ? "bg-miluno-green"
-                : "bg-miluno-gray"
+                : "bg-[#6b6b6b]"
             }`}
           ></div>
           <div className="text-sm text-end font-montserrat text-miluno-white">

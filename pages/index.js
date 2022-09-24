@@ -57,22 +57,24 @@ export default function Home() {
 
   return (
     <div className="w-full py-20 max-w-6xl mx-auto px-10 print:bg-white  font-[Montserrat-bold]">
-      <div className="w-full inline-block align-middle text-center mb-20 mt-2 border-solid border rounded-md border-miluno-gray">
-        <h1 className="text-center mt-4 font-[Montserrat-light] text-xs text-miluno-gray tracking-wider">
-          Calculadora de aranceles de honorarios profesionales por el
-        </h1>
-        <div className="relative ">
-          <Image
-            className=""
-            src={logo}
-            alt="Logo-CAMSAM"
-            width={150}
-            height={40}
-            objectFit="contain"
-            // layout="responsive"
-            layout="fixed"
-            priority
-          />
+      <div className="flex justify-center">
+        <div className="w-full max-w-xl inline-block align-middle text-center mb-20 mt-2 border-solid border rounded-md border-miluno-gray">
+          <h1 className="text-center mt-4 font-[Montserrat-light] text-xs text-miluno-gray tracking-wider">
+            Calculadora de aranceles de honorarios profesionales por el
+          </h1>
+          <div className="relative ">
+            <Image
+              className=""
+              src={logo}
+              alt="Logo-CAMSAM"
+              width={150}
+              height={40}
+              objectFit="contain"
+              // layout="responsive"
+              layout="fixed"
+              priority
+            />
+          </div>
         </div>
       </div>
       <ScrollBar />
