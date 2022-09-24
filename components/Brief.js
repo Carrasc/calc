@@ -64,7 +64,7 @@ export default function Brief() {
   ];
   return (
     <div className="flex flex-col items-center max-w-2xl mx-auto justify-center w-full min-h-[80vh] mt-64">
-      <p className="text-center mb-12 font-[Montserrat-bold] text-sm text-miluno-white ">
+      <p className="text-center mb-12 font-[Montserrat-bold] text-sm text-miluno-white tracking-wide">
         ¿Están todos los datos en orden?
       </p>
       {data.map((item, index) => (

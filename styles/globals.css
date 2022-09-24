@@ -23,6 +23,18 @@
   font-style: italic;
 }
 
+@font-face {
+  font-family: "Montserrat-light";
+  src: url('../public/fonts/Montserrat/Montserrat-Light.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Montserrat-extralight";
+  src: url('../public/fonts/Montserrat/Montserrat-ExtraLight.ttf');
+  font-weight: normal;
+}
+
 
 #progressBarContainer {
     position: fixed;
