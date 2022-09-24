@@ -64,12 +64,16 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 	fontFamily: 'Montserrat',
 }));
 
-export default function TableResult({ value = '' }) {
+export default function TableResult({ value = '', resetTable }) {
 	const { times, resetValues } = React.useContext(GeneralContext);
 	const [expanded_, setExpanded] = useState(false);
 	const handleChange = (event, isExpanded) => {
 		// console.log(isExpanded);
 		setExpanded(isExpanded);
+	};
+	const handleReset = () => {
+		resetTable();
+		resetValues();
 	};
 	const renderMenu = (menu) => {
 		const otherProps = {
@@ -81,14 +85,15 @@ export default function TableResult({ value = '' }) {
 					{item.children ? (
 						<Accordion
 							// {...otherProps}
-							expanded={expanded_ ? true : undefined}
+							expanded
+							// expanded={expanded_ ? true : undefined}
 							// {...expanded_ && expanded = {true} }
 							// expanded={(prev) => console.log(prev)}
 							// (expanded ? true : prev)}
 							// onChange={handleChange}
 						>
 							<AccordionSummary
-								expandIcon={<ExpandMoreIcon />}
+								expandIcon={false}
 								aria-controls="panel1a-content"
 								className="print:bg-white"
 								id="panel1a-header"
@@ -257,10 +262,7 @@ export default function TableResult({ value = '' }) {
 						</span>
 					</p>
 					<p className=" my-2 font-[Montserrat] text-sm  print:text-black text-miluno-white ">
-						{`Costo por contrataciones de DRO`}:{' '}
-						<span className=" font-montserrat-bold">
-							{formatter.format(value.reps_cost)} MXN
-						</span>
+						{`Costo por contrataciones`}:{' '}
 					</p>
 					{value !== '' && renderMenu(value.dro_table)}
 
@@ -273,14 +275,14 @@ export default function TableResult({ value = '' }) {
 					}
 				})} */}
 				</div>
-				{/* <div className="flex justify-center w-full mt-20 print:hidden">
-						<button
-							className={`flex items-center hover:border-miluno-green border-miluno-gray justify-center px-4 py-2 transition duration-300 ease-in-out border-2 rounded-md w-44  font-montserrat `}
-							onClick={resetValues}
-						>
-							Resetear valores
-						</button>
-					</div> */}
+				<div className="flex justify-center w-full mt-20 print:hidden">
+					<button
+						className={`flex items-center  border-red-500 justify-center px-4 py-2 transition duration-300 ease-in-out border-2 rounded-md w-44  font-montserrat `}
+						onClick={handleReset}
+					>
+						Resetear valores
+					</button>
+				</div>
 			</div>
 		</div>
 	);
