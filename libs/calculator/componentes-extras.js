@@ -133,6 +133,7 @@ function _calculatePlan(h, table) {
     }
     new_table.push({
       name: plan,
+      value: plan_table.reduce((total, child) => total + child.value, 0),
       children: plan_table,
     });
   }

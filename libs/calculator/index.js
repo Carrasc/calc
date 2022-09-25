@@ -1,9 +1,9 @@
-import { getFS } from './factor-superficie';
-import { getCO } from './costo-obra';
-import { calculateCC } from './componentes-contratados';
-import { calculateIC } from './componentes-extras';
-import { calculateRepsCost } from './reps';
-import { calculateDRO } from './responsables-obra';
+import { getFS } from "./factor-superficie";
+import { getCO } from "./costo-obra";
+import { calculateCC } from "./componentes-contratados";
+import { calculateIC } from "./componentes-extras";
+import { calculateRepsCost } from "./reps";
+import { calculateDRO } from "./responsables-obra";
 
 /**
  * Main function
@@ -20,95 +20,82 @@ import { calculateDRO } from './responsables-obra';
  *
  * @returns {Object} - {final_cost: number, work_cost: number, components_table: [], extras_total: [], extras_table: [], bim_cost: number, reps_cost: number ,dro_table: []}
  */
-function calculateCosts(
-	surface,
-	type_construction,
-	modality,
-	town,
-	ajuste_cc,
-	extras,
-	bim,
-	number_reps,
-	responsables
-) {
-	try {
-		console.log('\n Calculating ...', {
-			surface,
-			type_construction,
-			modality,
-			town,
-			ajuste_cc,
-			extras,
-			bim,
-			number_reps,
-			responsables,
-		});
-		if (surface <= 0) throw new Error('Superficie no válida');
+function calculateCosts(surface, type_construction, modality, town, ajuste_cc, extras, bim, number_reps, responsables) {
+  try {
+    console.log("\n Calculating ...", {
+      surface,
+      type_construction,
+      modality,
+      town,
+      ajuste_cc,
+      extras,
+      bim,
+      number_reps,
+      responsables,
+    });
+    if (surface <= 0) throw new Error("Superficie no válida");
 
-		/**
-		 * Factor superficie
-		 */
-		const fs = getFS(surface);
-		/**
-		 * Costo Directo de Obra por m2
-		 */
-		const co = getCO(surface, type_construction);
-		/**
-		 * Factor Inclusión
-		 */
-		const fi = town;
-		/**
-		 * Factor por Modalidad de Obra
-		 */
-		const fm = modality;
+    /**
+     * Factor superficie
+     */
+    const fs = getFS(surface);
+    /**
+     * Costo Directo de Obra por m2
+     */
+    const co = getCO(surface, type_construction);
+    /**
+     * Factor Inclusión
+     */
+    const fi = town;
+    /**
+     * Factor por Modalidad de Obra
+     */
+    const fm = modality;
 
-		/**
-		 * Honorarios
-		 */
-		const h = co * (fs / 100) * fi * fm;
-		/**
-		 * Condición de Contratación
-		 */
-		const { total: cc_total, table: cc_table } = calculateCC(h, ajuste_cc);
+    /**
+     * Honorarios
+     */
+    const h = co * (fs / 100) * fi * fm;
+    /**
+     * Condición de Contratación
+     */
+    const { total: cc_total, table: cc_table } = calculateCC(h, ajuste_cc);
 
-		const { total: ic_total, table: ic_table } = calculateIC(h, extras);
+    const { total: ic_total, table: ic_table } = calculateIC(h, extras);
 
-		const total_cost = (cc_total + ic_total) * bim;
+    const total_cost = (cc_total + ic_total) * bim;
 
-		/**
-		 * Get the BIM cost only
-		 */
-		const _bim = bim === 1 ? bim : +(bim - 1).toFixed(3);
-		const bim_cost = total_cost * _bim;
+    /**
+     * Get the BIM cost only
+     */
+    const _bim = bim === 1 ? 0 : +(bim - 1).toFixed(3);
+    const bim_cost = total_cost * _bim;
 
-		// REPS -> Total total total * factor de cobro (dependiendo de cuantas reps)
-		const reps_cost = calculateRepsCost(total_cost, number_reps);
+    // REPS -> Total total total * factor de cobro (dependiendo de cuantas reps)
+    const reps_cost = calculateRepsCost(total_cost, number_reps);
 
-		const total_cost_reps = total_cost + reps_cost;
+    const total_cost_reps = total_cost + reps_cost;
 
-		const { total: dro_total, table: dro_table } = calculateDRO(
-			total_cost_reps,
-			responsables
-		);
+    const { total: dro_total, table: dro_table } = calculateDRO(total_cost_reps, responsables);
 
-		const final_cost = total_cost_reps + dro_total;
+    const final_cost = total_cost_reps + dro_total;
 
-		const response = {
-			final_cost,
-			work_cost: co,
-			components_table: cc_table,
-			extras_total: ic_total,
-			extras_table: ic_table,
-			bim_cost,
-			reps_cost,
-			dro_table,
-		};
-		console.log({ response });
-		return response;
-	} catch (error) {
-		console.error('ERROR Calculator ->', error.message || error);
-		return [];
-	}
+    const response = {
+      final_cost,
+      work_cost: co,
+      components_table: cc_table,
+      extras_total: ic_total,
+      extras_table: ic_table,
+      bim_cost,
+      reps_cost,
+      dro_table,
+    };
+    console.log({ response });
+    return response;
+  } catch (error) {
+    console.error("ERROR Calculator ->", error.message || error);
+    return [];
+  }
 }
 
 export default calculateCosts;
