@@ -11,15 +11,9 @@ import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import { GeneralContext } from "../Context/GeneralContext";
 import ReactToPrint from "react-to-print";
-import {
-  Link,
-  DirectLink,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from "react-scroll";
+import logo from "../Images/logo-2022-negro-small.png";
+import Image from "next/image";
+
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -67,7 +61,18 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function TableResult({ value = "", resetTable }) {
-  const { times, resetValues } = React.useContext(GeneralContext);
+  const {
+    gender,
+    typeOfProject,
+    surface,
+    lag_margin,
+    plan,
+    times,
+    bim_selection,
+    scopes,
+    peopleSelected,
+    resetValues,
+  } = React.useContext(GeneralContext);
   const [expanded_, setExpanded] = useState(false);
   const handleChange = (event, isExpanded) => {
     // console.log(isExpanded);
@@ -104,23 +109,23 @@ export default function TableResult({ value = "", resetTable }) {
                   <p className="pr-4 md:pr-6 text-xs md:text-sm ">
                     {item.name}
                   </p>
-                  <p className="pr-2 md:pr-4 text-xs md:text-sm ">
+                  <p className="pr-2 md:pr-4 text-xs md:text-sm font-montserrat-bold">
                     {formatter.format(item.value)}
                   </p>
                 </div>
               </AccordionSummary>
               <AccordionDetails>
-                <div className="px-2 md:px-12">
+                <div className="px-2 md:px-12 print:px-12">
                   {item.children && renderMenu(item.children)}
                 </div>
               </AccordionDetails>
             </Accordion>
           ) : (
             <div className="py-[2px] flex justify-between w-full">
-              <p className="pr-2 md:pr-8 font-[Montserrat] text-xs md:text-sm  print:text-black text-miluno-white ">
+              <p className="pr-2 md:pr-8 print:pr-8 font-montserrat text-xs md:text-sm  print:text-black text-miluno-white ">
                 {item.name}
               </p>
-              <p className="pr-2 md:pr-8 font-[Montserrat] text-xs md:text-sm  print:text-black text-miluno-white ">
+              <p className="pr-2 md:pr-8 print:pr-8 font-montserrat-bold text-xs md:text-sm  print:text-black text-miluno-white ">
                 {formatter.format(item.value)}
               </p>
             </div>
@@ -184,12 +189,12 @@ export default function TableResult({ value = "", resetTable }) {
 
     // Good
     return (
-      <div className="relative ">
+      <div className="relative print:hidden">
         <button className="mb-8" title="Imprimir Nota">
           <svg
             title="Hello World!"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6 text-gray-300 cursor-pointer stroke-1 "
+            className="w-6 h-6 text-gray-300 cursor-pointer stroke-1"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -209,7 +214,7 @@ export default function TableResult({ value = "", resetTable }) {
     <div>
       <div
         ref={componentRef}
-        className="flex flex-col print:w-full print:bg-white  max-w-4xl mx-auto  w-full min-h-[80vh] mt-64 print:mt-0 print:pt-20"
+        className="flex flex-col print:w-full print:bg-white max-w-4xl print:px-8 mx-auto w-full min-h-[80vh] mt-64 print:mt-0 print:pt-8"
       >
         <ReactToPrint
           content={reactToPrintContent}
@@ -222,9 +227,60 @@ export default function TableResult({ value = "", resetTable }) {
         />
         {loading && (
           <div className="relative ">
-            <p className=" text-white font-montserrat top-8">Imprimendo...</p>
+            <p className=" text-white font-montserrat top-8 text-xs">
+              Imprimendo...
+            </p>
           </div>
         )}
+        <div className="print:flex hidden justify-center">
+          <div className="w-full inline-block align-middle text-center mb-12 border-solid border rounded-md border-miluno-gray">
+            <p className="text-center mt-4 font-montserrat text-xs tracking-wider print:text-black">
+              Calculadora de aranceles de honorarios profesionales por el
+            </p>
+            <div className="relative ">
+              <Image
+                className="print:text-black"
+                src={logo}
+                alt="Logo-CAMSAM"
+                width={150}
+                height={40}
+                objectFit="contain"
+                // layout="responsive"
+                layout="fixed"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+
+        <p className=" font-montserrat-bold print:text-black text-sm text-miluno-white ">
+          Datos del proyecto
+        </p>
+        <div className="mb-6 pl-0">
+          <p className="my-2 font-montserrat print:text-black text-sm text-miluno-white ">
+            Género del Proyecto :{" "}
+            <span className=" font-montserrat-bold">
+              {gender.type} - {gender.son}
+            </span>
+          </p>
+          <p className="my-2 font-[Montserrat] print:text-black text-sm text-miluno-white ">
+            Superficie :{" "}
+            <span className=" font-montserrat-bold">{surface.value}m2</span>
+          </p>
+          <p className="my-2 font-[Montserrat] print:text-black text-sm text-miluno-white ">
+            Modalidad :{" "}
+            <span className=" font-montserrat-bold">{typeOfProject.title}</span>
+          </p>
+          <p className="my-2 font-[Montserrat] print:text-black text-sm text-miluno-white ">
+            Lugar :{" "}
+            <span className=" font-montserrat-bold">
+              {lag_margin.estado} - {lag_margin.municipio}
+            </span>
+          </p>
+        </div>
+        <p className=" font-montserrat-bold print:text-black text-sm text-miluno-white ">
+          Costos totales
+        </p>
         <p className="my-2 font-[Montserrat] print:text-black text-sm text-miluno-white ">
           Costo total por honorarios:{" "}
           <span className=" font-montserrat-bold">
@@ -241,13 +297,16 @@ export default function TableResult({ value = "", resetTable }) {
           {/* {traverse(obj, function (k, v) {
 					setState(k);
 				})} */}
-          <p className="mt-8 font-[Montserrat]  print:text-black text-sm text-miluno-white ">
-            Proyecto ejecutivo básico:
+          <p className="mt-8 font-montserrat-bold  print:text-black text-sm text-miluno-white ">
+            Desglose de costos
+          </p>
+          <p className="mt-4 font-montserrat-bold  print:text-black text-sm text-miluno-white ">
+            Proyecto ejecutivo básico
           </p>
 
           {value !== "" && renderMenu(value.components_table)}
-          <p className=" mt-32 mb-4 font-[Montserrat]  print:text-black text-sm text-miluno-white ">
-            Instalaciones complementarias:
+          <p className=" mt-32 mb-4 font-montserrat-bold  print:text-black text-sm text-miluno-white ">
+            Instalaciones complementarias
           </p>
           {value !== "" && renderMenu(value.extras_table)}
 
