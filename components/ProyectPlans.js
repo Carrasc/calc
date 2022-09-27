@@ -3,11 +3,10 @@ import { GeneralContext } from '../Context/GeneralContext';
 import { plans } from '../Data/Plans';
 
 export default function ProyectPlans() {
-	const [selected, setSelected] = useState();
 	const { setPlan, plan } = useContext(GeneralContext);
 	return (
 		<div className="flex flex-col text-center items-center justify-center w-full my-10 min-h-[60vh]">
-			<p className="text-center font-[Montserrat-bold] text-sm text-miluno-white">
+			<p className="text-center font-[Montserrat-bold] text-sm text-miluno-white tracking-wide">
 				¿Qué componentes del proyecto se llevarán a cabo?
 			</p>
 
@@ -16,7 +15,6 @@ export default function ProyectPlans() {
 					<div
 						onClick={() => {
 							if (plan.index === index) {
-								// setSelected('');
 								setPlan((prevState) => ({
 									...prevState,
 									item: {
@@ -27,7 +25,6 @@ export default function ProyectPlans() {
 									index: '',
 								}));
 							} else {
-								// setSelected(index);
 								setPlan((prevState) => ({
 									...prevState,
 									id: plan_.id,
@@ -46,7 +43,7 @@ export default function ProyectPlans() {
 					>
 						{plan_.titles.map((title, index) => (
 							<p
-								className="text-sm text-center font-montserrat text-miluno-white"
+								className="text-sm tracking-wide text-center font-montserrat text-miluno-white"
 								key={index}
 							>
 								{title}

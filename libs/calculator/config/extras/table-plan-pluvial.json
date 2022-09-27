@@ -1,0 +1,58 @@
+{
+  "conceptual": [
+    {
+      "name": "Criterio del Sistema Alternativo",
+      "value": 0.0075,
+      "children": [
+        {
+          "name": "Análisis...",
+          "value": 0.005
+        },
+        {
+          "name": "Reporte con definición de materias y equipos",
+          "value": 0.0025
+        }
+      ]
+    }
+  ],
+  "preliminar": [
+    {
+      "name": "Proyecto de Sistema Alternativo",
+      "value": 0.0375,
+      "children": [
+        {
+          "name": "Planta(s)...",
+          "value": 0.02
+        },
+        {
+          "name": "Cortes...",
+          "value": 0.01
+        },
+        {
+          "name": "Prodim...",
+          "value": 0.0075
+        }
+      ]
+    }
+  ],
+  "edificacion": [
+    {
+      "name": "Proyecto de Sistema Alternativo Ejecutivo",
+      "value": 0.05,
+      "children": [
+        {
+          "name": "Planta(s)...",
+          "value": 0.02
+        },
+        {
+          "name": "Planos...",
+          "value": 0.015
+        },
+        {
+          "name": "Memoria...",
+          "value": 0.015
+        }
+      ]
+    }
+  ]
+}

@@ -1,10 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import { Select } from '@mui/material';
-import MenuItem from '@mui/material/MenuItem';
-import { alpha, styled } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
 import CustomSelector from './CustomSelector';
 import { GeneralContext } from '../Context/GeneralContext';
 import MilUnoTextField from './MilUnoTextField';
@@ -53,21 +48,19 @@ export default function TypeAndSize() {
 		<Box component="form" noValidate autoComplete="off">
 			<div className=" flex justify-center items-center flex-col my-10 min-h-[60vh]">
 				<div className="mb-16 ">
-					<p className="text-center mb-6 font-[Montserrat-bold] text-sm text-miluno-white ">
+					<p className="text-center mb-6 font-[Montserrat-bold] text-sm text-miluno-white tracking-wide">
 						¿Cuál es la modalidad del proyecto?
 					</p>
 					<CustomSelector
 						name="gender_son"
 						setSelectedValue={handleSelectedValue}
-						// control={control}
 						selectedValue={typeOfProject.title}
 						required={true}
-						// disabled={selected === ''}
 						items={typeOfProyects}
 					/>
 				</div>
 
-				<p className="text-center mb-6 font-[Montserrat-bold] text-sm text-miluno-white">
+				<p className="text-center mb-6 font-[Montserrat-bold] text-sm text-miluno-white tracking-wide">
 					¿Cuántos metros cuadrados?
 				</p>
 				<MilUnoTextField

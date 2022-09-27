@@ -73,7 +73,7 @@ export default function CustomSelector({
 	disabled,
 	required,
 	name,
-	selectedValue,
+	selectedValue = '',
 	setIndex = () => {},
 	setSelectedValue = () => {},
 }) {

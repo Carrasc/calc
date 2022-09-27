@@ -11,10 +11,10 @@ export default function TimesOfProyect() {
   };
   return (
     <div className="flex flex-col items-center justify-center w-full my-16">
-      <p className="text-center mb-2 font-[Montserrat-bold] text-sm text-miluno-white ">
+      <p className="text-center mb-2 font-[Montserrat-bold] text-sm text-miluno-white tracking-wide">
         ¿Cuántas veces será replicado el proyecto?
       </p>
-      <p className="text-center mb-6 font-[Montserrat] text-xs text-miluno-white ">
+      <p className="text-center mb-6 font-[Montserrat] text-xs text-miluno-white tracking-wide">
         (Repeticiones extra además del original. Es decir, 0 equivale a realizar
         el proyecto una sola vez)
       </p>

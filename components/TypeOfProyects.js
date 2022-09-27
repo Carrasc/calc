@@ -11,16 +11,9 @@ import { MdOutlineSocialDistance } from 'react-icons/md';
 export default function TypeOfProyects({ handleNext }) {
 	const [selected, setSelected] = useState('');
 	const { setGeneralValue, gender, setGender } = useContext(GeneralContext);
-	const {
-		register,
-		handleSubmit,
-		control,
-		formState: { errors },
-		reset,
-	} = useForm();
+	const { handleSubmit } = useForm();
 	const handleClick = (index, gen) => {
 		if (gender.index === index) {
-			// setSelected('');
 			setGender((prevState) => ({
 				...prevState,
 				type: '',
@@ -29,7 +22,6 @@ export default function TypeOfProyects({ handleNext }) {
 				index: '',
 			}));
 		} else {
-			// setSelected(index);
 			setGender((prevState) => ({
 				...prevState,
 				type: gen.gender,
@@ -48,8 +40,6 @@ export default function TypeOfProyects({ handleNext }) {
 		}));
 	};
 	const onSubmit = async (data) => {
-		const obj = { step1: data };
-
 		setGeneralValue((prevState) => ({
 			// object that we want to update
 			...prevState, // keep all other key-value pairs
@@ -60,7 +50,7 @@ export default function TypeOfProyects({ handleNext }) {
 	};
 	return (
 		<div className="flex flex-col justify-center w-full min-h-[80vh]">
-			<p className="text-center font-[Montserrat-bold] text-sm text-miluno-white">
+			<p className="text-center font-[Montserrat-bold] text-sm text-miluno-white tracking-wide">
 				Empecemos por el tipo de proyecto
 			</p>
 			<form onSubmit={handleSubmit(onSubmit)}>
@@ -69,7 +59,6 @@ export default function TypeOfProyects({ handleNext }) {
 						return (
 							<div
 								onClick={() => handleClick(index, gender_)}
-								// selected={selected && index}
 								key={index}
 								className={`w-full p-2 text-[10px] md:text-xs  justify-around font-montserrat text-center flex-col  flex items-center hover:cursor-pointer border-2 text-miluno-white rounded-xl h-full  aspect-square ${
 									gender.index === index
@@ -77,11 +66,6 @@ export default function TypeOfProyects({ handleNext }) {
 										: 'bg-[#1E1E1E] border-transparent hover:border-miluno-gray hover:border-2'
 								}`}
 							>
-								{/* <MdOutlineSocialDistance
-									// width={50}
-									// height={50}
-									className="w-10 h-10 text-red-500"
-								/> */}
 								{gender_.icon}
 								<p>{gender_.gender}</p>
 							</div>
@@ -92,7 +76,7 @@ export default function TypeOfProyects({ handleNext }) {
 					<CustomSelector
 						name="gender_son"
 						setSelectedValue={handleSelectedValue}
-						// control={control}
+						selectedValue={gender.son}
 						required={true}
 						disabled={gender.index === ''}
 						items={

@@ -11,6 +11,7 @@ module.exports = {
       fontFamily: {
         montserrat: ["Montserrat"],
         "montserrat-bold": ["Montserrat-bold"],
+        "montserrat-light": ["Montserrat-light"],
       },
       colors: {
         "miluno-green": "#7AC279",

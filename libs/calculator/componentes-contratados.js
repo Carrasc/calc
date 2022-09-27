@@ -14,114 +14,66 @@ import table_terminacion from "./config/components/table-plan-terminacion.json";
  * @returns {object} {total: number, table: []}
  */
 export function calculateCC(h, ajuste_cc) {
-  // const total = ajuste_cc * h * porcentaje_del_plan_contratado; // 0.1 * 1.25
+  if (!(ajuste_cc === 1.25 || ajuste_cc === 1.16 || ajuste_cc === 1.08 || ajuste_cc === 1))
+    throw new Error(`Ajuste Condicion de Contratación no válida -> ${ajuste_cc}`);
+
   let total = 0;
   const h_ajustado = ajuste_cc * h;
   let table = [];
 
-  switch (ajuste_cc) {
-    case 1.25:
-      // Plan Conceptual
-      var conceptual = _calculatePlan(h_ajustado, table_conceptual);
-      table.push({
-        name: "Plan Conceptual",
-        value: conceptual.acc_total,
-        children: conceptual.new_table,
-      });
-      total += conceptual.acc_total;
-      break;
-    case 1.16:
-      // Plan Conceptual + Preliminar
-      var conceptual = _calculatePlan(h_ajustado, table_conceptual);
-      table.push({
-        name: "Plan Conceptual",
-        value: conceptual.acc_total,
-        children: conceptual.new_table,
-      });
-      total += conceptual.acc_total;
-      var preliminar = _calculatePlan(h_ajustado, table_preliminar);
-      table.push({
-        name: "Plan Preliminar",
-        value: preliminar.acc_total,
-        children: preliminar.new_table,
-      });
-      total += preliminar.acc_total;
-
-      break;
-    case 1.08:
-      // Plan Conceptual + Preliminar
-      var conceptual = _calculatePlan(h_ajustado, table_conceptual);
-      table.push({
-        name: "Plan Conceptual",
-        value: conceptual.acc_total,
-        children: conceptual.new_table,
-      });
-      total += conceptual.acc_total;
-      var preliminar = _calculatePlan(h_ajustado, table_preliminar);
-      table.push({
-        name: "Plan Preliminar",
-        value: preliminar.acc_total,
-        children: preliminar.new_table,
-      });
-      total += preliminar.acc_total;
-      var basico = _calculatePlan(h_ajustado, table_basico);
-      table.push({
-        name: "Plan Básico",
-        value: basico.acc_total,
-        children: basico.new_table,
-      });
-      total += basico.acc_total;
-
-      break;
-    case 1:
-      // Completo
-      var conceptual = _calculatePlan(h_ajustado, table_conceptual);
-      table.push({
-        name: "Plan Conceptual",
-        value: conceptual.acc_total,
-        children: conceptual.new_table,
-      });
-      total += conceptual.acc_total;
-      var preliminar = _calculatePlan(h_ajustado, table_preliminar);
-      table.push({
-        name: "Plan Preliminar",
-        value: preliminar.acc_total,
-        children: preliminar.new_table,
-      });
-      total += preliminar.acc_total;
-      var basico = _calculatePlan(h_ajustado, table_basico);
-      table.push({
-        name: "Plan Básico",
-        value: basico.acc_total,
-        children: basico.new_table,
-      });
-      total += basico.acc_total;
-      var edificacion = _calculatePlan(h_ajustado, table_edificacion);
-      table.push({
-        name: "Plan de Edificación",
-        value: edificacion.acc_total,
-        children: edificacion.new_table,
-      });
-      total += edificacion.acc_total;
-      var arquitectonica = _calculatePlan(h_ajustado, table_arquitectonica);
-      table.push({
-        name: "Plan Arquitectónica",
-        value: arquitectonica.acc_total,
-        children: arquitectonica.new_table,
-      });
-      total += arquitectonica.acc_total;
-      var terminacion = _calculatePlan(h_ajustado, table_terminacion);
-      table.push({
-        name: "Terminación y Recepción de Obra",
-        value: terminacion.acc_total,
-        children: terminacion.new_table,
-      });
-      total += terminacion.acc_total;
-
-      break;
-
-    default:
-      throw new Error(`Ajuste Condicion de Contratación no válida -> ${ajuste_cc}`);
+  if ([1.25, 1.16, 1.08, 1].includes(ajuste_cc)) {
+    // Plan Conceptual
+    let conceptual = _calculatePlan(h_ajustado, table_conceptual);
+    table.push({
+      name: "Plan Conceptual",
+      value: conceptual.acc_total,
+      children: conceptual.new_table,
+    });
+    total += conceptual.acc_total;
+  }
+  if ([1.16, 1.08, 1].includes(ajuste_cc)) {
+    // Plan Conceptual + Preliminar
+    let preliminar = _calculatePlan(h_ajustado, table_preliminar);
+    table.push({
+      name: "Plan Preliminar",
+      value: preliminar.acc_total,
+      children: preliminar.new_table,
+    });
+    total += preliminar.acc_total;
+  }
+  if ([1.08, 1].includes(ajuste_cc)) {
+    // Plan Conceptual + Preliminar
+    let basico = _calculatePlan(h_ajustado, table_basico);
+    table.push({
+      name: "Plan Básico",
+      value: basico.acc_total,
+      children: basico.new_table,
+    });
+    total += basico.acc_total;
+  }
+  if ([1].includes(ajuste_cc)) {
+    // Completo
+    let edificacion = _calculatePlan(h_ajustado, table_edificacion);
+    table.push({
+      name: "Plan de Edificación",
+      value: edificacion.acc_total,
+      children: edificacion.new_table,
+    });
+    total += edificacion.acc_total;
+    let arquitectonica = _calculatePlan(h_ajustado, table_arquitectonica);
+    table.push({
+      name: "Plan Arquitectónica",
+      value: arquitectonica.acc_total,
+      children: arquitectonica.new_table,
+    });
+    total += arquitectonica.acc_total;
+    let terminacion = _calculatePlan(h_ajustado, table_terminacion);
+    table.push({
+      name: "Terminación y Recepción de Obra",
+      value: terminacion.acc_total,
+      children: terminacion.new_table,
+    });
+    total += terminacion.acc_total;
   }
 
   return { total, table };

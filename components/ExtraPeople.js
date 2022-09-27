@@ -1,5 +1,4 @@
 import * as React from 'react';
-import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import extraPeople from '../Data/People.json';
@@ -15,7 +14,6 @@ export default function ExtraPeople() {
 		{ checked: false },
 		{ checked: false },
 	];
-	//   const [people, setPeople] = React.useState(firstState);
 	const addPeople = (pips) => {
 		var temp_array = [];
 		var index = 0;
@@ -42,11 +40,11 @@ export default function ExtraPeople() {
 
 	return (
 		<div className="py-20 min-h-[50vh]">
-			<p className="text-center mb-2 font-[Montserrat-bold] text-sm text-miluno-white ">
+			<p className="text-center mb-2 font-[Montserrat-bold] text-sm text-miluno-white tracking-wide">
 				¿El proyecto requiere de figuras auxiliares de la administración
 				pública?
 			</p>
-			<p className="text-center mb-6 font-[Montserrat] text-xs text-miluno-white ">
+			<p className="text-center mb-6 font-[Montserrat] text-xs text-miluno-white tracking-wide">
 				(Puede no seleccionar ninguno o varios)
 			</p>
 			<div className="grid grid-cols-1 gap-5 mt-10 md:grid-cols-2">
@@ -66,7 +64,7 @@ export default function ExtraPeople() {
 							}
 							control={
 								<Checkbox
-									id={item.order}
+									//   id={item.order}
 									checked={people[index].checked}
 									onChange={(e) => handleChange(e, index)}
 									inputProps={{ 'aria-label': 'controlled' }}

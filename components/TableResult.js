@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { formatter } from '../libs/calculator/utils';
 
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
 import { styled } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion from '@mui/material/Accordion';
@@ -11,18 +8,14 @@ import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import { GeneralContext } from '../Context/GeneralContext';
 import ReactToPrint from 'react-to-print';
-import {
-	Link,
-	DirectLink,
-	Element,
-	Events,
-	animateScroll as scroll,
-	scrollSpy,
-	scroller,
-} from 'react-scroll';
+import logo from '../Images/logo-2022-negro-small.png';
+import Image from 'next/image';
+import Notes from './Notes';
+import calculateCosts from '../libs/calculator';
+
 const Accordion = styled((props) => (
 	<MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
+))(({}) => ({
 	border: `0px solid white`,
 	backgroundColor: 'transparent',
 	color: 'white',
@@ -54,7 +47,7 @@ const AccordionSummary = styled((props) => (
 		transform: 'rotate(90deg)',
 	},
 	'& .MuiAccordionSummary-content': {
-		marginLeft: theme.spacing(1),
+		marginLeft: theme.spacing(0),
 	},
 }));
 
@@ -62,65 +55,81 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 	padding: theme.spacing(2),
 	borderTop: '1px solid rgba(0, 0, 0, .125)',
 	fontFamily: 'Montserrat',
+	margin: '0 0 0 0px',
+	padding: '0 0rem 0 0rem',
 }));
 
-export default function TableResult({ value = '', resetTable }) {
-	const { times, resetValues } = React.useContext(GeneralContext);
-	const [expanded_, setExpanded] = useState(false);
-	const handleChange = (event, isExpanded) => {
-		// console.log(isExpanded);
-		setExpanded(isExpanded);
-	};
+export default function TableResult({
+	resetTable,
+	calculateVariables,
+	// surface_,
+	// gender_,
+	// typeOfProject_,
+	// lag_margin_,
+	// plan_,
+	// scopes_,
+	// bim_selection_,
+	// times_,
+	// peopleSelected_,
+	value,
+}) {
+	const {
+		times,
+		resetValues,
+		gender,
+		typeOfProject,
+		surface,
+		lag_margin,
+		plan,
+		bim_selection,
+		scopes,
+		peopleSelected,
+		// value,
+	} = React.useContext(GeneralContext);
+
 	const handleReset = () => {
 		resetTable();
 		resetValues();
 	};
-	const renderMenu = (menu) => {
-		const otherProps = {
-			...(expanded_ && { expanded: true }),
-		};
+	const renderMenu = (menu, expand) => {
 		return menu.map((item, index) => {
 			return (
-				<div className={'w-full my-3'} key={index}>
-					{item.children ? (
-						<Accordion
-							// {...otherProps}
-							expanded
-							// expanded={expanded_ ? true : undefined}
-							// {...expanded_ && expanded = {true} }
-							// expanded={(prev) => console.log(prev)}
-							// (expanded ? true : prev)}
-							// onChange={handleChange}
-						>
-							<AccordionSummary
-								expandIcon={false}
-								aria-controls="panel1a-content"
-								className="print:bg-white"
-								id="panel1a-header"
-							>
-								<div className="flex justify-between w-full print:text-black">
-									<p>{item.name}</p>
-									<p className="pr-4">
-										{formatter.format(item.value)}
-									</p>
-								</div>
-							</AccordionSummary>
-							<AccordionDetails>
-								<div>
-									{item.children && renderMenu(item.children)}
-								</div>
-							</AccordionDetails>
-						</Accordion>
-					) : (
-						<div className="py-[1px] flex justify-between w-full">
-							<p className="pl-6 font-[Montserrat] text-sm  print:text-black text-miluno-white ">
-								{item.name}
-							</p>
-							<p className="pr-14 font-[Montserrat] text-sm  print:text-black text-miluno-white ">
-								{formatter.format(item.value)}
-							</p>
-						</div>
-					)}
+				<div key={index}>
+					<div className={'w-full my-2'}>
+						{item.children ? (
+							<Accordion expanded={expand}>
+								<AccordionSummary
+									aria-controls="panel1a-content"
+									className="print:bg-white"
+									id="panel1a-header"
+								>
+									<div className="flex justify-between w-full print:text-black">
+										<p className="pr-4 text-xs md:pr-6 md:text-sm ">
+											{item.name}
+										</p>
+										<p className="pr-2 text-xs md:pr-4 md:text-sm font-montserrat-bold">
+											{formatter.format(item.value)}
+										</p>
+									</div>
+								</AccordionSummary>
+								<AccordionDetails>
+									<div className="px-2 md:px-12 print:px-12">
+										{item.children &&
+											renderMenu(item.children, expand)}
+									</div>
+								</AccordionDetails>
+							</Accordion>
+						) : (
+							<div className="py-[2px] flex justify-between w-full">
+								<p className="pr-2 text-xs md:pr-8 print:pr-8 font-montserrat md:text-sm print:text-black text-miluno-white ">
+									{item.name}
+								</p>
+								<p className="pr-2 text-xs md:pr-8 print:pr-8 font-montserrat-bold md:text-sm print:text-black text-miluno-white ">
+									{formatter.format(item.value)}
+								</p>
+							</div>
+						)}
+					</div>
 				</div>
 			);
 		});
@@ -142,7 +151,6 @@ export default function TableResult({ value = '', resetTable }) {
 
 	const handleOnBeforeGetContent = React.useCallback(() => {
 		console.log('`onBeforeGetContent` called');
-		setExpanded(true);
 		setLoading(true);
 
 		setText('Loading new text...');
@@ -180,12 +188,12 @@ export default function TableResult({ value = '', resetTable }) {
 
 		// Good
 		return (
-			<div className="relative ">
-				<button className="absolute right-0 " title="Imprimir Nota">
+			<div className="relative print:hidden">
+				<button className="mb-8" title="Imprimir Nota">
 					<svg
 						title="Hello World!"
 						xmlns="http://www.w3.org/2000/svg"
-						className="w-6 h-6 text-gray-300 cursor-pointer stroke-1 "
+						className="w-6 h-6 text-gray-300 cursor-pointer stroke-1"
 						fill="none"
 						viewBox="0 0 24 24"
 						stroke="currentColor"
@@ -201,28 +209,85 @@ export default function TableResult({ value = '', resetTable }) {
 			</div>
 		);
 	}, []);
+
+	if (value === undefined) {
+		return <></>;
+	}
 	return (
 		<div>
-			<ReactToPrint
-				content={reactToPrintContent}
-				documentTitle="AwesomeFileName"
-				onAfterPrint={handleAfterPrint}
-				onBeforeGetContent={handleOnBeforeGetContent}
-				onBeforePrint={handleBeforePrint}
-				removeAfterPrint
-				trigger={reactToPrintTrigger}
-			/>
-			{loading && (
-				<div className="relative ">
-					<p className="absolute right-0 text-white font-montserrat top-8">
-						Imprimendo...
-					</p>
-				</div>
-			)}
 			<div
 				ref={componentRef}
-				className="flex flex-col print:w-full print:bg-white  max-w-2xl mx-auto  w-full min-h-[80vh] mt-64 print:mt-0 print:pt-20"
+				className="flex flex-col print:w-full print:bg-white max-w-4xl print:px-8 mx-auto w-full min-h-[80vh] mt-64 print:mt-0 print:pt-8"
 			>
+				<ReactToPrint
+					content={reactToPrintContent}
+					documentTitle="AwesomeFileName"
+					onAfterPrint={handleAfterPrint}
+					onBeforeGetContent={handleOnBeforeGetContent}
+					onBeforePrint={handleBeforePrint}
+					removeAfterPrint
+					trigger={reactToPrintTrigger}
+				/>
+				{loading && (
+					<div className="relative ">
+						<p className="text-xs text-white font-montserrat top-8">
+							Imprimendo...
+						</p>
+					</div>
+				)}
+				<div className="justify-center hidden print:flex">
+					<div className="inline-block w-full mb-12 text-center align-middle border border-solid rounded-md border-miluno-gray">
+						<p className="mt-4 text-xs tracking-wider text-center font-montserrat print:text-black">
+							Calculadora de aranceles de honorarios profesionales
+							por el
+						</p>
+						<div className="relative ">
+							<Image
+								className="print:text-black"
+								src={logo}
+								alt="Logo-CAMSAM"
+								width={150}
+								height={40}
+								objectFit="contain"
+								layout="fixed"
+								priority
+							/>
+						</div>
+					</div>
+				</div>
+
+				<p className="text-sm font-montserrat-bold print:text-black text-miluno-white">
+					Datos del proyecto
+				</p>
+				<div className="pl-0 mb-6">
+					<p className="my-2 text-sm font-montserrat print:text-black text-miluno-white ">
+						Género del Proyecto :{' '}
+						<span className=" font-montserrat-bold">
+							{gender.type} - {gender.son}
+						</span>
+					</p>
+					<p className="my-2 font-[Montserrat] print:text-black text-sm text-miluno-white ">
+						Superficie :{' '}
+						<span className=" font-montserrat-bold">
+							{surface.value}m2
+						</span>
+					</p>
+					<p className="my-2 font-[Montserrat] print:text-black text-sm text-miluno-white ">
+						Modalidad :{' '}
+						<span className=" font-montserrat-bold">
+							{typeOfProject.title}
+						</span>
+					</p>
+					<p className="my-2 font-[Montserrat] print:text-black text-sm text-miluno-white ">
+						Lugar :{' '}
+						<span className=" font-montserrat-bold">
+							{lag_margin.estado} - {lag_margin.municipio}
+						</span>
+					</p>
+				</div>
+				<p className="text-sm font-montserrat-bold print:text-black text-miluno-white">
+					Costos totales
+				</p>
 				<p className="my-2 font-[Montserrat] print:text-black text-sm text-miluno-white ">
 					Costo total por honorarios:{' '}
 					<span className=" font-montserrat-bold">
@@ -236,18 +301,34 @@ export default function TableResult({ value = '', resetTable }) {
 					</span>
 				</p>
 				<div>
-					{/* {traverse(obj, function (k, v) {
-					setState(k);
-				})} */}
-					<p className="mt-8 font-[Montserrat]  print:text-black text-sm text-miluno-white ">
-						Proyecto ejecutivo básico:
+					<p className="mt-8 text-sm font-montserrat-bold print:text-black text-miluno-white ">
+						Proyecto ejecutivo básico
 					</p>
 
-					{value !== '' && renderMenu(value.components_table)}
-					<p className=" mt-10 mb-4 font-[Montserrat]  print:text-black text-sm text-miluno-white ">
-						Instalaciones complementarias:
-					</p>
-					{value !== '' && renderMenu(value.extras_table)}
+					<div className="block print:hidden">
+						{value !== '' && renderMenu(value.components_table)}
+					</div>
+
+					{/* For print version*/}
+					<div className="hidden print:block">
+						{value !== '' &&
+							renderMenu(value.components_table, true)}
+					</div>
+
+					{value.extras_table.length !== 0 && (
+						<p className="mt-24 mb-4 text-sm font-montserrat-bold print:text-black text-miluno-white">
+							Instalaciones complementarias
+						</p>
+					)}
+
+					<div className="block print:hidden">
+						{value !== '' && renderMenu(value.extras_table)}
+					</div>
+
+					{/* For print version*/}
+					<div className="hidden print:block">
+						{value !== '' && renderMenu(value.extras_table, true)}
+					</div>
 
 					<p className="pt-6 my-2 font-[Montserrat]  print:text-black text-sm text-miluno-white ">
 						Costo por BIM:{' '}
@@ -261,23 +342,17 @@ export default function TableResult({ value = '', resetTable }) {
 							{formatter.format(value.reps_cost)} MXN
 						</span>
 					</p>
-					<p className=" my-2 font-[Montserrat] text-sm  print:text-black text-miluno-white ">
-						{`Costo por contrataciones`}:{' '}
-					</p>
+					{value.dro_table.length !== 0 && (
+						<p className=" my-2 font-[Montserrat] text-sm  print:text-black text-miluno-white ">
+							{`Costo por contrataciones`}:{' '}
+						</p>
+					)}
 					{value !== '' && renderMenu(value.dro_table)}
-
-					{/* {value.components_table.map((item, index) => {
-					{
-						Object.keys(item).forEach(function (key, index) {
-							console.log('value', item[key]);
-							return <p>{key};</p>;
-						});
-					}
-				})} */}
 				</div>
+				<Notes />
 				<div className="flex justify-center w-full mt-20 print:hidden">
 					<button
-						className={`flex items-center  border-red-500 justify-center px-4 py-2 transition duration-300 ease-in-out border-2 rounded-md w-44  font-montserrat `}
+						className={`flex items-center  border-[#D9826F] justify-center px-4 py-2 transition duration-300 ease-in-out border-2 rounded-md w-44  font-montserrat text-sm `}
 						onClick={handleReset}
 					>
 						Resetear valores

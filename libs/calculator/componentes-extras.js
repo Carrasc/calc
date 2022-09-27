@@ -5,6 +5,10 @@ import table_gases from "./config/extras/table-plan-gases.json";
 import table_pci from "./config/extras/table-plan-pci.json";
 import table_ventilacion from "./config/extras/table-plan-ventilacion.json";
 import table_voz from "./config/extras/table-plan-voz.json";
+import table_pluvial from "./config/extras/table-plan-pluvial.json";
+import table_electrica from "./config/extras/table-plan-electrica.json";
+import table_solar from "./config/extras/table-plan-solar.json";
+import table_aguas_residuales from "./config/extras/table-plan-aguas-residuales.json";
 
 /**
  * Create the table for "Instalaciones Complementarias"
@@ -81,8 +85,42 @@ export function calculateIC(h, extras) {
     });
     total += cctv.acc_total;
   }
-
-  // throw new Error(`Extras no válidos -> ${extras}`);
+  if (extras.includes("PLUVIAL")) {
+    const cctv = _calculatePlan(h, table_pluvial);
+    table.push({
+      name: "Sitema Alternativo De Captación Y Aprovechamiento Del Agua Pluvial",
+      value: cctv.acc_total,
+      children: cctv.new_table,
+    });
+    total += cctv.acc_total;
+  }
+  if (extras.includes("EE")) {
+    const cctv = _calculatePlan(h, table_electrica);
+    table.push({
+      name: "Sistema De Autogeneración De Energía Eléctrica",
+      value: cctv.acc_total,
+      children: cctv.new_table,
+    });
+    total += cctv.acc_total;
+  }
+  if (extras.includes("SOLAR")) {
+    const cctv = _calculatePlan(h, table_solar);
+    table.push({
+      name: "Instalación De Calentamiento De Agua Por Medios Del Aprovechamiento De La Energía Solar",
+      value: cctv.acc_total,
+      children: cctv.new_table,
+    });
+    total += cctv.acc_total;
+  }
+  if (extras.includes("AR")) {
+    const cctv = _calculatePlan(h, table_aguas_residuales);
+    table.push({
+      name: "Sistema Planta De Tratamiento De Aguas Residuales",
+      value: cctv.acc_total,
+      children: cctv.new_table,
+    });
+    total += cctv.acc_total;
+  }
 
   return { total, table };
 }
@@ -133,6 +171,7 @@ function _calculatePlan(h, table) {
     }
     new_table.push({
       name: plan,
+      value: plan_table.reduce((total, child) => total + child.value, 0),
       children: plan_table,
     });
   }
