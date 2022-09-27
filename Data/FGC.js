@@ -85,7 +85,7 @@ export const genders = [
       },
       {
         code: "B-3",
-        title: "Centros Coemrciales",
+        title: "Centros Comerciales",
         factor: 2.12,
       },
       {

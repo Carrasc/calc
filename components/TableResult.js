@@ -13,6 +13,7 @@ import { GeneralContext } from "../Context/GeneralContext";
 import ReactToPrint from "react-to-print";
 import logo from "../Images/logo-2022-negro-small.png";
 import Image from "next/image";
+import Notes from "./Notes";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -82,54 +83,56 @@ export default function TableResult({ value = "", resetTable }) {
     resetTable();
     resetValues();
   };
-  const renderMenu = (menu) => {
+  const renderMenu = (menu, expand) => {
     const otherProps = {
       ...(expanded_ && { expanded: true }),
     };
     return menu.map((item, index) => {
       return (
-        <div className={"w-full my-2"} key={index}>
-          {item.children ? (
-            <Accordion
-              // {...otherProps}
-              expanded
-              // expanded={expanded_ ? true : undefined}
-              // {...expanded_ && expanded = {true} }
-              // expanded={(prev) => console.log(prev)}
-              // (expanded ? true : prev)}
-              // onChange={handleChange}
-            >
-              <AccordionSummary
-                expandIcon={false}
-                aria-controls="panel1a-content"
-                className="print:bg-white"
-                id="panel1a-header"
+        <div>
+          <div className={"w-full my-2"} key={index}>
+            {item.children ? (
+              <Accordion
+                // {...otherProps}
+                expanded={expand}
+                // expanded={expanded_ ? true : undefined}
+                // {...expanded_ && expanded = {true} }
+                // expanded={(prev) => console.log(prev)}
+                // (expanded ? true : prev)}
+                // onChange={handleChange}
               >
-                <div className="flex justify-between w-full print:text-black">
-                  <p className="pr-4 md:pr-6 text-xs md:text-sm ">
-                    {item.name}
-                  </p>
-                  <p className="pr-2 md:pr-4 text-xs md:text-sm font-montserrat-bold">
-                    {formatter.format(item.value)}
-                  </p>
-                </div>
-              </AccordionSummary>
-              <AccordionDetails>
-                <div className="px-2 md:px-12 print:px-12">
-                  {item.children && renderMenu(item.children)}
-                </div>
-              </AccordionDetails>
-            </Accordion>
-          ) : (
-            <div className="py-[2px] flex justify-between w-full">
-              <p className="pr-2 md:pr-8 print:pr-8 font-montserrat text-xs md:text-sm  print:text-black text-miluno-white ">
-                {item.name}
-              </p>
-              <p className="pr-2 md:pr-8 print:pr-8 font-montserrat-bold text-xs md:text-sm  print:text-black text-miluno-white ">
-                {formatter.format(item.value)}
-              </p>
-            </div>
-          )}
+                <AccordionSummary
+                  //expandIcon={true}
+                  aria-controls="panel1a-content"
+                  className="print:bg-white"
+                  id="panel1a-header"
+                >
+                  <div className="flex justify-between w-full print:text-black">
+                    <p className="pr-4 md:pr-6 text-xs md:text-sm ">
+                      {item.name}
+                    </p>
+                    <p className="pr-2 md:pr-4 text-xs md:text-sm font-montserrat-bold">
+                      {formatter.format(item.value)}
+                    </p>
+                  </div>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <div className="px-2 md:px-12 print:px-12">
+                    {item.children && renderMenu(item.children, expand)}
+                  </div>
+                </AccordionDetails>
+              </Accordion>
+            ) : (
+              <div className="py-[2px] flex justify-between w-full">
+                <p className="pr-2 md:pr-8 print:pr-8 font-montserrat text-xs md:text-sm  print:text-black text-miluno-white ">
+                  {item.name}
+                </p>
+                <p className="pr-2 md:pr-8 print:pr-8 font-montserrat-bold text-xs md:text-sm  print:text-black text-miluno-white ">
+                  {formatter.format(item.value)}
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       );
     });
@@ -298,17 +301,32 @@ export default function TableResult({ value = "", resetTable }) {
 					setState(k);
 				})} */}
           <p className="mt-8 font-montserrat-bold  print:text-black text-sm text-miluno-white ">
-            Desglose de costos
-          </p>
-          <p className="mt-4 font-montserrat-bold  print:text-black text-sm text-miluno-white ">
             Proyecto ejecutivo básico
           </p>
 
-          {value !== "" && renderMenu(value.components_table)}
-          <p className=" mt-32 mb-4 font-montserrat-bold  print:text-black text-sm text-miluno-white ">
-            Instalaciones complementarias
-          </p>
-          {value !== "" && renderMenu(value.extras_table)}
+          <div className="block print:hidden">
+            {value !== "" && renderMenu(value.components_table)}
+          </div>
+
+          {/* For print version*/}
+          <div className="hidden print:block">
+            {value !== "" && renderMenu(value.components_table, true)}
+          </div>
+
+          {value.extras_table.length !== 0 && (
+            <p className=" mt-24 mb-4 font-montserrat-bold  print:text-black text-sm text-miluno-white ">
+              Instalaciones complementarias
+            </p>
+          )}
+
+          <div className="block print:hidden">
+            {value !== "" && renderMenu(value.extras_table)}
+          </div>
+
+          {/* For print version*/}
+          <div className="hidden print:block">
+            {value !== "" && renderMenu(value.extras_table, true)}
+          </div>
 
           <p className="pt-6 my-2 font-[Montserrat]  print:text-black text-sm text-miluno-white ">
             Costo por BIM:{" "}
@@ -322,9 +340,11 @@ export default function TableResult({ value = "", resetTable }) {
               {formatter.format(value.reps_cost)} MXN
             </span>
           </p>
-          <p className=" my-2 font-[Montserrat] text-sm  print:text-black text-miluno-white ">
-            {`Costo por contrataciones`}:{" "}
-          </p>
+          {value.dro_table.length !== 0 && (
+            <p className=" my-2 font-[Montserrat] text-sm  print:text-black text-miluno-white ">
+              {`Costo por contrataciones`}:{" "}
+            </p>
+          )}
           {value !== "" && renderMenu(value.dro_table)}
 
           {/* {value.components_table.map((item, index) => {
@@ -336,6 +356,7 @@ export default function TableResult({ value = "", resetTable }) {
 					}
 				})} */}
         </div>
+        <Notes />
         <div className="flex justify-center w-full mt-20 print:hidden">
           <button
             className={`flex items-center  border-[#D9826F] justify-center px-4 py-2 transition duration-300 ease-in-out border-2 rounded-md w-44  font-montserrat text-sm `}
