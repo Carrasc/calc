@@ -1,55 +1,55 @@
 {
-  "conceptual": [
+  "Plan Conceptual": [
     {
       "name": "Criterio del Sistema Alternativo",
       "value": 0.0075,
       "children": [
         {
-          "name": "Análisis...",
+          "name": "Análisis preliminar y propuesta de redes separadas de agua pluvial, agua filtrada y agua potabilizada",
           "value": 0.005
         },
         {
-          "name": "Reporte con definición de materias y equipos",
+          "name": "Reporte con definición de materiales y equipos",
           "value": 0.0025
         }
       ]
     }
   ],
-  "preliminar": [
+  "Plan de Preliminar": [
     {
       "name": "Proyecto de Sistema Alternativo",
       "value": 0.0375,
       "children": [
         {
-          "name": "Planta(s)...",
+          "name": "Planta(s) de redes separadas de agua pluvial, agua filtrada y agua potabilizada",
           "value": 0.02
         },
         {
-          "name": "Cortes...",
+          "name": "Cortes con definición y soluciones generales de bajadas y verticales",
           "value": 0.01
         },
         {
-          "name": "Prodim...",
+          "name": "Predimensionamiento y posición de equipos (tanques, cisternas, bombeo, etc.)",
           "value": 0.0075
         }
       ]
     }
   ],
-  "edificacion": [
+  "Plan Edificación": [
     {
       "name": "Proyecto de Sistema Alternativo Ejecutivo",
       "value": 0.05,
       "children": [
         {
-          "name": "Planta(s)...",
+          "name": "Planta(s) por nivel con redes separadas de agua pluvial, agua filtrada y agua potabilizada necesarias con información detallada (cisternas y/o tanques de almacenamiento, filtros, equpos de bombeo y/o presurización, diámetros, etc.)",
           "value": 0.02
         },
         {
-          "name": "Planos...",
+          "name": "Planos con isométricos y detalles de las instalaciones (bajadas, trayectorias, soportería, proceso de filtración y reuso, etc.) información detallada (diámetros, pendientes, equipos, etc.)",
           "value": 0.015
         },
         {
-          "name": "Memoria...",
+          "name": "Memoria de cálculo de la instalación del sistema alternativo documentada integralmente y con firma del profesional responsable",
           "value": 0.015
         }
       ]

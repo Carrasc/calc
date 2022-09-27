@@ -1,5 +1,5 @@
 {
-  "conceptual": [
+  "Plan Conceptual": [
     {
       "name": "Criterio Control de Accesos",
       "value": 0.005,
@@ -15,7 +15,7 @@
       ]
     }
   ],
-  "preliminar": [
+  "Plan Preliminar": [
     {
       "name": "Proyecto Control de Accesos Básico (iteración con arquitectura)",
       "value": 0.01,
@@ -35,7 +35,7 @@
       ]
     }
   ],
-  "edificacion": [
+  "Plan de Edificación": [
     {
       "name": "Proyecto Control de Accesos Ejecutivo",
       "value": 0.02,

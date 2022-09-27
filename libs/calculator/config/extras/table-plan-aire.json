@@ -1,5 +1,5 @@
 {
-  "conceptual": [
+  "Plan Conceptual": [
     {
       "name": "Criterio Instalación Aire Acondicionado",
       "value": 0.015,
@@ -15,7 +15,7 @@
       ]
     }
   ],
-  "preliminar": [
+  "Plan Preliminar": [
     {
       "name": "Proyecto Aire Acondicinado Básico (iteración con arquitectura)",
       "value": 0.035,
@@ -35,7 +35,7 @@
       ]
     }
   ],
-  "edificacion": [
+  "Plan de Edificación": [
     {
       "name": "Proyecto Aire Acondicionado Ejecutivo",
       "value": 0.05,

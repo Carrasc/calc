@@ -1,5 +1,5 @@
 {
-  "conceptual": [
+  "Plan Conceptual": [
     {
       "name": "Criterio Instalación CCTV",
       "value": 0.005,
@@ -15,7 +15,7 @@
       ]
     }
   ],
-  "preliminar": [
+  "Plan Preliminar": [
     {
       "name": "Proyecto CCTV Básico (iteración con arquitectura)",
       "value": 0.01,
@@ -35,7 +35,7 @@
       ]
     }
   ],
-  "edificacion": [
+  "Plan de Edificación": [
     {
       "name": "Proyecto CCTV Ejecutivo",
       "value": 0.02,

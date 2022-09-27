@@ -1,5 +1,5 @@
 {
-  "conceptual": [
+  "Plan Conceptual": [
     {
       "name": "Criterio Instalación Gases Medicinales",
       "value": 0.01,
@@ -15,7 +15,7 @@
       ]
     }
   ],
-  "preliminar": [
+  "Plan Preliminar": [
     {
       "name": "Proyecto Gases Medicinales Básico (iteración con arquitectura)",
       "value": 0.03,
@@ -35,7 +35,7 @@
       ]
     }
   ],
-  "edificacion": [
+  "Plan de Edificación": [
     {
       "name": "Proyecto Gases Medicinales Ejecutivo",
       "value": 0.04,
