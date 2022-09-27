@@ -141,7 +141,7 @@ export const genders = [
 			{
 				code: 'B-14',
 				title: 'Tiendas Especializadas',
-				factor: 2.07,
+				factor: 1.07,
 			},
 			{
 				code: 'B-15',
@@ -187,7 +187,7 @@ export const genders = [
 			},
 			{
 				code: 'C-5',
-				title: 'Edificios de Telégrafos',
+				title: 'Edificios de Telégragos',
 				factor: 1.24,
 			},
 			{
@@ -363,7 +363,7 @@ export const genders = [
 		children: [
 			{
 				code: 'F-1',
-				title: 'Albercas Recreativas',
+				title: 'Albercas recreativas',
 				factor: 3.01,
 			},
 			{
@@ -657,11 +657,6 @@ export const genders = [
 		gender: 'Plantas Industriales',
 		children: [
 			{
-				code: 'K-1',
-				title: 'Áreas Exteriores',
-				factor: 0.06,
-			},
-			{
 				code: 'K-2',
 				title: 'Bodegas y Almacenes',
 				factor: 0.55,
@@ -791,11 +786,6 @@ export const genders = [
 				factor: 1.86,
 			},
 			{
-				code: 'M-8',
-				title: 'Jardines (Zoológicos, Botánicos)',
-				factor: 0.06,
-			},
-			{
 				code: 'M-9',
 				title: 'Lienzos Charros',
 				factor: 1.45,
@@ -876,7 +866,7 @@ export const genders = [
 		children: [
 			{
 				code: 'O-1',
-				title: 'Centros de Rehabilitación Física',
+				title: 'Centros de rehabilitación física',
 				factor: 1.14,
 			},
 			{
@@ -901,7 +891,7 @@ export const genders = [
 			},
 			{
 				code: 'O-6',
-				title: 'Laboratorios de Analisis Clinicos',
+				title: 'Laboratorios de analisis clinicos',
 				factor: 1.24,
 			},
 			{
@@ -913,6 +903,21 @@ export const genders = [
 				code: 'O-8',
 				title: 'Hospitales',
 				factor: 1.92,
+			},
+			{
+				code: 'O-9',
+				title: 'Laboratorios especializados',
+				factor: 1.22,
+			},
+			{
+				code: 'O-10',
+				title: 'Unidades de servicio médico',
+				factor: 1.04,
+			},
+			{
+				code: 'O-11',
+				title: 'Centros antirrábicos',
+				factor: 1.04,
 			},
 		],
 	},
@@ -937,11 +942,6 @@ export const genders = [
 				factor: 1.14,
 			},
 			{
-				code: 'P-3',
-				title: 'Camping',
-				factor: 0.05,
-			},
-			{
 				code: 'P-4',
 				title: 'Centros de Convenciones',
 				factor: 2.01,
@@ -950,11 +950,6 @@ export const genders = [
 				code: 'P-5',
 				title: 'Complejos Hoteleros',
 				factor: 3.39,
-			},
-			{
-				code: 'P-6',
-				title: 'Complejos Y Hoteles (Obra Exterior)',
-				factor: 0.06,
 			},
 			{
 				code: 'P-7',
@@ -975,11 +970,6 @@ export const genders = [
 				code: 'P-10',
 				title: 'Moteles',
 				factor: 1.45,
-			},
-			{
-				code: 'P-11',
-				title: 'Trailer Park',
-				factor: 0.06,
 			},
 			{
 				code: 'P-12',
@@ -1010,7 +1000,7 @@ export const genders = [
 			},
 			{
 				code: 'Q-3',
-				title: 'Cocinas Rapidas',
+				title: 'Cocinas rápidas',
 				factor: 1.24,
 			},
 			{
@@ -1053,6 +1043,11 @@ export const genders = [
 				code: 'R-4',
 				title: 'Gasolineras',
 				factor: 1.33,
+			},
+			{
+				code: 'R-5',
+				title: 'Otras Edificaciones',
+				factor: 1.5,
 			},
 		],
 	},
