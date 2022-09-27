@@ -1,5 +1,5 @@
 {
-  "conceptual": [
+  "Plan Conceptual": [
     {
       "name": "Criterio Instalación Voz y Datos",
       "value": 0.007,
@@ -15,7 +15,7 @@
       ]
     }
   ],
-  "preliminar": [
+  "Plan Preliminar": [
     {
       "name": "Proyecto Voz y Datos Básico (iteración con arquitectura)",
       "value": 0.018,
@@ -35,7 +35,7 @@
       ]
     }
   ],
-  "edificacion": [
+  "Plan de Edificación": [
     {
       "name": "Proyecto Voz y Datos Ejecutivo",
       "value": 0.025,

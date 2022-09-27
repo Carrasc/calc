@@ -1,51 +1,51 @@
 {
-  "conceptual": [
+  "Plan Conceptual": [
     {
       "name": "Criterio Instalación para generación de energía eléctrica",
       "value": 0.015,
       "children": [
         {
-          "name": "Análisis...",
+          "name": "Análisis preliminar de la demanda energética, áreas para generación y propuesta de tecnologías y canalizaciones",
           "value": 0.01
         },
         {
-          "name": "Reporte con definición de materias y equipos",
+          "name": "Reporte con definición de materiales y equipos",
           "value": 0.005
         }
       ]
     }
   ],
-  "preliminar": [
+  "Plan Preliminar": [
     {
-      "name": "Proyecto....",
+      "name": "Proyecto para generación de energía eléctrica (iteración con arquitectura)",
       "value": 0.0125,
       "children": [
         {
-          "name": "Planos...",
+          "name": "Planos con primer planteamiento de la red, definición y localización de paneles y equipos etc.",
           "value": 0.01
         },
         {
-          "name": "Memoria...",
+          "name": "Memoria descriptiva preliminar de la instalación para generacón de energía eléctrica.",
           "value": 0.0025
         }
       ]
     }
   ],
-  "edificacion": [
+  "Plan de Edificación": [
     {
-      "name": "Proyecto...",
+      "name": "Proyecto para generación de energía eléctrica Ejecutivo",
       "value": 0.0225,
       "children": [
         {
-          "name": "Planta(s)...",
+          "name": "Planta(s) por nivel con redes de generación de energía eléctrica necesarias con información detallada (tuberías, paneles, reguladres, inversores, protecciones, equipos de medición, etc.)",
           "value": 0.015
         },
         {
-          "name": "Planos...",
+          "name": "Planos de detalle e isométricos de la instalación con información suficiente para equipos y salidas, entre otros",
           "value": 0.005
         },
         {
-          "name": "Memoria...",
+          "name": "Memoria de cálculo de la instalaciónara generación de energía eléctrica, documentada integralmente y con firma del profesional responsable",
           "value": 0.0025
         }
       ]

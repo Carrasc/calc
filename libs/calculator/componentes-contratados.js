@@ -14,8 +14,17 @@ import table_terminacion from "./config/components/table-plan-terminacion.json";
  * @returns {object} {total: number, table: []}
  */
 export function calculateCC(h, ajuste_cc) {
-  if (!(ajuste_cc === 1.25 || ajuste_cc === 1.16 || ajuste_cc === 1.08 || ajuste_cc === 1))
-    throw new Error(`Ajuste Condicion de Contratación no válida -> ${ajuste_cc}`);
+  if (
+    !(
+      ajuste_cc === 1.25 ||
+      ajuste_cc === 1.16 ||
+      ajuste_cc === 1.08 ||
+      ajuste_cc === 1
+    )
+  )
+    throw new Error(
+      `Ajuste Condicion de Contratación no válida -> ${ajuste_cc}`
+    );
 
   let total = 0;
   const h_ajustado = ajuste_cc * h;
@@ -62,7 +71,7 @@ export function calculateCC(h, ajuste_cc) {
     total += edificacion.acc_total;
     let arquitectonica = _calculatePlan(h_ajustado, table_arquitectonica);
     table.push({
-      name: "Plan Arquitectónica",
+      name: "Dirección Arquitectónica",
       value: arquitectonica.acc_total,
       children: arquitectonica.new_table,
     });

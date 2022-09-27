@@ -1,15 +1,15 @@
 {
   "Plan Conceptual": [
     {
-      "name": "Criterio",
+      "name": "Criterio de la Instalación de calentamiento solar de agua",
       "value": 0.005,
       "children": [
         {
-          "name": "Analisis...",
+          "name": "Análisis preliminar y propuesta de redes independientes o centralizadas de agua caliente",
           "value": 0.003
         },
         {
-          "name": "Reporte...",
+          "name": "Reporte con definición de materiales y equipos",
           "value": 0.002
         }
       ]
@@ -17,35 +17,35 @@
   ],
   "Plan Preliminar": [
     {
-      "name": "Proyecto de ...",
+      "name": "Proyecto de Calentamiento solar de agua",
       "value": 0.01,
       "children": [
         {
-          "name": "Plantas ...",
+          "name": "Planta(s) y corte(s) de redes de calentamiento de agua:",
           "value": 0.0075
         },
         {
-          "name": "Predimensionamiento...",
+          "name": "Predimensionamiento y posición de equipos (tanques, paneles, calentadores, bombeo, etc.)",
           "value": 0.0025
         }
       ]
     }
   ],
-  "Plan Edificación": [
+  "Plan de Edificación": [
     {
-      "name": "Proyecto de ...",
+      "name": "Proyecto de Calentamiento solar de agua",
       "value": 0.015,
       "children": [
         {
-          "name": "Planta(s)...",
+          "name": "Planta(s) por nivel con redes de alimentación de paneles y distribución de agua caliente, necesarias con información detallada (tanques, paneles, calentadores,  etc.)",
           "value": 0.0075
         },
         {
-          "name": "Planos...",
+          "name": "Planos con isométricos y detalles de la instalación (tanques, paneles, trayectorias, soportería, etc.) información detallada (diámetros, pendientes, equipos, etc.)",
           "value": 0.005
         },
         {
-          "name": "Memoria de cálculo...",
+          "name": "Memoria de cálculo de la instalación de Calentamiento solar de agua documentada integralmente y con firma del profesional responsable",
           "value": 0.0025
         }
       ]

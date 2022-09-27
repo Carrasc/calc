@@ -1,15 +1,15 @@
 {
   "Plan Conceptual": [
     {
-      "name": "Criterio",
+      "name": "Criterio de la Instalación para la PTAR:",
       "value": 0.005,
       "children": [
         {
-          "name": "Analisis...",
+          "name": "Análisis y dimensionamiento preliminar de la Planta de Tratamiento de Aguas Residuales (PTAR)",
           "value": 0.003
         },
         {
-          "name": "Reporte...",
+          "name": "Reporte con definición de materiales y equipos",
           "value": 0.002
         }
       ]
@@ -17,35 +17,35 @@
   ],
   "Plan Preliminar": [
     {
-      "name": "Proyecto de ...",
+      "name": "Proyecto para la PTAR",
       "value": 0.01,
       "children": [
         {
-          "name": "Plantas ...",
+          "name": "Planta(s) y corte(s) del sistema de tratamiento de aguas residuales",
           "value": 0.0075
         },
         {
-          "name": "Predimensionamiento...",
+          "name": "Definición preliminar del tren de filtrado y medios de desinfección (materiales, filtros, bombas, tanques, etc.)",
           "value": 0.0025
         }
       ]
     }
   ],
-  "Plan Edificación": [
+  "Plan de Edificación": [
     {
-      "name": "Proyecto de ...",
+      "name": "Proyecto para la PTAR",
       "value": 0.015,
       "children": [
         {
-          "name": "Planta(s)...",
+          "name": "Planta(s) por nivel con redes de agua residual y agua residual tratada, con información detallada (tanques, paneles, calentadores,  etc.)",
           "value": 0.0075
         },
         {
-          "name": "Planos...",
+          "name": "Planos con isométricos y detalles de la instalación (tanques, depurador, tuberías, tren de filtrado, equipos de bombeo, etc.) información detallada (nivel(es) de tratameinto, diámetros, pendientes, equipos, etc.)",
           "value": 0.005
         },
         {
-          "name": "Memoria de cálculo...",
+          "name": "Memoria de cálculo de la instalación de Calentamiento solar de agua documentada integralmente y con firma del profesional responsable",
           "value": 0.0025
         }
       ]

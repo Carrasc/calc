@@ -1,6 +1,6 @@
 /**
  * Costo base
  */
-const CBM = 9_000;
+const CBM = 8_782;
 
 module.exports = { CBM };
