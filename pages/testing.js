@@ -8,7 +8,21 @@ export default function Testing() {
       <div>
         <button
           className="border border-green-500 rounded-md p-4"
-          onClick={() => setValue(calculateCosts(9000, 1.39, 1.0, 0.6, 1.0, ["AA", "VE", "GM", "PCI", "SCA", "SVD", "CCTV"], 1.05, 6, "DRO + CI"))}
+          onClick={() =>
+            setValue(
+              calculateCosts(
+                9000,
+                1.39,
+                1.0,
+                0.6,
+                1.0,
+                ["AA", "VE", "GM", "PCI", "SCA", "SVD", "CCTV", "PLUVIAL", "EE", "SOLAR", "AR"],
+                1.05,
+                6,
+                "DRO + CI"
+              )
+            )
+          }
         >
           Calculadora
         </button>
