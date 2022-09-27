@@ -1,5 +1,4 @@
 import * as React from 'react';
-import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import extraPeople from '../Data/People.json';
@@ -15,7 +14,6 @@ export default function ExtraPeople() {
 		{ checked: false },
 		{ checked: false },
 	];
-	//   const [people, setPeople] = React.useState(firstState);
 	const addPeople = (pips) => {
 		var temp_array = [];
 		var index = 0;

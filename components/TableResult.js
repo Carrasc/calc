@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { formatter } from '../libs/calculator/utils';
 
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
 import { styled } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion from '@mui/material/Accordion';
@@ -14,10 +11,11 @@ import ReactToPrint from 'react-to-print';
 import logo from '../Images/logo-2022-negro-small.png';
 import Image from 'next/image';
 import Notes from './Notes';
+import calculateCosts from '../libs/calculator';
 
 const Accordion = styled((props) => (
 	<MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
+))(({}) => ({
 	border: `0px solid white`,
 	backgroundColor: 'transparent',
 	color: 'white',
@@ -62,51 +60,45 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function TableResult({
-	value = '',
 	resetTable,
 	calculateVariables,
+	// surface_,
+	// gender_,
+	// typeOfProject_,
+	// lag_margin_,
+	// plan_,
+	// scopes_,
+	// bim_selection_,
+	// times_,
+	// peopleSelected_,
+	value,
 }) {
 	const {
+		times,
+		resetValues,
 		gender,
 		typeOfProject,
 		surface,
 		lag_margin,
 		plan,
-		times,
 		bim_selection,
 		scopes,
 		peopleSelected,
-		resetValues,
+		// value,
 	} = React.useContext(GeneralContext);
-	const [expanded_, setExpanded] = useState(false);
-	const handleChange = (event, isExpanded) => {
-		// console.log(isExpanded);
-		setExpanded(isExpanded);
-	};
+
 	const handleReset = () => {
 		resetTable();
 		resetValues();
 	};
 	const renderMenu = (menu, expand) => {
-		const otherProps = {
-			...(expanded_ && { expanded: true }),
-		};
 		return menu.map((item, index) => {
 			return (
 				<div key={index}>
 					<div className={'w-full my-2'}>
 						{item.children ? (
-							<Accordion
-								// {...otherProps}
-								expanded={expand}
-								// expanded={expanded_ ? true : undefined}
-								// {...expanded_ && expanded = {true} }
-								// expanded={(prev) => console.log(prev)}
-								// (expanded ? true : prev)}
-								// onChange={handleChange}
-							>
+							<Accordion expanded={expand}>
 								<AccordionSummary
-									//expandIcon={true}
 									aria-controls="panel1a-content"
 									className="print:bg-white"
 									id="panel1a-header"
@@ -159,7 +151,6 @@ export default function TableResult({
 
 	const handleOnBeforeGetContent = React.useCallback(() => {
 		console.log('`onBeforeGetContent` called');
-		setExpanded(true);
 		setLoading(true);
 
 		setText('Loading new text...');
@@ -218,6 +209,10 @@ export default function TableResult({
 			</div>
 		);
 	}, []);
+
+	if (value === undefined) {
+		return <></>;
+	}
 	return (
 		<div>
 			<div
@@ -254,7 +249,6 @@ export default function TableResult({
 								width={150}
 								height={40}
 								objectFit="contain"
-								// layout="responsive"
 								layout="fixed"
 								priority
 							/>
@@ -269,27 +263,25 @@ export default function TableResult({
 					<p className="my-2 text-sm font-montserrat print:text-black text-miluno-white ">
 						Género del Proyecto :{' '}
 						<span className=" font-montserrat-bold">
-							{calculateVariables.gender_.type} -{' '}
-							{calculateVariables.gender_.son}
+							{gender.type} - {gender.son}
 						</span>
 					</p>
 					<p className="my-2 font-[Montserrat] print:text-black text-sm text-miluno-white ">
 						Superficie :{' '}
 						<span className=" font-montserrat-bold">
-							{calculateVariables.surface_}m2
+							{surface.value}m2
 						</span>
 					</p>
 					<p className="my-2 font-[Montserrat] print:text-black text-sm text-miluno-white ">
 						Modalidad :{' '}
 						<span className=" font-montserrat-bold">
-							{calculateVariables.typeOfProject_}
+							{typeOfProject.title}
 						</span>
 					</p>
 					<p className="my-2 font-[Montserrat] print:text-black text-sm text-miluno-white ">
 						Lugar :{' '}
 						<span className=" font-montserrat-bold">
-							{calculateVariables.place.estado} -{' '}
-							{calculateVariables.place.municipio}
+							{lag_margin.estado} - {lag_margin.municipio}
 						</span>
 					</p>
 				</div>
@@ -309,9 +301,6 @@ export default function TableResult({
 					</span>
 				</p>
 				<div>
-					{/* {traverse(obj, function (k, v) {
-					setState(k);
-				})} */}
 					<p className="mt-8 text-sm font-montserrat-bold print:text-black text-miluno-white ">
 						Proyecto ejecutivo básico
 					</p>
@@ -359,15 +348,6 @@ export default function TableResult({
 						</p>
 					)}
 					{value !== '' && renderMenu(value.dro_table)}
-
-					{/* {value.components_table.map((item, index) => {
-					{
-						Object.keys(item).forEach(function (key, index) {
-							console.log('value', item[key]);
-							return <p>{key};</p>;
-						});
-					}
-				})} */}
 				</div>
 				<Notes />
 				<div className="flex justify-center w-full mt-20 print:hidden">

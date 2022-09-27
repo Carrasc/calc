@@ -3,6 +3,7 @@ import React, { createContext, useEffect, useState } from 'react';
 export const GeneralContext = createContext();
 
 export default function GeneralProvider({ children }) {
+	const [value, setValue] = useState(undefined);
 	const firstState = [
 		{ checked: false },
 		{ checked: false },
@@ -97,6 +98,8 @@ export default function GeneralProvider({ children }) {
 				scopes,
 				peopleSelected,
 				people,
+				value,
+				setValue,
 				setPeople,
 				setPeopleSelected,
 				set_scopes,
