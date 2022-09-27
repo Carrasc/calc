@@ -141,7 +141,7 @@ export const genders = [
 			{
 				code: 'B-14',
 				title: 'Tiendas Especializadas',
-				factor: 1.07,
+				factor: 2.07,
 			},
 			{
 				code: 'B-15',
@@ -187,7 +187,7 @@ export const genders = [
 			},
 			{
 				code: 'C-5',
-				title: 'Edificios de Telégragos',
+				title: 'Edificios de Telégrafos',
 				factor: 1.24,
 			},
 			{
@@ -363,7 +363,7 @@ export const genders = [
 		children: [
 			{
 				code: 'F-1',
-				title: 'Albercas recreativas',
+				title: 'Albercas Recreativas',
 				factor: 3.01,
 			},
 			{
@@ -866,7 +866,7 @@ export const genders = [
 		children: [
 			{
 				code: 'O-1',
-				title: 'Centros de rehabilitación física',
+				title: 'Centros de Rehabilitación Física',
 				factor: 1.14,
 			},
 			{
@@ -891,7 +891,7 @@ export const genders = [
 			},
 			{
 				code: 'O-6',
-				title: 'Laboratorios de analisis clinicos',
+				title: 'Laboratorios de Analisis Clínicos',
 				factor: 1.24,
 			},
 			{
@@ -906,17 +906,17 @@ export const genders = [
 			},
 			{
 				code: 'O-9',
-				title: 'Laboratorios especializados',
+				title: 'Laboratorios Especializados',
 				factor: 1.22,
 			},
 			{
 				code: 'O-10',
-				title: 'Unidades de servicio médico',
+				title: 'Unidades de Servicio Médico',
 				factor: 1.04,
 			},
 			{
 				code: 'O-11',
-				title: 'Centros antirrábicos',
+				title: 'Centros Antirrábicos',
 				factor: 1.04,
 			},
 		],
@@ -1000,7 +1000,7 @@ export const genders = [
 			},
 			{
 				code: 'Q-3',
-				title: 'Cocinas rápidas',
+				title: 'Cocinas Rápidas',
 				factor: 1.24,
 			},
 			{
@@ -1026,12 +1026,12 @@ export const genders = [
 			},
 			{
 				code: 'R-2',
-				title: 'Estacionamientos descubiertos',
+				title: 'Estacionamientos Descubiertos',
 				factor: 1,
 			},
 			{
 				code: 'R-3',
-				title: 'Estacionamientos cubiertos',
+				title: 'Estacionamientos Cubiertos',
 				factor: 1.16,
 			},
 			{
