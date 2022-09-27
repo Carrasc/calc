@@ -1,0 +1,54 @@
+{
+  "conceptual": [
+    {
+      "name": "Criterio Instalación para generación de energía eléctrica",
+      "value": 0.015,
+      "children": [
+        {
+          "name": "Análisis...",
+          "value": 0.01
+        },
+        {
+          "name": "Reporte con definición de materias y equipos",
+          "value": 0.005
+        }
+      ]
+    }
+  ],
+  "preliminar": [
+    {
+      "name": "Proyecto....",
+      "value": 0.0125,
+      "children": [
+        {
+          "name": "Planos...",
+          "value": 0.01
+        },
+        {
+          "name": "Memoria...",
+          "value": 0.0025
+        }
+      ]
+    }
+  ],
+  "edificacion": [
+    {
+      "name": "Proyecto...",
+      "value": 0.0225,
+      "children": [
+        {
+          "name": "Planta(s)...",
+          "value": 0.015
+        },
+        {
+          "name": "Planos...",
+          "value": 0.005
+        },
+        {
+          "name": "Memoria...",
+          "value": 0.0025
+        }
+      ]
+    }
+  ]
+}
