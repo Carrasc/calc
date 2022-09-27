@@ -46,9 +46,7 @@ export default function GeneralProvider({ children }) {
 	const [people, setPeople] = useState(firstState);
 
 	const [scopes, set_scopes] = useState([]);
-	console.log({ gender });
 	const resetValues = () => {
-		console.log('entra');
 		setGender({
 			type: '',
 			son: '',
