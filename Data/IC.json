@@ -26,5 +26,21 @@
   {
     "value": "CCTV",
     "label": "Sistema de CCTV"
+  },
+  {
+    "value": "PLUVIAL",
+    "label": "Sitema Alternativo De Captación Y Aprovechamiento Del Agua Pluvial"
+  },
+  {
+    "value": "EE",
+    "label": "Sistema De Autogeneración De Energía Eléctrica"
+  },
+  {
+    "value": "SOLAR",
+    "label": "Instalación De Calentamiento De Agua Por Medios Del Aprovechamiento De La Energía Solar"
+  },
+  {
+    "value": "AR",
+    "label": "Sistema Planta De Tratamiento De Aguas Residuales"
   }
 ]
