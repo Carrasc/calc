@@ -50,21 +50,19 @@ export default function Home() {
   // );
 
   return (
-    <div className="w-full py-20 max-w-6xl mx-auto px-10 print:bg-white  font-[Montserrat-bold]">
+    <div className="w-full py-12 md:py-20 max-w-6xl mx-auto px-8 md:px-10 print:bg-white  font-[Montserrat-bold]">
       <div className="flex justify-center">
-        <div className="inline-block w-full max-w-xl mt-4 mb-24 text-center align-middle border border-solid rounded-md border-[#696969]">
+        <div className="inline-block w-full max-w-xl mt-0 md:mt-4 mb-20 md:mb-24 text-center align-middle border border-solid rounded-md border-[#696969]">
           <h1 className="text-center mt-4 font-[Montserrat-light] text-xs text-miluno-gray tracking-wider">
             Calculadora de aranceles de honorarios profesionales por el
           </h1>
-          <div className="relative mb-2 mt-4">
+          <div className="relative mb-4 mt-4 mx-auto w-[150px] h-[32px] sm:w-[225px] sm:h-[48px] md:w-[325px] md:h-[62px] ">
             <Image
-              className="brightness-75"
+              className="brightness-75 m-auto"
               src={logo}
               alt="Logo-CAMSAM"
-              width={325}
-              height={62}
               objectFit="contain"
-              layout="fixed"
+              layout="fill"
               priority
             />
           </div>
