@@ -22,12 +22,7 @@ import { TbGridDots } from "react-icons/tb";
 
 export const genders = [
   {
-    icon: (
-      <MdOutlineSocialDistance
-        size={35}
-        className="w-32 h-32 text-miluno-white"
-      />
-    ),
+    icon: <MdOutlineSocialDistance size={35} className="text-miluno-white" />,
     gender: "Asistencia Social",
     children: [
       {
@@ -63,7 +58,7 @@ export const genders = [
     ],
   },
   {
-    icon: <RiCommunityLine size={35} className="w-10 h-10 text-miluno-white" />,
+    icon: <RiCommunityLine size={35} className="text-miluno-white" />,
     gender: "Comercios y Oficinas",
     children: [
       {
@@ -88,7 +83,7 @@ export const genders = [
       },
       {
         code: "B-5",
-        title: "Edificios Comerciales y de Oficinas",
+        title: "Edificios de Oficinas",
         factor: 1.79,
       },
       {
@@ -149,7 +144,7 @@ export const genders = [
     ],
   },
   {
-    icon: <GoComment size={35} className="w-10 h-10 text-miluno-white" />,
+    icon: <GoComment size={35} className="text-miluno-white" />,
     gender: "Medios de Comuniciación",
     children: [
       {
@@ -210,7 +205,7 @@ export const genders = [
     ],
   },
   {
-    icon: <GiBusStop size={35} className="w-10 h-10 text-miluno-white" />,
+    icon: <GiBusStop size={35} className=" text-miluno-white" />,
     gender: "Transportes",
     children: [
       {
@@ -261,12 +256,7 @@ export const genders = [
     ],
   },
   {
-    icon: (
-      <MdOutlineAccountBalance
-        size={35}
-        className="w-10 h-10 text-miluno-white"
-      />
-    ),
+    icon: <MdOutlineAccountBalance size={35} className=" text-miluno-white" />,
     gender: "Culturales",
     children: [
       {
@@ -332,12 +322,7 @@ export const genders = [
     ],
   },
   {
-    icon: (
-      <MdOutlineSportsTennis
-        size={35}
-        className="w-10 h-10 text-miluno-white"
-      />
-    ),
+    icon: <MdOutlineSportsTennis size={35} className=" text-miluno-white" />,
     gender: "Deportivas",
     children: [
       {
@@ -383,9 +368,7 @@ export const genders = [
     ],
   },
   {
-    icon: (
-      <MdOutlineScience size={35} className="w-10 h-10 text-miluno-white" />
-    ),
+    icon: <MdOutlineScience size={35} className=" text-miluno-white" />,
     gender: "Educación y Ciencia",
     children: [
       {
@@ -466,9 +449,7 @@ export const genders = [
     ],
   },
   {
-    icon: (
-      <MdOutlineAttachMoney size={35} className="w-10 h-10 text-miluno-white" />
-    ),
+    icon: <MdOutlineAttachMoney size={35} className=" text-miluno-white" />,
     gender: "Financieras y Bancarias",
     children: [
       {
@@ -499,9 +480,7 @@ export const genders = [
     ],
   },
   {
-    icon: (
-      <RiGovernmentLine size={35} className="w-10 h-10 text-miluno-white" />
-    ),
+    icon: <RiGovernmentLine size={35} className=" text-miluno-white" />,
     gender: "Gubernamentales",
     children: [
       {
@@ -552,7 +531,7 @@ export const genders = [
     ],
   },
   {
-    icon: <BsHouse size={35} className="w-10 h-10 text-miluno-white" />,
+    icon: <BsHouse size={35} className=" text-miluno-white" />,
     gender: "Habitacionales",
     children: [
       {
@@ -608,7 +587,7 @@ export const genders = [
     ],
   },
   {
-    icon: <GiFactory size={35} className="w-10 h-10 text-miluno-white" />,
+    icon: <GiFactory size={35} className=" text-miluno-white" />,
     gender: "Plantas Industriales",
     children: [
       {
@@ -644,9 +623,7 @@ export const genders = [
     ],
   },
   {
-    icon: (
-      <RiShieldCrossLine size={35} className="w-10 h-10 text-miluno-white" />
-    ),
+    icon: <RiShieldCrossLine size={35} className=" text-miluno-white" />,
     gender: "Protección Social",
     children: [
       {
@@ -692,7 +669,7 @@ export const genders = [
     ],
   },
   {
-    icon: <GiFilmSpool size={35} className="w-10 h-10 text-miluno-white" />,
+    icon: <GiFilmSpool size={35} className=" text-miluno-white" />,
     gender: "Recreación y Entretenimiento",
     children: [
       {
@@ -758,7 +735,7 @@ export const genders = [
     ],
   },
   {
-    icon: <TbCross size={35} className="w-10 h-10 text-miluno-white" />,
+    icon: <TbCross size={35} className=" text-miluno-white" />,
     gender: "Religión",
     children: [
       {
@@ -794,7 +771,7 @@ export const genders = [
     ],
   },
   {
-    icon: <RiHeartAddLine size={35} className="w-10 h-10 text-miluno-white" />,
+    icon: <RiHeartAddLine size={35} className=" text-miluno-white" />,
     gender: "Salud",
     children: [
       {
@@ -855,12 +832,7 @@ export const genders = [
     ],
   },
   {
-    icon: (
-      <MdOutlineTravelExplore
-        size={35}
-        className="w-10 h-10 text-miluno-white"
-      />
-    ),
+    icon: <MdOutlineTravelExplore size={35} className=" text-miluno-white" />,
     gender: "Turismo",
     children: [
       {
@@ -911,7 +883,7 @@ export const genders = [
     ],
   },
   {
-    icon: <MdFastfood size={35} className="w-10 h-10 text-miluno-white" />,
+    icon: <MdFastfood size={35} className=" text-miluno-white" />,
     gender: "Alimentos y Bebidas",
     children: [
       {
@@ -942,7 +914,7 @@ export const genders = [
     ],
   },
   {
-    icon: <TbGridDots size={35} className="w-10 h-10 text-miluno-white" />,
+    icon: <TbGridDots size={35} className=" text-miluno-white" />,
     gender: "Varios",
     children: [
       {
