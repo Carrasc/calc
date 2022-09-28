@@ -48,12 +48,12 @@ export const genders = [
       {
         code: "A-5",
         title: "Dormitorios Públicos",
-        factor: 1.2,
+        factor: 1.78,
       },
       {
         code: "A-6",
         title: "Guarderías",
-        factor: 1.16,
+        factor: 2.48,
       },
     ],
   },
@@ -84,7 +84,7 @@ export const genders = [
       {
         code: "B-5",
         title: "Edificios de Oficinas",
-        factor: 1.79,
+        factor: 2.28,
       },
       {
         code: "B-6",
@@ -109,12 +109,12 @@ export const genders = [
       {
         code: "B-10",
         title: "Mercados",
-        factor: 1.04,
+        factor: 1.37,
       },
       {
         code: "B-11",
         title: "Supermercados y Autoservicios",
-        factor: 1.69,
+        factor: 1.94,
       },
       {
         code: "B-12",
@@ -134,7 +134,7 @@ export const genders = [
       {
         code: "B-15",
         title: "Locales Comerciales",
-        factor: 1.37,
+        factor: 2.31,
       },
       {
         code: "B-16",
@@ -150,7 +150,7 @@ export const genders = [
       {
         code: "C-1",
         title: "Agencias de Noticias",
-        factor: 1.45,
+        factor: 2.21,
       },
       {
         code: "C-2",
@@ -216,12 +216,12 @@ export const genders = [
       {
         code: "D-2",
         title: "Casetas de Peaje",
-        factor: 1.24,
+        factor: 1.27,
       },
       {
         code: "D-3",
         title: "Centrales de Autobuses",
-        factor: 1.35,
+        factor: 1.47,
       },
       {
         code: "D-4",
@@ -241,7 +241,7 @@ export const genders = [
       {
         code: "D-7",
         title: "Paraderos de Autobuses",
-        factor: 1.04,
+        factor: 1.32,
       },
       {
         code: "D-8",
@@ -348,7 +348,7 @@ export const genders = [
       {
         code: "F-5",
         title: "Gimnasios y Canchas Cubiertas",
-        factor: 0.83,
+        factor: 1.41,
       },
       {
         code: "F-6",
@@ -394,27 +394,27 @@ export const genders = [
       {
         code: "G-5",
         title: "Escuelas Primarias",
-        factor: 1.15,
+        factor: 1.2,
       },
       {
         code: "G-6",
         title: "Escuelas Secundarias",
-        factor: 1.15,
+        factor: 1.4,
       },
       {
         code: "G-7",
         title: "Escuelas Preparatorias",
-        factor: 1.39,
+        factor: 1.52,
       },
       {
         code: "G-8",
         title: "Escuelas Vocacionales",
-        factor: 1.39,
+        factor: 1.52,
       },
       {
         code: "G-9",
         title: "Escuelas Técnicas",
-        factor: 1.39,
+        factor: 1.52,
       },
       {
         code: "G-10",
@@ -470,7 +470,7 @@ export const genders = [
       {
         code: "H-4",
         title: "Oficinas Centrales y Regionales",
-        factor: 1.22,
+        factor: 1.82,
       },
       {
         code: "H-5",
@@ -501,17 +501,17 @@ export const genders = [
       {
         code: "I-4",
         title: "Oficinas Estatales",
-        factor: 1.38,
+        factor: 2.81,
       },
       {
         code: "I-5",
         title: "Oficinas Federales",
-        factor: 1.38,
+        factor: 2.81,
       },
       {
         code: "I-6",
         title: "Oficinas Municipales",
-        factor: 1.05,
+        factor: 2.73,
       },
       {
         code: "I-7",
@@ -547,12 +547,12 @@ export const genders = [
       {
         code: "J-3",
         title: "Condominios Residenciales",
-        factor: 1.57,
+        factor: 2.07,
       },
       {
         code: "J-4",
         title: "Edificios de Apartamentos",
-        factor: 1.49,
+        factor: 2.45,
       },
       {
         code: "J-5",
@@ -566,23 +566,23 @@ export const genders = [
       },
       {
         code: "J-7",
-        title: "Vivienda de Interés Social T-11 (CBM)",
+        title: "Vivienda de Interés Social CMIC (CBM)",
         factor: 1,
       },
       {
         code: "J-8",
         title: "Vivienda de Interés Medio",
-        factor: 1.14,
+        factor: 1.43,
       },
       {
         code: "J-9",
         title: "Casa-Habitación Residencial",
-        factor: 1.28,
+        factor: 1.87,
       },
       {
         code: "J-10",
         title: "Residencial de Lujo",
-        factor: 1.89,
+        factor: 2.47,
       },
     ],
   },
@@ -591,32 +591,32 @@ export const genders = [
     gender: "Plantas Industriales",
     children: [
       {
-        code: "K-2",
+        code: "K-1",
         title: "Bodegas y Almacenes",
-        factor: 0.55,
+        factor: 0.84,
       },
       {
-        code: "K-3",
+        code: "K-2",
         title: "Laboratorios",
         factor: 1.22,
       },
       {
-        code: "K-4",
+        code: "K-3",
         title: "Naves Industriales",
-        factor: 0.86,
+        factor: 0.99,
+      },
+      {
+        code: "K-4",
+        title: "Oficinas",
+        factor: 2.76,
       },
       {
         code: "K-5",
-        title: "Oficinas",
-        factor: 1.18,
-      },
-      {
-        code: "K-6",
         title: "Servicios de Personal",
         factor: 1.14,
       },
       {
-        code: "K-7",
+        code: "K-6",
         title: "Talleres",
         factor: 0.57,
       },
@@ -708,27 +708,27 @@ export const genders = [
         factor: 1.86,
       },
       {
-        code: "M-9",
+        code: "M-8",
         title: "Lienzos Charros",
         factor: 1.45,
       },
       {
-        code: "M-10",
+        code: "M-9",
         title: "Palenques",
         factor: 1.3,
       },
       {
-        code: "M-12",
+        code: "M-10",
         title: "Planetarios",
         factor: 1.86,
       },
       {
-        code: "M-14",
+        code: "M-12",
         title: "Plazas de Toros",
         factor: 1.41,
       },
       {
-        code: "M-15",
+        code: "M-14",
         title: "Salones de Fiesta (Edificaciones)",
         factor: 1.55,
       },
@@ -787,7 +787,7 @@ export const genders = [
       {
         code: "O-3",
         title: "Clínicas",
-        factor: 1.07,
+        factor: 1.97,
       },
       {
         code: "O-4",
@@ -812,7 +812,7 @@ export const genders = [
       {
         code: "O-8",
         title: "Hospitales",
-        factor: 1.92,
+        factor: 2.49,
       },
       {
         code: "O-9",
@@ -838,7 +838,7 @@ export const genders = [
       {
         code: "P-1",
         title: "Agencias de Viaje",
-        factor: 1.14,
+        factor: 2.19,
       },
       {
         code: "P-2",
@@ -846,37 +846,37 @@ export const genders = [
         factor: 1.14,
       },
       {
-        code: "P-4",
+        code: "P-3",
         title: "Centros de Convenciones",
         factor: 2.01,
       },
       {
-        code: "P-5",
+        code: "P-4",
         title: "Complejos Hoteleros",
-        factor: 3.39,
+        factor: 3.46,
       },
       {
-        code: "P-7",
+        code: "P-5",
         title: "Hoteles de 5 estrellas",
         factor: 2.82,
       },
       {
-        code: "P-8",
+        code: "P-6",
         title: "Hoteles de 4 estrellas",
-        factor: 1.94,
+        factor: 1.99,
       },
       {
-        code: "P-9",
+        code: "P-7",
         title: "Hoteles de 3 estrellas o menos",
-        factor: 1.55,
+        factor: 1.71,
       },
       {
-        code: "P-10",
+        code: "P-8",
         title: "Moteles",
         factor: 1.45,
       },
       {
-        code: "P-12",
+        code: "P-9",
         title: "Spas",
         factor: 2.07,
       },
@@ -899,7 +899,7 @@ export const genders = [
       {
         code: "Q-3",
         title: "Cocinas Rápidas",
-        factor: 1.24,
+        factor: 1.39,
       },
       {
         code: "Q-4",
@@ -909,7 +909,7 @@ export const genders = [
       {
         code: "Q-5",
         title: "Restaurantes",
-        factor: 1.76,
+        factor: 2.25,
       },
     ],
   },
@@ -920,7 +920,7 @@ export const genders = [
       {
         code: "R-1",
         title: "Baños públicos",
-        factor: 1.33,
+        factor: 2.57,
       },
       {
         code: "R-2",
@@ -930,17 +930,12 @@ export const genders = [
       {
         code: "R-3",
         title: "Estacionamientos Cubiertos",
-        factor: 1.16,
+        factor: 1.29,
       },
       {
         code: "R-4",
         title: "Gasolineras",
-        factor: 1.33,
-      },
-      {
-        code: "R-4",
-        title: "Gasolineras",
-        factor: 1.33,
+        factor: 1.94,
       },
       {
         code: "R-5",
